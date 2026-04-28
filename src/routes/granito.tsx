@@ -121,7 +121,7 @@ function GranitoPage() {
 export function PageHero({ eyebrow, title, subtitle, image }: { eyebrow: string; title: string; subtitle: string; image: string }) {
   return (
     <section className="relative isolate overflow-hidden bg-onyx text-cream">
-      <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-50" />
+      <img src={image} alt="" loading="eager" decoding="async" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover opacity-50" />
       <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/60 to-onyx/90" />
       <div className="relative mx-auto max-w-5xl px-6 py-32 text-center">
         <p className="eyebrow flex items-center justify-center gap-3"><span className="gold-rule" />{eyebrow}<span className="gold-rule" /></p>
