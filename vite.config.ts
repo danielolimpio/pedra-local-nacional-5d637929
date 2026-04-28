@@ -6,39 +6,4 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const staticPages = [
-  "/",
-  "/cozinha",
-  "/banheiro",
-  "/precos",
-  "/galeria",
-  "/contato",
-  "/granito",
-  "/marmore",
-  "/quartzo",
-  "/blog",
-  "/blog/como-escolher-granito-marmore-quartzo",
-  "/blog/manutencao-pedras-naturais",
-  "/blog/tendencias-marmoraria-2026",
-];
-
-export default defineConfig({
-  tanstackStart: {
-    prerender: {
-      enabled: true,
-      crawlLinks: true,
-      concurrency: 2,
-      retryCount: 2,
-      retryDelay: 1000,
-      failOnError: true,
-      autoStaticPathsDiscovery: false,
-    },
-    pages: staticPages.map((path) => ({
-      path,
-      prerender: { enabled: true },
-    })),
-    spa: {
-      enabled: false,
-    },
-  },
-});
+export default defineConfig({});
