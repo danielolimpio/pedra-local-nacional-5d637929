@@ -3,7 +3,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { QuoteForm } from "@/components/QuoteForm";
 import { PageHero } from "./granito";
 import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
-import calacatta from "@/assets/marble-calacatta.jpg";
+import calacatta from "@/assets/marble-calacatta.webp";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({

@@ -3,9 +3,9 @@ import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
 import { PageHero } from "./granito";
-import carrara from "@/assets/marble-carrara.jpg";
-import calacatta from "@/assets/marble-calacatta.jpg";
-import bathroom from "@/assets/bathroom-luxury.jpg";
+import carrara from "@/assets/marble-carrara.webp";
+import calacatta from "@/assets/marble-calacatta.webp";
+import bathroom from "@/assets/bathroom-luxury.webp";
 
 export const Route = createFileRoute("/marmore")({
   head: () => ({

@@ -3,9 +3,9 @@ import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
 import { PageHero } from "./granito";
-import quartz from "@/assets/quartz-white.jpg";
-import calacatta from "@/assets/marble-calacatta.jpg";
-import kitchen from "@/assets/kitchen-luxury.jpg";
+import quartz from "@/assets/quartz-white.webp";
+import calacatta from "@/assets/marble-calacatta.webp";
+import kitchen from "@/assets/kitchen-luxury.webp";
 
 export const Route = createFileRoute("/quartzo")({
   head: () => ({

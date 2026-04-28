@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PageHero } from "./granito";
-import bathroom from "@/assets/bathroom-luxury.jpg";
-import carrara from "@/assets/marble-carrara.jpg";
-import calacatta from "@/assets/marble-calacatta.jpg";
+import bathroom from "@/assets/bathroom-luxury.webp";
+import carrara from "@/assets/marble-carrara.webp";
+import calacatta from "@/assets/marble-calacatta.webp";
 
 export const Route = createFileRoute("/banheiro")({
   head: () => ({

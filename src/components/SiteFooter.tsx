@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, MessageCircle, MapPin, Mail, Phone } from "lucide-react";
-import logo from "@/assets/logo-marmorarias.png";
+import logo from "@/assets/logo-marmorarias.webp";
 
 export function SiteFooter() {
   return (

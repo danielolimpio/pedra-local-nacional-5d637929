@@ -3,15 +3,15 @@ import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
 import { ArrowRight, Award, Truck, Hammer, ShieldCheck } from "lucide-react";
-import heroGranite from "@/assets/hero-granite.jpg";
-import kitchen from "@/assets/kitchen-luxury.jpg";
-import bathroom from "@/assets/bathroom-luxury.jpg";
-import churrasqueira from "@/assets/churrasqueira.jpg";
-import sieva from "@/assets/granite-siena.jpg";
-import saoGabriel from "@/assets/granite-sao-gabriel.jpg";
-import carrara from "@/assets/marble-carrara.jpg";
-import calacatta from "@/assets/marble-calacatta.jpg";
-import quartzWhite from "@/assets/quartz-white.jpg";
+import heroGranite from "@/assets/hero-granite.webp";
+import kitchen from "@/assets/kitchen-luxury.webp";
+import bathroom from "@/assets/bathroom-luxury.webp";
+import churrasqueira from "@/assets/churrasqueira.webp";
+import sieva from "@/assets/granite-siena.webp";
+import saoGabriel from "@/assets/granite-sao-gabriel.webp";
+import carrara from "@/assets/marble-carrara.webp";
+import calacatta from "@/assets/marble-calacatta.webp";
+import quartzWhite from "@/assets/quartz-white.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({

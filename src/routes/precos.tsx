@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PageHero } from "./granito";
-import hero from "@/assets/hero-granite.jpg";
+import hero from "@/assets/hero-granite.webp";
 
 export const Route = createFileRoute("/precos")({
   head: () => ({

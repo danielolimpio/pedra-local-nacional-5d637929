@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
-import sieva from "@/assets/granite-siena.jpg";
-import saoGabriel from "@/assets/granite-sao-gabriel.jpg";
-import hero from "@/assets/hero-granite.jpg";
+import sieva from "@/assets/granite-siena.webp";
+import saoGabriel from "@/assets/granite-sao-gabriel.webp";
+import hero from "@/assets/hero-granite.webp";
 
 export const Route = createFileRoute("/granito")({
   head: () => ({
