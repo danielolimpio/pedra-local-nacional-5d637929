@@ -6,8 +6,8 @@ export function SiteFooter() {
     <footer className="border-t border-border/60 bg-onyx text-cream">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="font-serif text-3xl">Pedra<span className="text-gold">Nobre</span></div>
-          <p className="mt-2 text-xs uppercase tracking-[0.25em] text-cream/60">Marmoraria Premium</p>
+          <div className="font-serif text-3xl">Marmorarias<span className="text-gold">.shop</span></div>
+          <p className="mt-2 text-xs uppercase tracking-[0.25em] text-cream/60">Premium Marble & Granite</p>
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/70">
             Granito, mármore e quartzo sob medida para cozinhas, banheiros, churrasqueiras e
             projetos de alta arquitetura em todo o Brasil.
