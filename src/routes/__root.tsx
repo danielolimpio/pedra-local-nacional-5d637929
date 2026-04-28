@@ -1,4 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Toaster } from "@/components/ui/sonner";
 
 import appCss from "../styles.css?url";
 
@@ -29,20 +30,21 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "PedraNobre — Marmoraria Premium | Granito, Mármore e Quartzo Sob Medida" },
+      { name: "description", content: "Marmoraria premium especializada em granito São Gabriel, mármore branco Carrara, Calacatta e quartzo. Bancadas para cozinha, banheiro e churrasqueira sob medida. Atendemos todo o Brasil." },
+      { name: "keywords", content: "marmoraria, granito para cozinha, mármore para bancada, granito São Gabriel, mármore Carrara, quartzo branco bancada, bancada de granito, pia de mármore cozinha, preço granito m2" },
+      { name: "author", content: "PedraNobre Marmoraria" },
+      { property: "og:title", content: "PedraNobre — Marmoraria Premium" },
+      { property: "og:description", content: "Bancadas, pias e pisos em granito, mármore e quartzo sob medida. Marmoraria premium com entrega em todo o Brasil." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:locale", content: "pt_BR" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -58,6 +60,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <Toaster position="top-center" />
         <Scripts />
       </body>
     </html>

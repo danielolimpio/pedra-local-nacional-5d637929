@@ -9,8 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as QuartzoRouteImport } from './routes/quartzo'
+import { Route as PrecosRouteImport } from './routes/precos'
+import { Route as MarmoreRouteImport } from './routes/marmore'
+import { Route as GranitoRouteImport } from './routes/granito'
+import { Route as GaleriaRouteImport } from './routes/galeria'
+import { Route as CozinhaRouteImport } from './routes/cozinha'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as BanheiroRouteImport } from './routes/banheiro'
 import { Route as IndexRouteImport } from './routes/index'
 
+const QuartzoRoute = QuartzoRouteImport.update({
+  id: '/quartzo',
+  path: '/quartzo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrecosRoute = PrecosRouteImport.update({
+  id: '/precos',
+  path: '/precos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarmoreRoute = MarmoreRouteImport.update({
+  id: '/marmore',
+  path: '/marmore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GranitoRoute = GranitoRouteImport.update({
+  id: '/granito',
+  path: '/granito',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriaRoute = GaleriaRouteImport.update({
+  id: '/galeria',
+  path: '/galeria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CozinhaRoute = CozinhaRouteImport.update({
+  id: '/cozinha',
+  path: '/cozinha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BanheiroRoute = BanheiroRouteImport.update({
+  id: '/banheiro',
+  path: '/banheiro',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +67,144 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/banheiro': typeof BanheiroRoute
+  '/contato': typeof ContatoRoute
+  '/cozinha': typeof CozinhaRoute
+  '/galeria': typeof GaleriaRoute
+  '/granito': typeof GranitoRoute
+  '/marmore': typeof MarmoreRoute
+  '/precos': typeof PrecosRoute
+  '/quartzo': typeof QuartzoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/banheiro': typeof BanheiroRoute
+  '/contato': typeof ContatoRoute
+  '/cozinha': typeof CozinhaRoute
+  '/galeria': typeof GaleriaRoute
+  '/granito': typeof GranitoRoute
+  '/marmore': typeof MarmoreRoute
+  '/precos': typeof PrecosRoute
+  '/quartzo': typeof QuartzoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/banheiro': typeof BanheiroRoute
+  '/contato': typeof ContatoRoute
+  '/cozinha': typeof CozinhaRoute
+  '/galeria': typeof GaleriaRoute
+  '/granito': typeof GranitoRoute
+  '/marmore': typeof MarmoreRoute
+  '/precos': typeof PrecosRoute
+  '/quartzo': typeof QuartzoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/banheiro'
+    | '/contato'
+    | '/cozinha'
+    | '/galeria'
+    | '/granito'
+    | '/marmore'
+    | '/precos'
+    | '/quartzo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/banheiro'
+    | '/contato'
+    | '/cozinha'
+    | '/galeria'
+    | '/granito'
+    | '/marmore'
+    | '/precos'
+    | '/quartzo'
+  id:
+    | '__root__'
+    | '/'
+    | '/banheiro'
+    | '/contato'
+    | '/cozinha'
+    | '/galeria'
+    | '/granito'
+    | '/marmore'
+    | '/precos'
+    | '/quartzo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BanheiroRoute: typeof BanheiroRoute
+  ContatoRoute: typeof ContatoRoute
+  CozinhaRoute: typeof CozinhaRoute
+  GaleriaRoute: typeof GaleriaRoute
+  GranitoRoute: typeof GranitoRoute
+  MarmoreRoute: typeof MarmoreRoute
+  PrecosRoute: typeof PrecosRoute
+  QuartzoRoute: typeof QuartzoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/quartzo': {
+      id: '/quartzo'
+      path: '/quartzo'
+      fullPath: '/quartzo'
+      preLoaderRoute: typeof QuartzoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/precos': {
+      id: '/precos'
+      path: '/precos'
+      fullPath: '/precos'
+      preLoaderRoute: typeof PrecosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marmore': {
+      id: '/marmore'
+      path: '/marmore'
+      fullPath: '/marmore'
+      preLoaderRoute: typeof MarmoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/granito': {
+      id: '/granito'
+      path: '/granito'
+      fullPath: '/granito'
+      preLoaderRoute: typeof GranitoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeria': {
+      id: '/galeria'
+      path: '/galeria'
+      fullPath: '/galeria'
+      preLoaderRoute: typeof GaleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cozinha': {
+      id: '/cozinha'
+      path: '/cozinha'
+      fullPath: '/cozinha'
+      preLoaderRoute: typeof CozinhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/banheiro': {
+      id: '/banheiro'
+      path: '/banheiro'
+      fullPath: '/banheiro'
+      preLoaderRoute: typeof BanheiroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +217,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BanheiroRoute: BanheiroRoute,
+  ContatoRoute: ContatoRoute,
+  CozinhaRoute: CozinhaRoute,
+  GaleriaRoute: GaleriaRoute,
+  GranitoRoute: GranitoRoute,
+  MarmoreRoute: MarmoreRoute,
+  PrecosRoute: PrecosRoute,
+  QuartzoRoute: QuartzoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
