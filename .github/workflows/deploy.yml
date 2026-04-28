@@ -26,8 +26,15 @@ jobs:
       - name: Mostrar arquivos gerados
         run: ls -la dist/ && ls -la dist/client/
 
-      - name: Garantir .htaccess no client
-        run: cp -f public/.htaccess dist/client/.htaccess || true
+      - name: Preparar arquivos estáticos para Hostinger
+        run: |
+          cp -f public/.htaccess dist/client/.htaccess
+          cp -f public/robots.txt dist/client/robots.txt
+          cp -f public/sitemap.xml dist/client/sitemap.xml
+          test -f dist/client/index.html
+
+      - name: Conferir public_html antes do envio
+        run: ls -la dist/client/ && du -sh dist/client/
 
       - name: Deploy FTP para Hostinger (apenas client estático)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
