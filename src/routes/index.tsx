@@ -74,6 +74,8 @@ function HomePage() {
           alt="Bancada de granito preto premium com veios dourados"
           width={1920}
           height={1080}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover opacity-70"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/70 to-transparent" />

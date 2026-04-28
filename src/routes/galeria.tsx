@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PageHero } from "./granito";
+import { FAQ } from "@/components/FAQ";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import bathroom from "@/assets/bathroom-luxury.webp";
 import churrasqueira from "@/assets/churrasqueira.webp";
@@ -60,6 +61,17 @@ function GaleriaPage() {
           ))}
         </div>
       </section>
+
+      <FAQ
+        title="Perguntas sobre nossos projetos"
+        items={[
+          { q: "Posso visitar o showroom para ver as pedras pessoalmente?", a: "Sim, recomendamos a visita para escolher a chapa exata. Atendemos com hora marcada de segunda a sábado. Agende pelo WhatsApp (12) 98251-9116." },
+          { q: "Vocês entregam projetos em outras cidades?", a: "Sim, atendemos todo o Brasil com logística própria e parceira. Já executamos projetos em São Paulo, Rio de Janeiro, Belo Horizonte, Curitiba, Porto Alegre, Brasília e Salvador." },
+          { q: "Quanto tempo leva do orçamento até a entrega?", a: "Em média 15 a 25 dias úteis: 3 dias para o gabarito após aprovação, 7-12 dias para corte e acabamento, 1-2 dias para instalação. Projetos com pedras importadas podem ter prazo maior." },
+          { q: "Os projetos têm garantia?", a: "Todos os projetos têm 5 anos de garantia para defeitos de fabricação e instalação, e 24 meses de garantia para a selagem hidrofugante." },
+          { q: "Qual o valor médio de um projeto completo de cozinha?", a: "Cozinhas completas (bancada principal + ilha + churrasqueira) variam entre R$ 8.000 e R$ 35.000 dependendo do material escolhido, área e complexidade dos recortes." },
+        ]}
+      />
     </PageLayout>
   );
 }

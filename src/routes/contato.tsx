@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { QuoteForm } from "@/components/QuoteForm";
+import { FAQ } from "@/components/FAQ";
 import { PageHero } from "./granito";
 import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
 import calacatta from "@/assets/marble-calacatta.webp";
@@ -53,6 +54,18 @@ function ContatoPage() {
           </aside>
         </div>
       </section>
+
+      <FAQ
+        title="Dúvidas sobre atendimento e orçamento"
+        items={[
+          { q: "Em quanto tempo recebo o orçamento?", a: "Retornamos em até 24 horas úteis com tabela de preço, sugestão de material e prazo de entrega. Para urgências, contate-nos diretamente pelo WhatsApp (12) 98251-9116." },
+          { q: "Quais informações preciso enviar para o orçamento?", a: "Envie as medidas da bancada (largura x profundidade), tipo de aplicação (cozinha, banheiro, churrasqueira), preferência de material e quantidade de recortes (cooktop, cuba, torneira). Fotos do ambiente ajudam." },
+          { q: "Vocês fazem visita técnica para medição?", a: "Sim. Após a aprovação do orçamento preliminar, agendamos a visita para o gabarito (medição definitiva). Em São Paulo capital e região não cobramos a visita; outras regiões têm taxa simbólica abatida no pedido." },
+          { q: "Quais formas de pagamento vocês aceitam?", a: "PIX (5% de desconto), cartão de crédito em até 6x sem juros e até 12x com juros, transferência bancária e boleto. Para projetos acima de R$ 10.000, condições especiais são negociadas." },
+          { q: "Atendem aos finais de semana?", a: "Atendimento comercial: Segunda a Sexta das 8h às 18h, e Sábado das 8h às 13h. WhatsApp responde também nos domingos para informações iniciais." },
+          { q: "Qual a garantia oferecida?", a: "5 anos para defeitos de fabricação e instalação. 24 meses para a selagem hidrofugante. Acompanhamento pós-venda gratuito para orientação de manutenção." },
+        ]}
+      />
     </PageLayout>
   );
 }

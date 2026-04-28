@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PageHero } from "./granito";
+import { FAQ } from "@/components/FAQ";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import churrasqueira from "@/assets/churrasqueira.webp";
 import sieva from "@/assets/granite-siena.webp";
@@ -42,6 +43,18 @@ function CozinhaPage() {
           <Link to="/contato" className="mt-8 inline-flex items-center bg-gold px-10 py-4 text-xs uppercase tracking-[0.25em] text-onyx hover:bg-cream">Solicitar Orçamento</Link>
         </div>
       </section>
+
+      <FAQ
+        title="Perguntas sobre bancada de cozinha"
+        items={[
+          { q: "Qual o melhor material para bancada de cozinha?", a: "Para uso intenso, granito São Gabriel e quartzo branco são os mais indicados — resistem a calor, manchas e impacto. Mármore Calacatta entrega visual premium, mas exige selagem hidrofugante e cuidados na limpeza." },
+          { q: "Quanto custa uma bancada de cozinha em granito por m²?", a: "O granito São Gabriel custa em média R$ 480/m² instalado, o Branco Siena R$ 520/m² e o Preto Absoluto R$ 590/m². Recortes para cooktop e cuba são orçados à parte. Veja a tabela completa em nossa página de Preços." },
+          { q: "Quanto tempo demora a instalação de uma bancada nova?", a: "Após a aprovação do orçamento, o gabarito é feito em até 3 dias úteis e a instalação acontece em 7 a 12 dias úteis, dependendo do material e da localidade." },
+          { q: "A pia esculpida em pedra é mais cara que a pia de inox?", a: "Sim, a pia esculpida diretamente na chapa custa em média 40% a mais que uma cuba de inox embutida, mas entrega acabamento monolítico sem emendas e valoriza o imóvel." },
+          { q: "Existe garantia para bancada e pia?", a: "Oferecemos 5 anos de garantia para defeitos de fabricação e instalação (trincas estruturais, falhas de selagem, problemas de fixação). Riscos por mau uso e manchas por falta de manutenção não são cobertos." },
+          { q: "Como fazer a manutenção da bancada de granito?", a: "Limpeza diária com pano úmido e sabão neutro. Evite produtos ácidos (limão, vinagre, desinfetante forte). A cada 2 anos recomendamos reaplicar a resina hidrofugante para preservar o brilho." },
+        ]}
+      />
     </PageLayout>
   );
 }

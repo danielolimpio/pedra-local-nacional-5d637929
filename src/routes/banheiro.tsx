@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PageHero } from "./granito";
+import { FAQ } from "@/components/FAQ";
 import bathroom from "@/assets/bathroom-luxury.webp";
 import carrara from "@/assets/marble-carrara.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
@@ -45,6 +46,18 @@ function BanheiroPage() {
           <Link to="/contato" className="mt-8 inline-flex items-center bg-foreground px-8 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">Pedir Orçamento</Link>
         </div>
       </section>
+
+      <FAQ
+        title="Perguntas sobre bancada de banheiro"
+        items={[
+          { q: "Qual mármore é mais indicado para bancada de banheiro?", a: "O mármore Carrara (R$ 890/m²) é o mais usado pela elegância e custo equilibrado. Para projetos de alto luxo, o Calacatta Gold (R$ 1.450/m²) entrega veios dourados marcantes. Mármore preto absoluto é ideal para lavabos contemporâneos." },
+          { q: "Mármore mancha com produtos de higiene?", a: "Mármores são porosos. Aplicamos resina hidrofugante premium que protege contra perfumes, esmaltes, hidratantes e produtos ácidos. Limpeza imediata em caso de respingo é recomendada." },
+          { q: "Quanto custa uma cuba esculpida em mármore?", a: "A cuba esculpida diretamente na chapa custa entre R$ 1.200 e R$ 2.800 dependendo do tamanho e do mármore escolhido. Inclui o desenho, escultura e acabamento polido interno." },
+          { q: "Vocês fazem soleira e peitoril de granito?", a: "Sim. Soleira de granito para porta padrão (até 1 metro) sai a partir de R$ 180. Peitoris de janela e revestimentos de fachada são orçados por m² conforme acabamento." },
+          { q: "Qual a garantia da bancada de banheiro?", a: "5 anos contra defeitos de fabricação e instalação. A selagem hidrofugante é garantida por 24 meses — após esse período recomendamos reaplicação para manter a proteção contra manchas." },
+          { q: "Posso usar mármore branco no box do banheiro?", a: "Sim, com revestimento de chapa polida e selagem adequada o mármore Carrara ou Calacatta funciona muito bem em box, criando um painel de fundo de altíssimo padrão." },
+        ]}
+      />
     </PageLayout>
   );
 }
