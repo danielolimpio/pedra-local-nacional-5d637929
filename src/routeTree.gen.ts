@@ -16,8 +16,10 @@ import { Route as GranitoRouteImport } from './routes/granito'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as CozinhaRouteImport } from './routes/cozinha'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BanheiroRouteImport } from './routes/banheiro'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const QuartzoRoute = QuartzoRouteImport.update({
   id: '/quartzo',
@@ -54,6 +56,11 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BanheiroRoute = BanheiroRouteImport.update({
   id: '/banheiro',
   path: '/banheiro',
@@ -64,10 +71,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/banheiro': typeof BanheiroRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
@@ -75,10 +88,12 @@ export interface FileRoutesByFullPath {
   '/marmore': typeof MarmoreRoute
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/banheiro': typeof BanheiroRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
@@ -86,11 +101,13 @@ export interface FileRoutesByTo {
   '/marmore': typeof MarmoreRoute
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/banheiro': typeof BanheiroRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
@@ -98,12 +115,14 @@ export interface FileRoutesById {
   '/marmore': typeof MarmoreRoute
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/banheiro'
+    | '/blog'
     | '/contato'
     | '/cozinha'
     | '/galeria'
@@ -111,10 +130,12 @@ export interface FileRouteTypes {
     | '/marmore'
     | '/precos'
     | '/quartzo'
+    | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/banheiro'
+    | '/blog'
     | '/contato'
     | '/cozinha'
     | '/galeria'
@@ -122,10 +143,12 @@ export interface FileRouteTypes {
     | '/marmore'
     | '/precos'
     | '/quartzo'
+    | '/blog/$slug'
   id:
     | '__root__'
     | '/'
     | '/banheiro'
+    | '/blog'
     | '/contato'
     | '/cozinha'
     | '/galeria'
@@ -133,11 +156,13 @@ export interface FileRouteTypes {
     | '/marmore'
     | '/precos'
     | '/quartzo'
+    | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BanheiroRoute: typeof BanheiroRoute
+  BlogRoute: typeof BlogRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   CozinhaRoute: typeof CozinhaRoute
   GaleriaRoute: typeof GaleriaRoute
@@ -198,6 +223,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/banheiro': {
       id: '/banheiro'
       path: '/banheiro'
@@ -212,12 +244,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BanheiroRoute: BanheiroRoute,
+  BlogRoute: BlogRouteWithChildren,
   ContatoRoute: ContatoRoute,
   CozinhaRoute: CozinhaRoute,
   GaleriaRoute: GaleriaRoute,
