@@ -11,7 +11,7 @@ export const Route = createFileRoute("/granito")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/granito" },
-      { title: "Granito para Cozinha: Preços, Cores e Modelos | Marmorarias.shop" },
+      { title: "Granito para Cozinha: Preços, Cores e Modelos 2026" },
       { name: "description", content: "Granito São Gabriel, Branco Siena, Preto Absoluto, Cinza Andorinha. Bancada de granito sob medida para cozinha com preço por m². Solicite orçamento." },
       { name: "keywords", content: "granito para cozinha, granito São Gabriel, granito branco siena, granito preto absoluto, granito cinza andorinha, bancada de granito, preço granito m2" },
       { property: "og:title", content: "Granito para Cozinha — Marmorarias.shop" },
@@ -55,15 +55,11 @@ function GranitoPage() {
 
         <div className="mt-24 grid gap-12 lg:grid-cols-2">
           <article className="prose prose-stone max-w-none">
-            <h3 className="font-serif text-3xl">Granito ou mármore: qual o melhor para bancada de cozinha?</h3>
+            <h2 className="font-serif text-3xl">Granito ou mármore: qual o melhor para bancada de cozinha?</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              O <strong>granito</strong> é a pedra mais resistente para bancada de cozinha — não mancha
-              facilmente com vinho, café ou limão, suporta calor de panelas quentes e tem acabamento
-              durável. O <strong>granito São Gabriel</strong> e o <strong>preto absoluto</strong> são os
-              campeões em cozinhas com cooktop. Para áreas externas e churrasqueiras, recomendamos o
-              acabamento <strong>flameado</strong>, que é antiderrapante.
+...
             </p>
-            <h4 className="mt-8 font-serif text-2xl">Acabamentos disponíveis</h4>
+            <h3 className="mt-8 font-serif text-2xl">Acabamentos de granito disponíveis</h3>
             <ul className="mt-4 space-y-2 text-muted-foreground">
               <li>• <strong>Polido</strong> — brilho espelhado, ideal para cozinhas internas</li>
               <li>• <strong>Escovado</strong> — toque suave e antiderrapante para bancadas e box de banheiro</li>
@@ -73,7 +69,7 @@ function GranitoPage() {
           </article>
           <aside className="bg-secondary p-10">
             <p className="eyebrow">Orçamento Personalizado</p>
-            <h4 className="mt-4 font-serif text-3xl">Faça as medidas e receba o valor</h4>
+            <h3 className="mt-4 font-serif text-3xl">Faça as medidas e receba o valor</h3>
             <p className="mt-4 text-muted-foreground">
               Envie as medidas da sua bancada e o tipo de granito desejado. Calculamos o
               metro quadrado, recortes para cooktop, cuba e instalação.
@@ -93,7 +89,7 @@ function GranitoPage() {
           ].map(b => (
             <div key={b.t} className="border border-border bg-card p-8">
               <p className="eyebrow text-gold">Vantagem</p>
-              <h4 className="mt-3 font-serif text-xl">{b.t}</h4>
+              <h3 className="mt-3 font-serif text-xl">{b.t}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{b.d}</p>
             </div>
           ))}
@@ -110,7 +106,7 @@ function GranitoPage() {
               { q: "Granito amarela com o tempo?", a: "Granitos polidos não amarelam. Apenas mármores claros sem manutenção podem oxidar." },
             ].map(f => (
               <div key={f.q}>
-                <h4 className="font-serif text-lg">{f.q}</h4>
+                <h3 className="font-serif text-lg">{f.q}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
               </div>
             ))}

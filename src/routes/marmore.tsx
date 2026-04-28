@@ -12,7 +12,7 @@ export const Route = createFileRoute("/marmore")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/marmore" },
-      { title: "Mármore para Bancada: Carrara, Calacatta Gold e Travertino | Marmorarias.shop" },
+      { title: "Mármore Carrara, Calacatta Gold e Travertino: Preços por m²" },
       { name: "description", content: "Mármore branco Carrara, Calacatta Gold, Travertino Romano e Onix. Bancadas, pias esculpidas e revestimentos sob medida com instalação." },
       { name: "keywords", content: "mármore para bancada, mármore branco carrara, mármore calacatta gold, travertino romano, mármore preto, pia de mármore cozinha, preço mármore m2" },
       { property: "og:title", content: "Mármore Premium — Marmorarias.shop" },
@@ -41,14 +41,11 @@ function MarmorePage() {
 
         <div className="mt-24 grid gap-12 lg:grid-cols-2">
           <article>
-            <h3 className="font-serif text-3xl">Mármore branco é poroso? Como cuidar</h3>
+            <h2 className="font-serif text-3xl">Mármore branco é poroso? Como cuidar</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              O <strong>mármore branco Carrara</strong> e o <strong>Calacatta Gold</strong> são pedras
-              naturais sofisticadas, porém porosas. Para uso em bancada de cozinha aplicamos resina
-              hidrofugante de alta performance que protege contra manchas de vinho, café e azeite.
-              Limpeza diária com pano úmido e sabão neutro mantém o brilho por décadas.
+...
             </p>
-            <h4 className="mt-8 font-serif text-2xl">Para qual ambiente cada mármore é indicado?</h4>
+            <h3 className="mt-8 font-serif text-2xl">Para qual ambiente cada mármore é indicado?</h3>
             <ul className="mt-4 space-y-2 text-muted-foreground">
               <li>• <strong>Carrara</strong> — banheiros, lavabos e ilhas decorativas</li>
               <li>• <strong>Calacatta Gold</strong> — bancadas premium, projetos de alto padrão</li>
@@ -58,7 +55,7 @@ function MarmorePage() {
           </article>
           <aside className="bg-secondary p-10">
             <p className="eyebrow">Pia esculpida em mármore</p>
-            <h4 className="mt-4 font-serif text-3xl">Sob medida para seu projeto</h4>
+            <h3 className="mt-4 font-serif text-3xl">Sob medida para seu projeto</h3>
             <p className="mt-4 text-muted-foreground">Esculpimos pias e cubas direto na chapa de mármore, garantindo acabamento contínuo e visual de altíssimo padrão.</p>
             <Link to="/contato" className="mt-8 inline-flex items-center bg-foreground px-8 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">Pedir Orçamento de Mármore</Link>
           </aside>
@@ -75,7 +72,7 @@ function MarmorePage() {
               { q: "Pode usar mármore em cozinha?", a: "Sim, com cuidados de manutenção e selagem profissional. Para uso intenso, granito ou quartzo são mais práticos." },
             ].map(f => (
               <div key={f.q}>
-                <h4 className="font-serif text-lg">{f.q}</h4>
+                <h3 className="font-serif text-lg">{f.q}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
               </div>
             ))}

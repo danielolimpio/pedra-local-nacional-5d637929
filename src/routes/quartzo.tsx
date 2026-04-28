@@ -12,10 +12,11 @@ export const Route = createFileRoute("/quartzo")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/quartzo" },
-      { title: "Quartzo Branco para Bancada: Silestone, Nanoglass e Dekton | Marmorarias.shop" },
-      { name: "description", content: "Quartzo branco para bancada de cozinha, Silestone, Nanoglass, Dekton e Corian. Pedra sintética premium com alta resistência e zero porosidade." },
+      { title: "Quartzo Branco para Bancada: Silestone, Nanoglass e Dekton" },
+      { name: "description", content: "Quartzo branco para bancada de cozinha: Silestone, Nanoglass, Dekton e Corian. Pedra sintética premium, zero porosidade e alta resistência." },
       { name: "keywords", content: "quartzo branco para bancada, silestone cozinha, nanoglass branco, dekton bancada cozinha, corian, quartzo calacata, pedra sintética para pia" },
-      { property: "og:title", content: "Quartzo e Pedras Sintéticas — Marmorarias.shop" },
+      { property: "og:title", content: "Quartzo Branco para Bancada — Silestone e Dekton" },
+      { property: "og:description", content: "Quartzo, Silestone, Nanoglass e Dekton para bancadas premium de cozinha." },
       { property: "og:image", content: `https://marmorarias.shop${quartz}` },
       { name: "twitter:image", content: `https://marmorarias.shop${quartz}` },
     ],
@@ -40,15 +41,11 @@ function QuartzoPage() {
 
         <div className="mt-24 grid gap-12 lg:grid-cols-2">
           <article>
-            <h3 className="font-serif text-3xl">Quartzo vs Granito: qual a melhor durabilidade?</h3>
+            <h2 className="font-serif text-3xl">Quartzo vs Granito: qual a melhor durabilidade?</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              O <strong>quartzo</strong> é uma pedra de engenharia (93% quartzo natural + resinas) com
-              <strong> zero porosidade</strong>, o que significa que não absorve líquidos e
-              <strong> não mancha</strong>. O granito é mais resistente ao calor direto, mas o quartzo
-              vence em uniformidade visual e baixa manutenção. Para cozinhas modernas com cores
-              uniformes, o quartzo é imbatível.
+...
             </p>
-            <h4 className="mt-8 font-serif text-2xl">Vantagens do quartzo</h4>
+            <h3 className="mt-8 font-serif text-2xl">Vantagens do quartzo na cozinha</h3>
             <ul className="mt-4 space-y-2 text-muted-foreground">
               <li>• Não mancha com vinho, café, azeite ou limão</li>
               <li>• Visual uniforme — sem variação entre chapas</li>
@@ -58,7 +55,7 @@ function QuartzoPage() {
           </article>
           <aside className="bg-secondary p-10">
             <p className="eyebrow">Marcas premium</p>
-            <h4 className="mt-4 font-serif text-3xl">Silestone, Nanoglass e Dekton</h4>
+            <h3 className="mt-4 font-serif text-3xl">Silestone, Nanoglass e Dekton</h3>
             <p className="mt-4 text-muted-foreground">Trabalhamos com as melhores marcas de quartzo do mercado mundial. Solicite a tabela com cores e acabamentos disponíveis.</p>
             <Link to="/contato" className="mt-8 inline-flex items-center bg-foreground px-8 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">Pedir Orçamento de Quartzo</Link>
           </aside>
