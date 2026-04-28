@@ -17,9 +17,9 @@ const staticPages = [
   "/marmore",
   "/quartzo",
   "/blog",
-  "/blog/granito-sao-gabriel-preco-m2",
-  "/blog/marmore-carrara-ou-calacatta",
-  "/blog/quartzo-branco-manutencao",
+  "/blog/como-escolher-granito-marmore-quartzo",
+  "/blog/manutencao-pedras-naturais",
+  "/blog/tendencias-marmoraria-2026",
 ];
 
 export default defineConfig({
