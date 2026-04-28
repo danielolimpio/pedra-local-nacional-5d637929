@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ArrowLeft } from "lucide-react";
 import hero from "@/assets/hero-granite.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
@@ -125,10 +126,10 @@ export const Route = createFileRoute("/blog/$slug")({
         { name: "description", content: post.desc },
         { property: "og:title", content: post.title },
         { property: "og:description", content: post.desc },
-        { property: "og:image", content: post.img },
+        { property: "og:image", content: `https://marmorarias.shop${post.img}` },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { name: "twitter:image", content: post.img },
+        { name: "twitter:image", content: `https://marmorarias.shop${post.img}` },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -168,6 +169,7 @@ function BlogPostPage() {
   const { post } = Route.useLoaderData();
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Blog", to: "/blog" }, { label: post.title }]} />
       <article>
         <header className="relative isolate overflow-hidden bg-onyx text-cream">
           <img src={post.img} alt={post.title} className="absolute inset-0 h-full w-full object-cover opacity-40" />
