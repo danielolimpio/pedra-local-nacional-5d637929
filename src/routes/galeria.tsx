@@ -15,11 +15,13 @@ import hero from "@/assets/hero-granite.jpg";
 export const Route = createFileRoute("/galeria")({
   head: () => ({
     meta: [
+      { property: "og:url", content: "https://marmorarias.shop/galeria" },
       { title: "Galeria de Projetos: Cozinha, Banheiro e Churrasqueira em Pedra | PedraNobre" },
       { name: "description", content: "Galeria de projetos em granito, mármore e quartzo. Inspire-se em bancadas de cozinha, banheiros, churrasqueiras e revestimentos executados pela PedraNobre." },
       { property: "og:title", content: "Galeria — PedraNobre" },
       { property: "og:image", content: kitchen },
     ],
+    links: [{ rel: "canonical", href: "https://marmorarias.shop/galeria" }],
   }),
   component: GaleriaPage,
 });

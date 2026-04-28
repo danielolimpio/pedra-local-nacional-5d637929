@@ -8,11 +8,13 @@ import calacatta from "@/assets/marble-calacatta.jpg";
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
+      { property: "og:url", content: "https://marmorarias.shop/contato" },
       { title: "Orçamento Online de Granito e Mármore | Marmoraria PedraNobre" },
       { name: "description", content: "Solicite orçamento de bancada em granito, mármore ou quartzo. Atendimento por WhatsApp, e-mail e telefone. Entrega e instalação em todo o Brasil." },
       { property: "og:title", content: "Solicitar Orçamento — PedraNobre" },
       { property: "og:image", content: calacatta },
     ],
+    links: [{ rel: "canonical", href: "https://marmorarias.shop/contato" }],
   }),
   component: ContatoPage,
 });

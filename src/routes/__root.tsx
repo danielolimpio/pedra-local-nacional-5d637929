@@ -30,25 +30,65 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "PedraNobre — Marmoraria Premium | Granito, Mármore e Quartzo Sob Medida" },
-      { name: "description", content: "Marmoraria premium especializada em granito São Gabriel, mármore branco Carrara, Calacatta e quartzo. Bancadas para cozinha, banheiro e churrasqueira sob medida. Atendemos todo o Brasil." },
-      { name: "keywords", content: "marmoraria, granito para cozinha, mármore para bancada, granito São Gabriel, mármore Carrara, quartzo branco bancada, bancada de granito, pia de mármore cozinha, preço granito m2" },
-      { name: "author", content: "PedraNobre Marmoraria" },
-      { property: "og:title", content: "PedraNobre — Marmoraria Premium | Granito, Mármore e Quartzo Sob Medida" },
-      { property: "og:description", content: "Marmoraria premium especializada em granito São Gabriel, mármore branco Carrara, Calacatta e quartzo. Bancadas para cozinha, banheiro e churrasqueira sob medida. Atendemos todo o Brasil." },
+      { title: "Marmorarias.shop — Granito, Mármore e Quartzo Premium Sob Medida" },
+      { name: "description", content: "Marmoraria premium especializada em granito São Gabriel, mármore Carrara, Calacatta e quartzo. Bancadas para cozinha, banheiro e churrasqueira sob medida. Atendemos todo o Brasil." },
+      { name: "keywords", content: "marmoraria, marmorarias, granito para cozinha, mármore para bancada, granito São Gabriel, mármore Carrara, quartzo branco bancada, bancada de granito, pia de mármore cozinha, preço granito m2, marmoraria online" },
+      { name: "author", content: "Marmorarias.shop" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "theme-color", content: "#0a0a0a" },
+      { property: "og:site_name", content: "Marmorarias.shop" },
+      { property: "og:title", content: "Marmorarias.shop — Granito, Mármore e Quartzo Premium" },
+      { property: "og:description", content: "Granito, mármore e quartzo sob medida para cozinhas, banheiros e churrasqueiras. Atendemos todo o Brasil." },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
+      { property: "og:url", content: "https://marmorarias.shop" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "PedraNobre — Marmoraria Premium | Granito, Mármore e Quartzo Sob Medida" },
-      { name: "twitter:description", content: "Marmoraria premium especializada em granito São Gabriel, mármore branco Carrara, Calacatta e quartzo. Bancadas para cozinha, banheiro e churrasqueira sob medida. Atendemos todo o Brasil." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b788fd1b-0436-4250-9d58-2655a5943761/id-preview-d7fdddfe--c6bbfbee-4512-4be4-9177-0e5ec6b449f0.lovable.app-1777338597875.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b788fd1b-0436-4250-9d58-2655a5943761/id-preview-d7fdddfe--c6bbfbee-4512-4be4-9177-0e5ec6b449f0.lovable.app-1777338597875.png" },
+      { name: "twitter:title", content: "Marmorarias.shop — Granito, Mármore e Quartzo Premium" },
+      { name: "twitter:description", content: "Granito, mármore e quartzo sob medida. Atendemos todo o Brasil." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: "https://marmorarias.shop" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Marmorarias.shop",
+          url: "https://marmorarias.shop",
+          logo: "https://marmorarias.shop/logo.png",
+          sameAs: [
+            "https://instagram.com",
+            "https://facebook.com",
+          ],
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+55-12-98251-9116",
+            contactType: "sales",
+            areaServed: "BR",
+            availableLanguage: ["Portuguese"],
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Marmorarias.shop",
+          url: "https://marmorarias.shop",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://marmorarias.shop/galeria?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -58,7 +98,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
