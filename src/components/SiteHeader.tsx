@@ -18,6 +18,7 @@ const mainItems = [
   { to: "/", label: "Início" },
   { to: "/precos", label: "Preços" },
   { to: "/galeria", label: "Galeria" },
+  { to: "/blog", label: "Blog" },
   { to: "/contato", label: "Contato" },
 ] as const;
 
