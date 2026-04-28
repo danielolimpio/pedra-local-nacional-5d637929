@@ -60,6 +60,24 @@ function MarmorePage() {
             <Link to="/contato" className="mt-8 inline-flex items-center bg-foreground px-8 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">Pedir Orçamento de Mármore</Link>
           </aside>
         </div>
+
+        {/* FAQ */}
+        <div className="mt-24">
+          <SectionHeader eyebrow="Dúvidas Frequentes" title="Perguntas sobre mármore" />
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {[
+              { q: "Mármore branco mancha com vinho?", a: "É poroso, mas a aplicação de resina hidrofugante reduz drasticamente a absorção. Limpeza imediata evita manchas." },
+              { q: "Mármore Carrara é importado?", a: "Sim, vem da região de Carrara, na Itália. Trabalhamos com chapas selecionadas direto de cantaria." },
+              { q: "Diferença entre Carrara e Calacatta?", a: "Calacatta tem fundo mais branco e veios dourados marcantes. Carrara tem veios cinza mais sutis." },
+              { q: "Pode usar mármore em cozinha?", a: "Sim, com cuidados de manutenção e selagem profissional. Para uso intenso, granito ou quartzo são mais práticos." },
+            ].map(f => (
+              <div key={f.q}>
+                <h4 className="font-serif text-lg">{f.q}</h4>
+                <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </PageLayout>
   );

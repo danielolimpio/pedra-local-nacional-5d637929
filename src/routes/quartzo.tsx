@@ -60,6 +60,36 @@ function QuartzoPage() {
             <Link to="/contato" className="mt-8 inline-flex items-center bg-foreground px-8 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">Pedir Orçamento de Quartzo</Link>
           </aside>
         </div>
+
+        {/* Comparativo */}
+        <div className="mt-24 border border-border">
+          <table className="w-full text-sm">
+            <thead className="bg-onyx text-cream">
+              <tr>
+                <th className="px-6 py-4 text-left font-normal uppercase tracking-[0.18em]">Característica</th>
+                <th className="px-6 py-4 text-center font-normal uppercase tracking-[0.18em]">Quartzo</th>
+                <th className="px-6 py-4 text-center font-normal uppercase tracking-[0.18em]">Granito</th>
+                <th className="px-6 py-4 text-center font-normal uppercase tracking-[0.18em]">Mármore</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["Porosidade", "Zero", "Baixa", "Alta"],
+                ["Resistência manchas", "Excelente", "Boa", "Regular"],
+                ["Resistência calor", "Boa", "Excelente", "Regular"],
+                ["Manutenção", "Mínima", "Baixa", "Média"],
+                ["Visual uniforme", "Sim", "Variável", "Variável"],
+              ].map((r,i)=>(
+                <tr key={r[0]} className={i%2?"bg-secondary/40":""}>
+                  <td className="px-6 py-4 font-serif">{r[0]}</td>
+                  <td className="px-6 py-4 text-center text-gold">{r[1]}</td>
+                  <td className="px-6 py-4 text-center text-muted-foreground">{r[2]}</td>
+                  <td className="px-6 py-4 text-center text-muted-foreground">{r[3]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
     </PageLayout>
   );

@@ -80,6 +80,39 @@ function GranitoPage() {
             </Link>
           </aside>
         </div>
+
+        {/* Por que escolher granito */}
+        <div className="mt-24 grid gap-8 md:grid-cols-3">
+          {[
+            { t: "Resistência ao calor", d: "Suporta panelas direto da boca do fogão sem deformar ou perder o brilho." },
+            { t: "Antibacteriano natural", d: "Superfície densa e impermeável após selagem — ideal para preparo de alimentos." },
+            { t: "Durabilidade de décadas", d: "Manutenção simples com pano úmido e sabão neutro. Vida útil acima de 30 anos." },
+          ].map(b => (
+            <div key={b.t} className="border border-border bg-card p-8">
+              <p className="eyebrow text-gold">Vantagem</p>
+              <h4 className="mt-3 font-serif text-xl">{b.t}</h4>
+              <p className="mt-3 text-sm text-muted-foreground">{b.d}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* FAQ */}
+        <div className="mt-24">
+          <SectionHeader eyebrow="Dúvidas Frequentes" title="Perguntas sobre granito" />
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {[
+              { q: "Granito mancha com vinho ou café?", a: "Não, desde que receba a selagem hidrofugante. Aplicamos resina premium em toda chapa antes da entrega." },
+              { q: "Posso colocar panela quente direto?", a: "Sim. O granito resiste a temperaturas acima de 300°C sem deformação ou marcas." },
+              { q: "Qual a espessura ideal para bancada?", a: "Trabalhamos com chapas de 2cm e 3cm. Para ilhas e cooktops, 3cm é o recomendado." },
+              { q: "Granito amarela com o tempo?", a: "Granitos polidos não amarelam. Apenas mármores claros sem manutenção podem oxidar." },
+            ].map(f => (
+              <div key={f.q}>
+                <h4 className="font-serif text-lg">{f.q}</h4>
+                <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </PageLayout>
   );
