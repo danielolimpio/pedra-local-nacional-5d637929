@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import sieva from "@/assets/granite-siena.webp";
 import saoGabriel from "@/assets/granite-sao-gabriel.webp";
 import hero from "@/assets/hero-granite.webp";
@@ -15,7 +16,8 @@ export const Route = createFileRoute("/granito")({
       { name: "keywords", content: "granito para cozinha, granito São Gabriel, granito branco siena, granito preto absoluto, granito cinza andorinha, bancada de granito, preço granito m2" },
       { property: "og:title", content: "Granito para Cozinha — Marmorarias.shop" },
       { property: "og:description", content: "Granitos premium para bancadas e pias. Preço por m² e instalação inclusa." },
-      { property: "og:image", content: hero },
+      { property: "og:image", content: `https://marmorarias.shop${hero}` },
+      { name: "twitter:image", content: `https://marmorarias.shop${hero}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/granito" }],
   }),
@@ -31,6 +33,7 @@ const granitos = [
 function GranitoPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Materiais" }, { label: "Granito" }]} />
       <PageHero
         eyebrow="Materiais — Granito"
         title="Granito para Cozinha"

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "./granito";
 import { FAQ } from "@/components/FAQ";
 import kitchen from "@/assets/kitchen-luxury.webp";
@@ -20,7 +21,8 @@ export const Route = createFileRoute("/galeria")({
       { title: "Galeria de Projetos: Cozinha, Banheiro e Churrasqueira em Pedra | Marmorarias.shop" },
       { name: "description", content: "Galeria de projetos em granito, mármore e quartzo. Inspire-se em bancadas de cozinha, banheiros, churrasqueiras e revestimentos executados pela Marmorarias.shop." },
       { property: "og:title", content: "Galeria — Marmorarias.shop" },
-      { property: "og:image", content: kitchen },
+      { property: "og:image", content: `https://marmorarias.shop${kitchen}` },
+      { name: "twitter:image", content: `https://marmorarias.shop${kitchen}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/galeria" }],
   }),
@@ -42,6 +44,7 @@ const projetos = [
 function GaleriaPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Galeria" }]} />
       <PageHero eyebrow="Portfólio" title="Galeria de Projetos" subtitle="Inspirações em granito, mármore e quartzo — antes e depois de cozinhas, banheiros e áreas gourmet." image={calacatta} />
 
       <section className="mx-auto max-w-7xl px-6 py-24">

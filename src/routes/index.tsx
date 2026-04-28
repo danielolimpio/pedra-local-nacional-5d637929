@@ -174,6 +174,20 @@ function HomePage() {
         </div>
       </section>
 
+      {/* CIDADES ATENDIDAS — SEO LOCAL */}
+      <section className="border-t border-border bg-cream">
+        <div className="mx-auto max-w-7xl px-6 py-16 text-center">
+          <p className="eyebrow flex items-center justify-center gap-3"><span className="gold-rule" />Marmoraria com entrega nacional<span className="gold-rule" /></p>
+          <h2 className="mt-6 font-serif text-3xl md:text-4xl">Atendemos as principais capitais e cidades do Brasil</h2>
+          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            Marmoraria em <strong>São Paulo</strong>, <strong>Rio de Janeiro</strong>, <strong>Belo Horizonte</strong>, <strong>Curitiba</strong>,{" "}
+            <strong>Porto Alegre</strong>, <strong>Brasília</strong>, <strong>Salvador</strong>, <strong>Florianópolis</strong>,{" "}
+            <strong>Campinas</strong>, <strong>São José dos Campos</strong>, <strong>Goiânia</strong> e <strong>Recife</strong>.
+            Quartzito Taj Mahal, granito São Gabriel, mármore Calacatta Gold e quartzo branco com instalação profissional.
+          </p>
+        </div>
+      </section>
+
       {/* CTA FINAL */}
       <section className="relative overflow-hidden bg-onyx text-cream">
         <img src={calacatta} alt="" className="absolute inset-0 h-full w-full object-cover opacity-15" />

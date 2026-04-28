@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "./granito";
 import { FAQ } from "@/components/FAQ";
 import kitchen from "@/assets/kitchen-luxury.webp";
@@ -15,7 +16,8 @@ export const Route = createFileRoute("/cozinha")({
       { name: "description", content: "Bancada de granito para cozinha, ilha em mármore Calacatta, churrasqueira gourmet, pia esculpida com cooktop. Projeto sob medida em todo o Brasil." },
       { name: "keywords", content: "bancada de granito para cozinha, pia de mármore com cooktop, balcão de cozinha em granito, bancada quartzo branco cozinha, pia esculpida em granito, bancada para ilha de cozinha" },
       { property: "og:title", content: "Bancadas de Cozinha Premium — Marmorarias.shop" },
-      { property: "og:image", content: kitchen },
+      { property: "og:image", content: `https://marmorarias.shop${kitchen}` },
+      { name: "twitter:image", content: `https://marmorarias.shop${kitchen}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/cozinha" }],
   }),
@@ -25,6 +27,7 @@ export const Route = createFileRoute("/cozinha")({
 function CozinhaPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Aplicações" }, { label: "Cozinha" }]} />
       <PageHero eyebrow="Aplicações" title="Bancadas para Cozinha" subtitle="Bancada de granito, ilha de mármore Calacatta, pia esculpida com cooktop e churrasqueira gourmet — projetos sob medida." image={kitchen} />
 
       <section className="mx-auto max-w-7xl px-6 py-24">

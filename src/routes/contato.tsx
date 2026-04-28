@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { QuoteForm } from "@/components/QuoteForm";
 import { FAQ } from "@/components/FAQ";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "./granito";
 import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
 import calacatta from "@/assets/marble-calacatta.webp";
@@ -13,7 +14,8 @@ export const Route = createFileRoute("/contato")({
       { title: "Orçamento Online de Granito e Mármore | Marmoraria Marmorarias.shop" },
       { name: "description", content: "Solicite orçamento de bancada em granito, mármore ou quartzo. Atendimento por WhatsApp, e-mail e telefone. Entrega e instalação em todo o Brasil." },
       { property: "og:title", content: "Solicitar Orçamento — Marmorarias.shop" },
-      { property: "og:image", content: calacatta },
+      { property: "og:image", content: `https://marmorarias.shop${calacatta}` },
+      { name: "twitter:image", content: `https://marmorarias.shop${calacatta}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/contato" }],
   }),
@@ -23,6 +25,7 @@ export const Route = createFileRoute("/contato")({
 function ContatoPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Contato" }]} />
       <PageHero eyebrow="Atendimento" title="Solicite seu Orçamento" subtitle="Envie as medidas e o tipo de pedra desejada. Retornamos em até 24h com tabela de preço e prazo." image={calacatta} />
 
       <section className="mx-auto max-w-7xl px-6 py-24">

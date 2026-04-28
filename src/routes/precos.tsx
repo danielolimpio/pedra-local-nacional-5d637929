@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "./granito";
 import { FAQ } from "@/components/FAQ";
 import hero from "@/assets/hero-granite.webp";
@@ -13,7 +14,8 @@ export const Route = createFileRoute("/precos")({
       { name: "description", content: "Quanto custa bancada de granito São Gabriel? Veja preços por metro quadrado de granito, mármore e quartzo. Tabela atualizada 2026 com instalação inclusa." },
       { name: "keywords", content: "preço granito m2, preço granito são gabriel m2, valor do metro de mármore branco, quanto custa bancada de quartzo, tabela de preço granito 2026, orçamento pia de granito sob medida" },
       { property: "og:title", content: "Tabela de Preços 2026 — Marmorarias.shop" },
-      { property: "og:image", content: hero },
+      { property: "og:image", content: `https://marmorarias.shop${hero}` },
+      { name: "twitter:image", content: `https://marmorarias.shop${hero}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/precos" }],
   }),
@@ -37,6 +39,7 @@ const tabela = [
 function PrecosPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Preços" }]} />
       <PageHero eyebrow="Tabela 2026" title="Preço por Metro Quadrado" subtitle="Valores atualizados de granito, mármore e quartzo — instalação e recortes podem ser orçados à parte." image={hero} />
 
       <section className="mx-auto max-w-5xl px-6 py-24">

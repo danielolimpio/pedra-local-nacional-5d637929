@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "./granito";
 import { ArrowRight } from "lucide-react";
 import hero from "@/assets/hero-granite.webp";
@@ -15,7 +16,8 @@ export const Route = createFileRoute("/blog")({
       { title: "Blog: Granito, Mármore e Quartzo — Guia Completo | Marmorarias.shop" },
       { name: "description", content: "Tudo sobre pedras naturais: como escolher, manter e tendências em granito, mármore e quartzo para sua cozinha, banheiro e área gourmet." },
       { property: "og:title", content: "Blog Marmorarias.shop" },
-      { property: "og:image", content: hero },
+      { property: "og:image", content: `https://marmorarias.shop${hero}` },
+      { name: "twitter:image", content: `https://marmorarias.shop${hero}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/blog" }],
   }),
@@ -49,6 +51,7 @@ const posts = [
 function BlogPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Blog" }]} />
       <PageHero eyebrow="Blog" title="Insights de Marmoraria" subtitle="Guias, tendências e dicas de manutenção para você escolher e preservar a pedra ideal." image={hero} />
 
       <section className="mx-auto max-w-7xl px-6 py-24">
