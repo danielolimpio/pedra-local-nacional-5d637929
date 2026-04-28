@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "./granito";
 import { FAQ } from "@/components/FAQ";
 import bathroom from "@/assets/bathroom-luxury.webp";
@@ -15,7 +16,8 @@ export const Route = createFileRoute("/banheiro")({
       { name: "description", content: "Bancada de mármore para banheiro, pia esculpida em pedra, soleira de granito, revestimento de mármore para box. Projetos sob medida." },
       { name: "keywords", content: "bancada de mármore para banheiro, pia esculpida em pedra, bancada com cuba embutida, pedra para box de banheiro, soleira de granito para porta, revestimento de mármore banheiro" },
       { property: "og:title", content: "Bancadas de Banheiro em Mármore" },
-      { property: "og:image", content: bathroom },
+      { property: "og:image", content: `https://marmorarias.shop${bathroom}` },
+      { name: "twitter:image", content: `https://marmorarias.shop${bathroom}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/banheiro" }],
   }),
@@ -25,6 +27,7 @@ export const Route = createFileRoute("/banheiro")({
 function BanheiroPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Aplicações" }, { label: "Banheiro" }]} />
       <PageHero eyebrow="Aplicações" title="Banheiro & Lavabo" subtitle="Bancada de mármore Carrara, cuba esculpida, soleira de granito e revestimento de box em pedra natural." image={bathroom} />
 
       <section className="mx-auto max-w-7xl px-6 py-24">

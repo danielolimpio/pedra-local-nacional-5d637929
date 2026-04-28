@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "./granito";
 import carrara from "@/assets/marble-carrara.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
@@ -16,7 +17,8 @@ export const Route = createFileRoute("/marmore")({
       { name: "keywords", content: "mármore para bancada, mármore branco carrara, mármore calacatta gold, travertino romano, mármore preto, pia de mármore cozinha, preço mármore m2" },
       { property: "og:title", content: "Mármore Premium — Marmorarias.shop" },
       { property: "og:description", content: "Mármore Carrara, Calacatta Gold e Travertino para projetos sofisticados." },
-      { property: "og:image", content: calacatta },
+      { property: "og:image", content: `https://marmorarias.shop${calacatta}` },
+      { name: "twitter:image", content: `https://marmorarias.shop${calacatta}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/marmore" }],
   }),
@@ -26,6 +28,7 @@ export const Route = createFileRoute("/marmore")({
 function MarmorePage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Materiais" }, { label: "Mármore" }]} />
       <PageHero eyebrow="Materiais — Mármore" title="Mármore para Bancada" subtitle="Carrara, Calacatta Gold, Travertino Romano e Onix translúcido — sofisticação eterna." image={calacatta} />
 
       <section className="mx-auto max-w-7xl px-6 py-24">

@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "./granito";
 import quartz from "@/assets/quartz-white.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
@@ -15,7 +16,8 @@ export const Route = createFileRoute("/quartzo")({
       { name: "description", content: "Quartzo branco para bancada de cozinha, Silestone, Nanoglass, Dekton e Corian. Pedra sintética premium com alta resistência e zero porosidade." },
       { name: "keywords", content: "quartzo branco para bancada, silestone cozinha, nanoglass branco, dekton bancada cozinha, corian, quartzo calacata, pedra sintética para pia" },
       { property: "og:title", content: "Quartzo e Pedras Sintéticas — Marmorarias.shop" },
-      { property: "og:image", content: quartz },
+      { property: "og:image", content: `https://marmorarias.shop${quartz}` },
+      { name: "twitter:image", content: `https://marmorarias.shop${quartz}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/quartzo" }],
   }),
@@ -25,6 +27,7 @@ export const Route = createFileRoute("/quartzo")({
 function QuartzoPage() {
   return (
     <PageLayout>
+      <Breadcrumbs items={[{ label: "Materiais" }, { label: "Quartzo" }]} />
       <PageHero eyebrow="Materiais — Quartzo" title="Quartzo para Bancada" subtitle="Silestone, Nanoglass, Dekton e Corian — pedras de engenharia com performance superior." image={quartz} />
 
       <section className="mx-auto max-w-7xl px-6 py-24">
