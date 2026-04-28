@@ -36,7 +36,7 @@ export function QuoteForm() {
     <form onSubmit={onSubmit} className="space-y-5">
       <div className="grid gap-5 md:grid-cols-2">
         <Field name="nome" label="Nome completo" placeholder="Seu nome" />
-        <Field name="telefone" label="Telefone / WhatsApp" placeholder="(12) 98251-9116" />
+        <Field name="telefone" label="Telefone / WhatsApp" placeholder="(00) 00000-0000" />
         <Field name="email" label="E-mail" type="email" placeholder="voce@email.com" />
         <Field name="cidade" label="Cidade / Estado" placeholder="Ex: São Paulo / SP" />
         <Select name="material" label="Material desejado" options={[
