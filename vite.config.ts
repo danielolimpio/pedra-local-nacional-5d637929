@@ -27,10 +27,16 @@ export default defineConfig({
     prerender: {
       enabled: true,
       crawlLinks: true,
+      concurrency: 2,
       retryCount: 2,
+      retryDelay: 1000,
       failOnError: true,
+      autoStaticPathsDiscovery: false,
     },
-    pages: staticPages.map((path) => ({ path })),
+    pages: staticPages.map((path) => ({
+      path,
+      prerender: { enabled: true },
+    })),
     spa: {
       enabled: false,
     },
