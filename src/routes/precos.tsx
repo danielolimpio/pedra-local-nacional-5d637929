@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PageHero } from "./granito";
+import { FAQ } from "@/components/FAQ";
 import hero from "@/assets/hero-granite.webp";
 
 export const Route = createFileRoute("/precos")({
@@ -74,6 +75,19 @@ function PrecosPage() {
           <Link to="/contato" className="inline-flex items-center bg-foreground px-10 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">Solicitar Orçamento Sob Medida</Link>
         </div>
       </section>
+
+      <FAQ
+        title="Perguntas sobre preços e orçamento"
+        items={[
+          { q: "Como é calculado o preço por m² do granito?", a: "O valor por metro quadrado considera o tipo de pedra, a espessura (2cm ou 3cm) e o acabamento (polido, escovado, flameado). A medida final é calculada pela área da bancada arredondada para cima conforme o aproveitamento da chapa." },
+          { q: "O preço da tabela inclui instalação?", a: "Os valores da tabela são para a chapa polida. Instalação, recortes para cooktop, cuba, torneira e transporte são orçados à parte conforme o projeto e a localidade." },
+          { q: "Qual o granito mais barato para cozinha?", a: "Granito Cinza Andorinha a partir de R$ 420/m² e Granito São Gabriel a R$ 480/m² são os mais econômicos com excelente resistência. Ambos têm padrão visual aprovado para cozinhas residenciais." },
+          { q: "Quanto custa um mármore Calacatta Gold por m²?", a: "O mármore Calacatta Gold importado da Itália custa R$ 1.450/m² polido. É o mármore mais nobre da categoria, indicado para projetos de alto padrão." },
+          { q: "Há garantia sobre o preço orçado?", a: "Os orçamentos têm validade de 15 dias. Após confirmação do pedido e medição definitiva, o valor é congelado e não sofre reajuste durante a execução." },
+          { q: "Como manter a bancada limpa para preservar a garantia?", a: "Limpe diariamente com pano úmido e sabão neutro. Não use produtos abrasivos, ácidos (limão, vinagre) ou álcool puro. Reaplique resina hidrofugante a cada 24 meses." },
+          { q: "Vocês parcelam o pagamento?", a: "Sim. Trabalhamos com parcelamento em até 6x sem juros no cartão e até 12x com juros. Também aceitamos PIX com 5% de desconto à vista." },
+        ]}
+      />
     </PageLayout>
   );
 }
