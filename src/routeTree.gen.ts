@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as QuartzoRouteImport } from './routes/quartzo'
 import { Route as PrecosRouteImport } from './routes/precos'
 import { Route as MarmoreRouteImport } from './routes/marmore'
@@ -21,6 +22,11 @@ import { Route as BanheiroRouteImport } from './routes/banheiro'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuartzoRoute = QuartzoRouteImport.update({
   id: '/quartzo',
   path: '/quartzo',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/marmore': typeof MarmoreRoute
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
+  '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/marmore': typeof MarmoreRoute
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
+  '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   '/marmore': typeof MarmoreRoute
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
+  '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/marmore'
     | '/precos'
     | '/quartzo'
+    | '/sitemap'
     | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/marmore'
     | '/precos'
     | '/quartzo'
+    | '/sitemap'
     | '/blog/$slug'
   id:
     | '__root__'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
     | '/marmore'
     | '/precos'
     | '/quartzo'
+    | '/sitemap'
     | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -170,10 +182,18 @@ export interface RootRouteChildren {
   MarmoreRoute: typeof MarmoreRoute
   PrecosRoute: typeof PrecosRoute
   QuartzoRoute: typeof QuartzoRoute
+  SitemapRoute: typeof SitemapRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quartzo': {
       id: '/quartzo'
       path: '/quartzo'
@@ -275,6 +295,7 @@ const rootRouteChildren: RootRouteChildren = {
   MarmoreRoute: MarmoreRoute,
   PrecosRoute: PrecosRoute,
   QuartzoRoute: QuartzoRoute,
+  SitemapRoute: SitemapRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
