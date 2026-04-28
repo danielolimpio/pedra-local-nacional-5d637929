@@ -4,8 +4,6 @@ import { toast } from "sonner";
 
 const schema = z.object({
   nome: z.string().trim().min(2, "Informe seu nome").max(100),
-  telefone: z.string().trim().min(8, "Telefone inválido").max(20),
-  email: z.string().trim().email("E-mail inválido").max(255),
   cidade: z.string().trim().min(2, "Informe sua cidade").max(100),
   material: z.string().trim().min(2, "Selecione um material").max(80),
   aplicacao: z.string().trim().min(2, "Selecione a aplicação").max(80),
@@ -17,7 +15,8 @@ export function QuoteForm() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const data = Object.fromEntries(fd.entries()) as Record<string, string>;
     const parsed = schema.safeParse(data);
     if (!parsed.success) {
@@ -25,19 +24,26 @@ export function QuoteForm() {
       return;
     }
     setLoading(true);
-    const msg = `Olá! Quero um orçamento.%0A%0ANome: ${encodeURIComponent(parsed.data.nome)}%0ATelefone: ${encodeURIComponent(parsed.data.telefone)}%0AE-mail: ${encodeURIComponent(parsed.data.email)}%0ACidade: ${encodeURIComponent(parsed.data.cidade)}%0AMaterial: ${encodeURIComponent(parsed.data.material)}%0AAplicação: ${encodeURIComponent(parsed.data.aplicacao)}%0AObs: ${encodeURIComponent(parsed.data.mensagem ?? "")}`;
+    const linhas = [
+      "Olá! Quero um orçamento.",
+      "",
+      `Nome: ${parsed.data.nome}`,
+      `Cidade/Estado: ${parsed.data.cidade}`,
+      `Material: ${parsed.data.material}`,
+      `Aplicação: ${parsed.data.aplicacao}`,
+      `Mensagem: ${parsed.data.mensagem || "—"}`,
+    ];
+    const msg = encodeURIComponent(linhas.join("\n"));
     window.open(`https://wa.me/5512982519116?text=${msg}`, "_blank");
     toast.success("Redirecionando para o WhatsApp...");
     setLoading(false);
-    e.currentTarget.reset();
+    form.reset();
   };
 
   return (
     <form onSubmit={onSubmit} className="space-y-5">
       <div className="grid gap-5 md:grid-cols-2">
         <Field name="nome" label="Nome completo" placeholder="Seu nome" />
-        <Field name="telefone" label="Telefone / WhatsApp" placeholder="(00) 00000-0000" />
-        <Field name="email" label="E-mail" type="email" placeholder="voce@email.com" />
         <Field name="cidade" label="Cidade / Estado" placeholder="Ex: São Paulo / SP" />
         <Select name="material" label="Material desejado" options={[
           "Granito São Gabriel", "Granito Branco Siena", "Mármore Carrara",
@@ -63,7 +69,7 @@ export function QuoteForm() {
         disabled={loading}
         className="inline-flex w-full items-center justify-center bg-foreground px-8 py-4 text-xs uppercase tracking-[0.25em] text-background transition-colors hover:bg-gold hover:text-onyx md:w-auto"
       >
-        {loading ? "Enviando..." : "Solicitar Orçamento"}
+        {loading ? "Abrindo WhatsApp..." : "Enviar pelo WhatsApp"}
       </button>
     </form>
   );
