@@ -38,8 +38,8 @@ function ContatoPage() {
               <p className="eyebrow">Contato Direto</p>
               <h3 className="mt-3 font-serif text-2xl">Fale com a PedraNobre</h3>
             </div>
-            <Item icon={MessageCircle} label="WhatsApp" value="(11) 99999-9999" href="https://wa.me/5511999999999" />
-            <Item icon={Phone} label="Telefone" value="(11) 99999-9999" href="tel:+5511999999999" />
+            <Item icon={MessageCircle} label="WhatsApp" value="(12) 98251-9116" href="https://wa.me/5512982519116" />
+            <Item icon={Phone} label="Telefone" value="(12) 98251-9116" href="tel:+5512982519116" />
             <Item icon={Mail} label="E-mail" value="contato@pedranobre.com.br" href="mailto:contato@pedranobre.com.br" />
             <Item icon={MapPin} label="Loja & Showroom" value="Av. das Marmorarias, 1500 — São Paulo / SP" />
             <Item icon={Clock} label="Horário" value="Seg a Sex: 8h às 18h • Sáb: 8h às 13h" />

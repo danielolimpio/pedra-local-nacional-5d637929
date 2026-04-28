@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
           image: heroGranite,
           "@id": "https://pedranobre.com.br",
           url: "https://pedranobre.com.br",
-          telephone: "+55-11-99999-9999",
+          telephone: "+55-12-98251-9116",
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",

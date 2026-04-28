@@ -63,9 +63,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-4 xl:flex shrink-0">
-          <a href="tel:+5511999999999" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground">
+          <a href="tel:+5512982519116" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground">
             <Phone className="h-4 w-4 text-gold" />
-            (11) 99999-9999
+            (12) 98251-9116
           </a>
           <Link
             to="/contato"
