@@ -8,10 +8,10 @@ export const Route = createFileRoute("/precos")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/precos" },
-      { title: "Tabela de Preços de Granito e Mármore por m² — Atualizada 2026 | PedraNobre" },
+      { title: "Tabela de Preços de Granito e Mármore por m² — Atualizada 2026 | Marmorarias.shop" },
       { name: "description", content: "Quanto custa bancada de granito São Gabriel? Veja preços por metro quadrado de granito, mármore e quartzo. Tabela atualizada 2026 com instalação inclusa." },
       { name: "keywords", content: "preço granito m2, preço granito são gabriel m2, valor do metro de mármore branco, quanto custa bancada de quartzo, tabela de preço granito 2026, orçamento pia de granito sob medida" },
-      { property: "og:title", content: "Tabela de Preços 2026 — PedraNobre" },
+      { property: "og:title", content: "Tabela de Preços 2026 — Marmorarias.shop" },
       { property: "og:image", content: hero },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/precos" }],
