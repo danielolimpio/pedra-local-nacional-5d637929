@@ -24,16 +24,19 @@ jobs:
         run: npm run build
 
       - name: Mostrar arquivos gerados
-        run: ls -la dist/
+        run: ls -la dist/ && ls -la dist/client/
 
-      - name: Deploy FTP para Hostinger
+      - name: Garantir .htaccess no client
+        run: cp -f public/.htaccess dist/client/.htaccess || true
+
+      - name: Deploy FTP para Hostinger (apenas client estático)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           port: 21
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
-          local-dir: ./dist/
+          local-dir: ./dist/client/
           server-dir: /
           dangerous-clean-slate: true
           dry-run: false
