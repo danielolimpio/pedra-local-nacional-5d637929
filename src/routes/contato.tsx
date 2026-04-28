@@ -11,9 +11,11 @@ export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/contato" },
-      { title: "Orçamento Online de Granito e Mármore | Marmoraria Marmorarias.shop" },
-      { name: "description", content: "Solicite orçamento de bancada em granito, mármore ou quartzo. Atendimento por WhatsApp, e-mail e telefone. Entrega e instalação em todo o Brasil." },
-      { property: "og:title", content: "Solicitar Orçamento — Marmorarias.shop" },
+      { title: "Orçamento Online de Granito, Mármore e Quartzo via WhatsApp" },
+      { name: "description", content: "Peça orçamento de bancada em granito, mármore ou quartzo direto no WhatsApp. Atendimento rápido, entrega e instalação em todo o Brasil." },
+      { name: "keywords", content: "orçamento marmoraria, orçamento bancada de granito, orçamento mármore, marmoraria whatsapp, marmoraria perto de mim" },
+      { property: "og:title", content: "Solicitar Orçamento de Marmoraria — Marmorarias.shop" },
+      { property: "og:description", content: "Orçamento rápido de granito, mármore e quartzo via WhatsApp." },
       { property: "og:image", content: `https://marmorarias.shop${calacatta}` },
       { name: "twitter:image", content: `https://marmorarias.shop${calacatta}` },
     ],

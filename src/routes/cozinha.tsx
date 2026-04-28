@@ -12,7 +12,7 @@ export const Route = createFileRoute("/cozinha")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/cozinha" },
-      { title: "Bancada de Cozinha em Granito, Mármore e Quartzo Sob Medida | Marmorarias.shop" },
+      { title: "Bancada de Cozinha: Granito, Mármore e Quartzo Sob Medida" },
       { name: "description", content: "Bancada de granito para cozinha, ilha em mármore Calacatta, churrasqueira gourmet, pia esculpida com cooktop. Projeto sob medida em todo o Brasil." },
       { name: "keywords", content: "bancada de granito para cozinha, pia de mármore com cooktop, balcão de cozinha em granito, bancada quartzo branco cozinha, pia esculpida em granito, bancada para ilha de cozinha" },
       { property: "og:title", content: "Bancadas de Cozinha Premium — Marmorarias.shop" },
@@ -42,7 +42,7 @@ function CozinhaPage() {
 
         <div className="mt-24 bg-onyx p-12 text-center text-cream md:p-16">
           <p className="eyebrow text-gold">Pronto para começar?</p>
-          <h3 className="mt-4 font-serif text-4xl">Receba o orçamento da sua bancada de cozinha</h3>
+          <h2 className="mt-4 font-serif text-4xl">Receba o orçamento da sua bancada de cozinha</h2>
           <Link to="/contato" className="mt-8 inline-flex items-center bg-gold px-10 py-4 text-xs uppercase tracking-[0.25em] text-onyx hover:bg-cream">Solicitar Orçamento</Link>
         </div>
       </section>

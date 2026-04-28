@@ -13,9 +13,11 @@ export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/blog" },
-      { title: "Blog: Granito, Mármore e Quartzo — Guia Completo | Marmorarias.shop" },
-      { name: "description", content: "Tudo sobre pedras naturais: como escolher, manter e tendências em granito, mármore e quartzo para sua cozinha, banheiro e área gourmet." },
-      { property: "og:title", content: "Blog Marmorarias.shop" },
+      { title: "Blog de Marmoraria: Guias de Granito, Mármore e Quartzo" },
+      { name: "description", content: "Guias e tendências de marmoraria: como escolher granito, mármore Carrara ou quartzo, manutenção de pedras naturais e tendências 2026." },
+      { name: "keywords", content: "blog marmoraria, como escolher granito, manutenção de mármore, tendências marmoraria 2026, guia pedras naturais" },
+      { property: "og:title", content: "Blog de Marmoraria — Marmorarias.shop" },
+      { property: "og:description", content: "Guias práticos sobre granito, mármore, quartzo e tendências de marmoraria." },
       { property: "og:image", content: `https://marmorarias.shop${hero}` },
       { name: "twitter:image", content: `https://marmorarias.shop${hero}` },
     ],

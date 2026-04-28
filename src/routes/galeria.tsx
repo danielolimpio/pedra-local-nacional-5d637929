@@ -18,9 +18,11 @@ export const Route = createFileRoute("/galeria")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/galeria" },
-      { title: "Galeria de Projetos: Cozinha, Banheiro e Churrasqueira em Pedra | Marmorarias.shop" },
-      { name: "description", content: "Galeria de projetos em granito, mármore e quartzo. Inspire-se em bancadas de cozinha, banheiros, churrasqueiras e revestimentos executados pela Marmorarias.shop." },
-      { property: "og:title", content: "Galeria — Marmorarias.shop" },
+      { title: "Galeria de Projetos: Bancadas em Granito, Mármore e Quartzo" },
+      { name: "description", content: "Galeria de projetos de marmoraria: bancadas de cozinha, banheiros, churrasqueiras e revestimentos em granito, mármore Carrara e quartzo." },
+      { name: "keywords", content: "projetos de marmoraria, fotos de bancada de granito, galeria de mármore Calacatta, bancada de quartzo branco fotos, churrasqueira em granito" },
+      { property: "og:title", content: "Galeria de Projetos — Marmorarias.shop" },
+      { property: "og:description", content: "Inspire-se com bancadas, pias esculpidas e revestimentos em pedras nobres." },
       { property: "og:image", content: `https://marmorarias.shop${kitchen}` },
       { name: "twitter:image", content: `https://marmorarias.shop${kitchen}` },
     ],

@@ -12,10 +12,11 @@ export const Route = createFileRoute("/banheiro")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/banheiro" },
-      { title: "Bancada de Mármore para Banheiro com Cuba Esculpida | Marmorarias.shop" },
-      { name: "description", content: "Bancada de mármore para banheiro, pia esculpida em pedra, soleira de granito, revestimento de mármore para box. Projetos sob medida." },
+      { title: "Bancada de Mármore para Banheiro com Cuba Esculpida" },
+      { name: "description", content: "Bancada de mármore Carrara para banheiro, pia esculpida, soleira de granito e revestimento de box em pedra natural. Projetos sob medida." },
       { name: "keywords", content: "bancada de mármore para banheiro, pia esculpida em pedra, bancada com cuba embutida, pedra para box de banheiro, soleira de granito para porta, revestimento de mármore banheiro" },
-      { property: "og:title", content: "Bancadas de Banheiro em Mármore" },
+      { property: "og:title", content: "Bancada de Mármore para Banheiro — Cuba Esculpida" },
+      { property: "og:description", content: "Mármore Carrara, Calacatta e granito para banheiros e lavabos sob medida." },
       { property: "og:image", content: `https://marmorarias.shop${bathroom}` },
       { name: "twitter:image", content: `https://marmorarias.shop${bathroom}` },
     ],
@@ -40,7 +41,7 @@ function BanheiroPage() {
         </div>
 
         <div className="mt-24 bg-secondary p-12">
-          <h3 className="font-serif text-3xl">Soleiras e peitoris em granito</h3>
+          <h2 className="font-serif text-3xl">Soleiras e peitoris em granito</h2>
           <p className="mt-4 max-w-3xl text-muted-foreground">
             Trabalhamos também com soleira de granito para porta (2 metros), peitoris de janela
             em granito, escada em mármore branco e revestimento de pedra para fachada.

@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const Route = createFileRoute("/sitemap")({
   head: () => ({
     meta: [
-      { title: "Mapa do Site — Marmorarias.shop | Todas as Páginas" },
+      { title: "Mapa do Site: Granito, Mármore, Quartzo e Bancadas" },
       { name: "description", content: "Mapa do site Marmorarias.shop. Acesse todas as páginas: granito, mármore, quartzo, bancadas para cozinha, banheiro, preços, galeria e blog." },
       { property: "og:title", content: "Mapa do Site — Marmorarias.shop" },
       { property: "og:description", content: "Navegue por todas as páginas da nossa marmoraria online." },
