@@ -32,11 +32,7 @@ export default defineConfig({
     },
     pages: staticPages.map((path) => ({ path })),
     spa: {
-      enabled: true,
-      maskPath: "/",
-      prerender: {
-        outputPath: "/",
-      },
+      enabled: false,
     },
   },
 });
