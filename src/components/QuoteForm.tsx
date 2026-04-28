@@ -26,7 +26,7 @@ export function QuoteForm() {
     }
     setLoading(true);
     const msg = `Olá! Quero um orçamento.%0A%0ANome: ${encodeURIComponent(parsed.data.nome)}%0ATelefone: ${encodeURIComponent(parsed.data.telefone)}%0AE-mail: ${encodeURIComponent(parsed.data.email)}%0ACidade: ${encodeURIComponent(parsed.data.cidade)}%0AMaterial: ${encodeURIComponent(parsed.data.material)}%0AAplicação: ${encodeURIComponent(parsed.data.aplicacao)}%0AObs: ${encodeURIComponent(parsed.data.mensagem ?? "")}`;
-    window.open(`https://wa.me/5511999999999?text=${msg}`, "_blank");
+    window.open(`https://wa.me/5512982519116?text=${msg}`, "_blank");
     toast.success("Redirecionando para o WhatsApp...");
     setLoading(false);
     e.currentTarget.reset();
@@ -36,7 +36,7 @@ export function QuoteForm() {
     <form onSubmit={onSubmit} className="space-y-5">
       <div className="grid gap-5 md:grid-cols-2">
         <Field name="nome" label="Nome completo" placeholder="Seu nome" />
-        <Field name="telefone" label="Telefone / WhatsApp" placeholder="(11) 99999-9999" />
+        <Field name="telefone" label="Telefone / WhatsApp" placeholder="(12) 98251-9116" />
         <Field name="email" label="E-mail" type="email" placeholder="voce@email.com" />
         <Field name="cidade" label="Cidade / Estado" placeholder="Ex: São Paulo / SP" />
         <Select name="material" label="Material desejado" options={[

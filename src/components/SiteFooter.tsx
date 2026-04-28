@@ -19,7 +19,7 @@ export function SiteFooter() {
             <a href="https://facebook.com" aria-label="Facebook" className="rounded-full border border-cream/20 p-2 transition-colors hover:border-gold hover:text-gold">
               <Facebook className="h-4 w-4" />
             </a>
-            <a href="https://wa.me/5511999999999" aria-label="WhatsApp" className="rounded-full border border-cream/20 p-2 transition-colors hover:border-gold hover:text-gold">
+            <a href="https://wa.me/5512982519116" aria-label="WhatsApp" className="rounded-full border border-cream/20 p-2 transition-colors hover:border-gold hover:text-gold">
               <MessageCircle className="h-4 w-4" />
             </a>
           </div>
@@ -51,7 +51,7 @@ export function SiteFooter() {
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Contato</h4>
           <ul className="mt-6 space-y-3 text-sm text-cream/70">
             <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-gold" />Av. das Marmorarias, 1500 — São Paulo / SP</li>
-            <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold" />(11) 99999-9999</li>
+            <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold" />(12) 98251-9116</li>
             <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold" />contato@pedranobre.com.br</li>
           </ul>
           <p className="mt-6 text-xs text-cream/50">Atendemos todo o Brasil — projetos sob medida com entrega e instalação.</p>
