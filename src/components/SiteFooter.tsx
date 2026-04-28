@@ -5,7 +5,7 @@ import logo from "@/assets/logo-marmorarias.webp";
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/60 bg-onyx text-cream">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 lg:grid-cols-5">
         <div>
           <img src={logo} alt="Marmorarias.shop" className="h-16 w-auto object-contain bg-cream/95 p-2" />
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/70">
@@ -55,6 +55,19 @@ export function SiteFooter() {
             <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold" />contato@marmorarias.shop</li>
           </ul>
           <p className="mt-6 text-xs text-cream/50">Atendemos todo o Brasil — projetos sob medida com entrega e instalação.</p>
+        </div>
+
+        <div>
+          <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Mapa do Site</h4>
+          <ul className="mt-6 space-y-3 text-sm text-cream/70">
+            <li><Link to="/" className="hover:text-gold">Início</Link></li>
+            <li><Link to="/precos" className="hover:text-gold">Preços por m²</Link></li>
+            <li><Link to="/galeria" className="hover:text-gold">Galeria de Projetos</Link></li>
+            <li><Link to="/blog" className="hover:text-gold">Blog & Guias</Link></li>
+            <li><Link to="/contato" className="hover:text-gold">Solicitar Orçamento</Link></li>
+            <li><Link to="/sitemap" className="hover:text-gold">Mapa do Site (HTML)</Link></li>
+            <li><a href="/sitemap.xml" className="hover:text-gold">sitemap.xml</a></li>
+          </ul>
         </div>
       </div>
       <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/50">
