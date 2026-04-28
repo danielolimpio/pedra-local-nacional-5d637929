@@ -58,7 +58,15 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/50">
-        © {new Date().getFullYear()} PedraNobre Marmoraria — Todos os direitos reservados.
+        © Copyright {new Date().getFullYear()} | Marmorarias Shop | Todos os direitos reservados | Desenvolvido por{" "}
+        <a
+          href="https://danielolimpio.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gold hover:underline"
+        >
+          Daniel Olímpio
+        </a>
       </div>
     </footer>
   );
