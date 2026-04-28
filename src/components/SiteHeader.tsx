@@ -27,22 +27,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-6">
-        <Link to="/" className="flex items-center gap-3 shrink-0">
+        <Link to="/" className="flex items-center shrink-0">
           <img
             src={logo}
             alt="Marmorarias.shop"
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain"
+            className="h-12 w-auto object-contain md:h-14"
           />
-          <div className="flex flex-col leading-none">
-            <span className="font-serif text-xl tracking-tight">
-              Marmorarias<span className="text-gold">.shop</span>
-            </span>
-            <span className="hidden text-[9px] uppercase tracking-[0.25em] text-muted-foreground sm:inline">
-              Premium Marble & Granite
-            </span>
-          </div>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
