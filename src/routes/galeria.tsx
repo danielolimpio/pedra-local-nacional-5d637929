@@ -2,23 +2,23 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PageHero } from "./granito";
-import kitchen from "@/assets/kitchen-luxury.jpg";
-import bathroom from "@/assets/bathroom-luxury.jpg";
-import churrasqueira from "@/assets/churrasqueira.jpg";
-import carrara from "@/assets/marble-carrara.jpg";
-import calacatta from "@/assets/marble-calacatta.jpg";
-import sao from "@/assets/granite-sao-gabriel.jpg";
-import siena from "@/assets/granite-siena.jpg";
-import quartz from "@/assets/quartz-white.jpg";
-import hero from "@/assets/hero-granite.jpg";
+import kitchen from "@/assets/kitchen-luxury.webp";
+import bathroom from "@/assets/bathroom-luxury.webp";
+import churrasqueira from "@/assets/churrasqueira.webp";
+import carrara from "@/assets/marble-carrara.webp";
+import calacatta from "@/assets/marble-calacatta.webp";
+import sao from "@/assets/granite-sao-gabriel.webp";
+import siena from "@/assets/granite-siena.webp";
+import quartz from "@/assets/quartz-white.webp";
+import hero from "@/assets/hero-granite.webp";
 
 export const Route = createFileRoute("/galeria")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/galeria" },
-      { title: "Galeria de Projetos: Cozinha, Banheiro e Churrasqueira em Pedra | PedraNobre" },
-      { name: "description", content: "Galeria de projetos em granito, mármore e quartzo. Inspire-se em bancadas de cozinha, banheiros, churrasqueiras e revestimentos executados pela PedraNobre." },
-      { property: "og:title", content: "Galeria — PedraNobre" },
+      { title: "Galeria de Projetos: Cozinha, Banheiro e Churrasqueira em Pedra | Marmorarias.shop" },
+      { name: "description", content: "Galeria de projetos em granito, mármore e quartzo. Inspire-se em bancadas de cozinha, banheiros, churrasqueiras e revestimentos executados pela Marmorarias.shop." },
+      { property: "og:title", content: "Galeria — Marmorarias.shop" },
       { property: "og:image", content: kitchen },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/galeria" }],

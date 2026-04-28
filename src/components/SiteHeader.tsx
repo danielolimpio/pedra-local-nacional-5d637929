@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
-import logo from "@/assets/logo-marmorarias.png";
+import logo from "@/assets/logo-marmorarias.webp";
 
 const materiais = [
   { to: "/granito", label: "Granito" },
@@ -18,6 +18,7 @@ const mainItems = [
   { to: "/", label: "Início" },
   { to: "/precos", label: "Preços" },
   { to: "/galeria", label: "Galeria" },
+  { to: "/blog", label: "Blog" },
   { to: "/contato", label: "Contato" },
 ] as const;
 

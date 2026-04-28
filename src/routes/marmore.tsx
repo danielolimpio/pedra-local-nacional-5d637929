@@ -3,18 +3,18 @@ import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
 import { PageHero } from "./granito";
-import carrara from "@/assets/marble-carrara.jpg";
-import calacatta from "@/assets/marble-calacatta.jpg";
-import bathroom from "@/assets/bathroom-luxury.jpg";
+import carrara from "@/assets/marble-carrara.webp";
+import calacatta from "@/assets/marble-calacatta.webp";
+import bathroom from "@/assets/bathroom-luxury.webp";
 
 export const Route = createFileRoute("/marmore")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/marmore" },
-      { title: "Mármore para Bancada: Carrara, Calacatta Gold e Travertino | PedraNobre" },
+      { title: "Mármore para Bancada: Carrara, Calacatta Gold e Travertino | Marmorarias.shop" },
       { name: "description", content: "Mármore branco Carrara, Calacatta Gold, Travertino Romano e Onix. Bancadas, pias esculpidas e revestimentos sob medida com instalação." },
       { name: "keywords", content: "mármore para bancada, mármore branco carrara, mármore calacatta gold, travertino romano, mármore preto, pia de mármore cozinha, preço mármore m2" },
-      { property: "og:title", content: "Mármore Premium — PedraNobre" },
+      { property: "og:title", content: "Mármore Premium — Marmorarias.shop" },
       { property: "og:description", content: "Mármore Carrara, Calacatta Gold e Travertino para projetos sofisticados." },
       { property: "og:image", content: calacatta },
     ],
@@ -59,6 +59,24 @@ function MarmorePage() {
             <p className="mt-4 text-muted-foreground">Esculpimos pias e cubas direto na chapa de mármore, garantindo acabamento contínuo e visual de altíssimo padrão.</p>
             <Link to="/contato" className="mt-8 inline-flex items-center bg-foreground px-8 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">Pedir Orçamento de Mármore</Link>
           </aside>
+        </div>
+
+        {/* FAQ */}
+        <div className="mt-24">
+          <SectionHeader eyebrow="Dúvidas Frequentes" title="Perguntas sobre mármore" />
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {[
+              { q: "Mármore branco mancha com vinho?", a: "É poroso, mas a aplicação de resina hidrofugante reduz drasticamente a absorção. Limpeza imediata evita manchas." },
+              { q: "Mármore Carrara é importado?", a: "Sim, vem da região de Carrara, na Itália. Trabalhamos com chapas selecionadas direto de cantaria." },
+              { q: "Diferença entre Carrara e Calacatta?", a: "Calacatta tem fundo mais branco e veios dourados marcantes. Carrara tem veios cinza mais sutis." },
+              { q: "Pode usar mármore em cozinha?", a: "Sim, com cuidados de manutenção e selagem profissional. Para uso intenso, granito ou quartzo são mais práticos." },
+            ].map(f => (
+              <div key={f.q}>
+                <h4 className="font-serif text-lg">{f.q}</h4>
+                <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </PageLayout>

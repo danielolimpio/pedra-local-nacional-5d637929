@@ -2,18 +2,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PageHero } from "./granito";
-import kitchen from "@/assets/kitchen-luxury.jpg";
-import churrasqueira from "@/assets/churrasqueira.jpg";
-import sieva from "@/assets/granite-siena.jpg";
+import kitchen from "@/assets/kitchen-luxury.webp";
+import churrasqueira from "@/assets/churrasqueira.webp";
+import sieva from "@/assets/granite-siena.webp";
 
 export const Route = createFileRoute("/cozinha")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/cozinha" },
-      { title: "Bancada de Cozinha em Granito, Mármore e Quartzo Sob Medida | PedraNobre" },
+      { title: "Bancada de Cozinha em Granito, Mármore e Quartzo Sob Medida | Marmorarias.shop" },
       { name: "description", content: "Bancada de granito para cozinha, ilha em mármore Calacatta, churrasqueira gourmet, pia esculpida com cooktop. Projeto sob medida em todo o Brasil." },
       { name: "keywords", content: "bancada de granito para cozinha, pia de mármore com cooktop, balcão de cozinha em granito, bancada quartzo branco cozinha, pia esculpida em granito, bancada para ilha de cozinha" },
-      { property: "og:title", content: "Bancadas de Cozinha Premium — PedraNobre" },
+      { property: "og:title", content: "Bancadas de Cozinha Premium — Marmorarias.shop" },
       { property: "og:image", content: kitchen },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/cozinha" }],

@@ -3,15 +3,15 @@ import { PageLayout } from "@/components/PageLayout";
 import { QuoteForm } from "@/components/QuoteForm";
 import { PageHero } from "./granito";
 import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
-import calacatta from "@/assets/marble-calacatta.jpg";
+import calacatta from "@/assets/marble-calacatta.webp";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/contato" },
-      { title: "Orçamento Online de Granito e Mármore | Marmoraria PedraNobre" },
+      { title: "Orçamento Online de Granito e Mármore | Marmoraria Marmorarias.shop" },
       { name: "description", content: "Solicite orçamento de bancada em granito, mármore ou quartzo. Atendimento por WhatsApp, e-mail e telefone. Entrega e instalação em todo o Brasil." },
-      { property: "og:title", content: "Solicitar Orçamento — PedraNobre" },
+      { property: "og:title", content: "Solicitar Orçamento — Marmorarias.shop" },
       { property: "og:image", content: calacatta },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/contato" }],
@@ -38,11 +38,11 @@ function ContatoPage() {
           <aside className="space-y-8 bg-secondary p-10">
             <div>
               <p className="eyebrow">Contato Direto</p>
-              <h3 className="mt-3 font-serif text-2xl">Fale com a PedraNobre</h3>
+              <h3 className="mt-3 font-serif text-2xl">Fale com a Marmorarias.shop</h3>
             </div>
             <Item icon={MessageCircle} label="WhatsApp" value="(12) 98251-9116" href="https://wa.me/5512982519116" />
             <Item icon={Phone} label="Telefone" value="(12) 98251-9116" href="tel:+5512982519116" />
-            <Item icon={Mail} label="E-mail" value="contato@pedranobre.com.br" href="mailto:contato@pedranobre.com.br" />
+            <Item icon={Mail} label="E-mail" value="contato@marmorarias.shop" href="mailto:contato@marmorarias.shop" />
             <Item icon={MapPin} label="Loja & Showroom" value="Av. das Marmorarias, 1500 — São Paulo / SP" />
             <Item icon={Clock} label="Horário" value="Seg a Sex: 8h às 18h • Sáb: 8h às 13h" />
 

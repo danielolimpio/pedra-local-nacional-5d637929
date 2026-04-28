@@ -2,18 +2,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
-import sieva from "@/assets/granite-siena.jpg";
-import saoGabriel from "@/assets/granite-sao-gabriel.jpg";
-import hero from "@/assets/hero-granite.jpg";
+import sieva from "@/assets/granite-siena.webp";
+import saoGabriel from "@/assets/granite-sao-gabriel.webp";
+import hero from "@/assets/hero-granite.webp";
 
 export const Route = createFileRoute("/granito")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/granito" },
-      { title: "Granito para Cozinha: Preços, Cores e Modelos | PedraNobre" },
+      { title: "Granito para Cozinha: Preços, Cores e Modelos | Marmorarias.shop" },
       { name: "description", content: "Granito São Gabriel, Branco Siena, Preto Absoluto, Cinza Andorinha. Bancada de granito sob medida para cozinha com preço por m². Solicite orçamento." },
       { name: "keywords", content: "granito para cozinha, granito São Gabriel, granito branco siena, granito preto absoluto, granito cinza andorinha, bancada de granito, preço granito m2" },
-      { property: "og:title", content: "Granito para Cozinha — PedraNobre" },
+      { property: "og:title", content: "Granito para Cozinha — Marmorarias.shop" },
       { property: "og:description", content: "Granitos premium para bancadas e pias. Preço por m² e instalação inclusa." },
       { property: "og:image", content: hero },
     ],
@@ -79,6 +79,39 @@ function GranitoPage() {
               Pedir Orçamento de Granito
             </Link>
           </aside>
+        </div>
+
+        {/* Por que escolher granito */}
+        <div className="mt-24 grid gap-8 md:grid-cols-3">
+          {[
+            { t: "Resistência ao calor", d: "Suporta panelas direto da boca do fogão sem deformar ou perder o brilho." },
+            { t: "Antibacteriano natural", d: "Superfície densa e impermeável após selagem — ideal para preparo de alimentos." },
+            { t: "Durabilidade de décadas", d: "Manutenção simples com pano úmido e sabão neutro. Vida útil acima de 30 anos." },
+          ].map(b => (
+            <div key={b.t} className="border border-border bg-card p-8">
+              <p className="eyebrow text-gold">Vantagem</p>
+              <h4 className="mt-3 font-serif text-xl">{b.t}</h4>
+              <p className="mt-3 text-sm text-muted-foreground">{b.d}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* FAQ */}
+        <div className="mt-24">
+          <SectionHeader eyebrow="Dúvidas Frequentes" title="Perguntas sobre granito" />
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {[
+              { q: "Granito mancha com vinho ou café?", a: "Não, desde que receba a selagem hidrofugante. Aplicamos resina premium em toda chapa antes da entrega." },
+              { q: "Posso colocar panela quente direto?", a: "Sim. O granito resiste a temperaturas acima de 300°C sem deformação ou marcas." },
+              { q: "Qual a espessura ideal para bancada?", a: "Trabalhamos com chapas de 2cm e 3cm. Para ilhas e cooktops, 3cm é o recomendado." },
+              { q: "Granito amarela com o tempo?", a: "Granitos polidos não amarelam. Apenas mármores claros sem manutenção podem oxidar." },
+            ].map(f => (
+              <div key={f.q}>
+                <h4 className="font-serif text-lg">{f.q}</h4>
+                <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </PageLayout>

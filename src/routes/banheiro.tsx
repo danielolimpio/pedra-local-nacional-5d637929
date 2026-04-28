@@ -2,15 +2,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PageHero } from "./granito";
-import bathroom from "@/assets/bathroom-luxury.jpg";
-import carrara from "@/assets/marble-carrara.jpg";
-import calacatta from "@/assets/marble-calacatta.jpg";
+import bathroom from "@/assets/bathroom-luxury.webp";
+import carrara from "@/assets/marble-carrara.webp";
+import calacatta from "@/assets/marble-calacatta.webp";
 
 export const Route = createFileRoute("/banheiro")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/banheiro" },
-      { title: "Bancada de Mármore para Banheiro com Cuba Esculpida | PedraNobre" },
+      { title: "Bancada de Mármore para Banheiro com Cuba Esculpida | Marmorarias.shop" },
       { name: "description", content: "Bancada de mármore para banheiro, pia esculpida em pedra, soleira de granito, revestimento de mármore para box. Projetos sob medida." },
       { name: "keywords", content: "bancada de mármore para banheiro, pia esculpida em pedra, bancada com cuba embutida, pedra para box de banheiro, soleira de granito para porta, revestimento de mármore banheiro" },
       { property: "og:title", content: "Bancadas de Banheiro em Mármore" },

@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, MessageCircle, MapPin, Mail, Phone } from "lucide-react";
-import logo from "@/assets/logo-marmorarias.png";
+import logo from "@/assets/logo-marmorarias.webp";
 
 export function SiteFooter() {
   return (
@@ -52,7 +52,7 @@ export function SiteFooter() {
           <ul className="mt-6 space-y-3 text-sm text-cream/70">
             <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-gold" />Av. das Marmorarias, 1500 — São Paulo / SP</li>
             <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold" />(12) 98251-9116</li>
-            <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold" />contato@pedranobre.com.br</li>
+            <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold" />contato@marmorarias.shop</li>
           </ul>
           <p className="mt-6 text-xs text-cream/50">Atendemos todo o Brasil — projetos sob medida com entrega e instalação.</p>
         </div>
