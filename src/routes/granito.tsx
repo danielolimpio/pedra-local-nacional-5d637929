@@ -9,6 +9,7 @@ import hero from "@/assets/hero-granite.jpg";
 export const Route = createFileRoute("/granito")({
   head: () => ({
     meta: [
+      { property: "og:url", content: "https://marmorarias.shop/granito" },
       { title: "Granito para Cozinha: Preços, Cores e Modelos | PedraNobre" },
       { name: "description", content: "Granito São Gabriel, Branco Siena, Preto Absoluto, Cinza Andorinha. Bancada de granito sob medida para cozinha com preço por m². Solicite orçamento." },
       { name: "keywords", content: "granito para cozinha, granito São Gabriel, granito branco siena, granito preto absoluto, granito cinza andorinha, bancada de granito, preço granito m2" },
@@ -16,6 +17,7 @@ export const Route = createFileRoute("/granito")({
       { property: "og:description", content: "Granitos premium para bancadas e pias. Preço por m² e instalação inclusa." },
       { property: "og:image", content: hero },
     ],
+    links: [{ rel: "canonical", href: "https://marmorarias.shop/granito" }],
   }),
   component: GranitoPage,
 });

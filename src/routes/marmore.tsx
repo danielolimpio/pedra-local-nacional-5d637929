@@ -10,6 +10,7 @@ import bathroom from "@/assets/bathroom-luxury.jpg";
 export const Route = createFileRoute("/marmore")({
   head: () => ({
     meta: [
+      { property: "og:url", content: "https://marmorarias.shop/marmore" },
       { title: "Mármore para Bancada: Carrara, Calacatta Gold e Travertino | PedraNobre" },
       { name: "description", content: "Mármore branco Carrara, Calacatta Gold, Travertino Romano e Onix. Bancadas, pias esculpidas e revestimentos sob medida com instalação." },
       { name: "keywords", content: "mármore para bancada, mármore branco carrara, mármore calacatta gold, travertino romano, mármore preto, pia de mármore cozinha, preço mármore m2" },
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/marmore")({
       { property: "og:description", content: "Mármore Carrara, Calacatta Gold e Travertino para projetos sofisticados." },
       { property: "og:image", content: calacatta },
     ],
+    links: [{ rel: "canonical", href: "https://marmorarias.shop/marmore" }],
   }),
   component: MarmorePage,
 });

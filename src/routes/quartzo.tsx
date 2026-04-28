@@ -10,12 +10,14 @@ import kitchen from "@/assets/kitchen-luxury.jpg";
 export const Route = createFileRoute("/quartzo")({
   head: () => ({
     meta: [
+      { property: "og:url", content: "https://marmorarias.shop/quartzo" },
       { title: "Quartzo Branco para Bancada: Silestone, Nanoglass e Dekton | PedraNobre" },
       { name: "description", content: "Quartzo branco para bancada de cozinha, Silestone, Nanoglass, Dekton e Corian. Pedra sintética premium com alta resistência e zero porosidade." },
       { name: "keywords", content: "quartzo branco para bancada, silestone cozinha, nanoglass branco, dekton bancada cozinha, corian, quartzo calacata, pedra sintética para pia" },
       { property: "og:title", content: "Quartzo e Pedras Sintéticas — PedraNobre" },
       { property: "og:image", content: quartz },
     ],
+    links: [{ rel: "canonical", href: "https://marmorarias.shop/quartzo" }],
   }),
   component: QuartzoPage,
 });
