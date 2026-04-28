@@ -20,6 +20,7 @@ const ROUTES = [
   "/blog/como-escolher-granito-marmore-quartzo",
   "/blog/manutencao-pedras-naturais",
   "/blog/tendencias-marmoraria-2026",
+  "/sitemap",
 ];
 
 const DIST_CLIENT = path.resolve("dist/client");
