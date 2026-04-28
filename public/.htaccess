@@ -1,4 +1,6 @@
 # Redirecionamento para HTTPS e domínio canônico marmorarias.shop
+DirectoryIndex index.html
+
 RewriteEngine On
 
 # Forçar HTTPS
