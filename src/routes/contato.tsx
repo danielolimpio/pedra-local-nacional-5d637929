@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { QuoteForm } from "@/components/QuoteForm";
+import { FAQ } from "@/components/FAQ";
 import { PageHero } from "./granito";
 import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
 import calacatta from "@/assets/marble-calacatta.webp";
