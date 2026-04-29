@@ -84,3 +84,99 @@ function GaleriaPage() {
     </PageLayout>
   );
 }
+
+const ORIGENS: (Origem | "Todas")[] = ["Todas", "Nacionais", "Importadas", "Ultra Potenza", "Vitta"];
+const TIPOS: (Tipo | "Todos")[] = ["Todos", "Granito", "Mármore", "Quartzo", "Quartzito"];
+
+function ColecaoCompleta() {
+  const [origem, setOrigem] = useState<Origem | "Todas">("Todas");
+  const [tipo, setTipo] = useState<Tipo | "Todos">("Todos");
+
+  const filtradas = useMemo(
+    () =>
+      colecao.filter(
+        (p) => (origem === "Todas" || p.origem === origem) && (tipo === "Todos" || p.tipo === tipo),
+      ),
+    [origem, tipo],
+  );
+
+  return (
+    <section className="border-t border-border bg-muted/30">
+      <div className="mx-auto max-w-7xl px-6 py-24">
+        <SectionHeader
+          eyebrow="Catálogo de Pedras"
+          title="Coleção Completa"
+          description="Explore nosso acervo de granitos, mármores, quartzos e quartzitos por origem e tipo. Pedras nacionais brasileiras, importadas e linhas exclusivas Ultra Potenza e Vitta."
+        />
+
+        <div className="mt-12 space-y-6">
+          <div>
+            <p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Origem</p>
+            <div className="flex flex-wrap gap-2">
+              {ORIGENS.map((o) => (
+                <button
+                  key={o}
+                  onClick={() => setOrigem(o)}
+                  className={`px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors ${
+                    origem === o ? "bg-onyx text-cream" : "border border-border bg-background text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {o}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Tipo de pedra</p>
+            <div className="flex flex-wrap gap-2">
+              {TIPOS.map((t) => (
+                <button
+                  key={t}
+                  onClick={() => setTipo(t)}
+                  className={`px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors ${
+                    tipo === t ? "bg-onyx text-cream" : "border border-border bg-background text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {filtradas.length === 0 ? (
+          <p className="mt-16 text-center text-sm text-muted-foreground">Nenhuma pedra encontrada com esses filtros.</p>
+        ) : (
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {filtradas.map((p) => (
+              <figure key={p.nome} className="group overflow-hidden border border-border bg-background">
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={`${p.nome} — ${p.tipo} ${p.origem}`}
+                    loading="lazy"
+                    width={600}
+                    height={600}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="space-y-2 p-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-gold">{p.tipo}</span>
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{p.origem}</span>
+                  </div>
+                  <h3 className="font-serif text-lg text-foreground">{p.nome}</h3>
+                  <p className="text-xs leading-relaxed text-muted-foreground">{p.descricao}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
+
+        <p className="mt-10 text-center text-xs text-muted-foreground">
+          Exibindo {filtradas.length} de {colecao.length} pedras • Novas variedades adicionadas continuamente
+        </p>
+      </div>
+    </section>
+  );
+}
