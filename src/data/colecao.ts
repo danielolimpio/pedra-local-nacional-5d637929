@@ -22,6 +22,16 @@ import brancoSiena from "@/assets/nacional-granito-branco-siena.jpeg";
 import cafeImperial from "@/assets/nacional-granito-cafe-imperial.jpeg";
 import cinzaAbsoluto from "@/assets/nacional-granito-cinza-absoluto.jpeg";
 import cinzaCastelo from "@/assets/nacional-granito-cinza-castelo.jpeg";
+import cinzaCorumba from "@/assets/nacional-granito-cinza-corumba.jpeg";
+import douradoCarioca from "@/assets/nacional-granito-dourado-carioca.jpeg";
+import marromAbsoluto from "@/assets/nacional-granito-marrom-absoluto.jpeg";
+import marromTabaco from "@/assets/nacional-granito-marrom-tabaco.jpeg";
+import ocreItabira from "@/assets/nacional-granito-ocre-itabira.jpeg";
+import botticino from "@/assets/nacional-marmore-botticino.jpeg";
+import travertino from "@/assets/nacional-marmore-travertino.jpeg";
+import classicoCachoeiro from "@/assets/nacional-marmore-classico-cachoeiro.jpeg";
+import brancoExtra from "@/assets/nacional-marmore-branco-extra.jpeg";
+import rajadoCinza from "@/assets/nacional-marmore-rajado-cinza.jpeg";
 
 export type Origem = "Nacionais" | "Importadas" | "Ultra Potenza" | "Vitta";
 export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito";
@@ -174,5 +184,75 @@ export const colecao: Pedra[] = [
     origem: "Nacionais",
     image: cinzaCastelo,
     descricao: "Cinza médio com grãos pretos finos, robusto e versátil.",
+  },
+  {
+    nome: "Granito Cinza Corumbá",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: cinzaCorumba,
+    descricao: "Cinza claro com pontos pretos uniformes, clássico e econômico.",
+  },
+  {
+    nome: "Granito Dourado Carioca",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: douradoCarioca,
+    descricao: "Marrom dourado uniforme com brilhos delicados, sofisticação atemporal.",
+  },
+  {
+    nome: "Granito Marrom Absoluto",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: marromAbsoluto,
+    descricao: "Marrom escuro absoluto, liso e elegante para projetos contemporâneos.",
+  },
+  {
+    nome: "Granito Marrom Tabaco",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: marromTabaco,
+    descricao: "Tom marrom avermelhado intenso, aconchegante e marcante.",
+  },
+  {
+    nome: "Granito Ocre Itabira",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: ocreItabira,
+    descricao: "Cinza com pontos marrom-ocre, extraído em Itabira (MG), alta durabilidade.",
+  },
+  {
+    nome: "Mármore Botticino",
+    tipo: "Mármore",
+    origem: "Nacionais",
+    image: botticino,
+    descricao: "Bege claro com veios dourados, clássico para revestimentos refinados.",
+  },
+  {
+    nome: "Mármore Travertino",
+    tipo: "Mármore",
+    origem: "Nacionais",
+    image: travertino,
+    descricao: "Bege uniforme com riscas naturais, ideal para fachadas e pisos.",
+  },
+  {
+    nome: "Mármore Clássico Cachoeiro",
+    tipo: "Mármore",
+    origem: "Nacionais",
+    image: classicoCachoeiro,
+    descricao: "Branco com veios cinza suaves, extraído em Cachoeiro de Itapemirim (ES).",
+  },
+  {
+    nome: "Mármore Branco Extra",
+    tipo: "Mármore",
+    origem: "Nacionais",
+    image: brancoExtra,
+    descricao: "Branco puríssimo de fundo uniforme, máxima sofisticação para projetos clean.",
+  },
+  {
+    nome: "Mármore Rajado Cinza",
+    tipo: "Mármore",
+    origem: "Nacionais",
+    image: rajadoCinza,
+    descricao: "Branco com rajados cinza marcantes, movimentação elegante e contemporânea.",
   },
 ];
