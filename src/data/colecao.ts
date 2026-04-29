@@ -52,6 +52,16 @@ import calacattaOro from "@/assets/importada-marmore-calacatta-oro.jpeg";
 import calizaAlba from "@/assets/importada-marmore-caliza-alba.jpeg";
 import calizaBlanca from "@/assets/importada-marmore-caliza-blanca.jpeg";
 import calizaCapri from "@/assets/importada-marmore-caliza-capri.jpeg";
+import carraraGioiaPremium from "@/assets/importada-marmore-carrara-gioia-premium.jpeg";
+import cremaEgipcio from "@/assets/importada-marmore-crema-egipcio.jpeg";
+import cremaMarfil from "@/assets/importada-marmore-crema-marfil.jpeg";
+import cremaValencia from "@/assets/importada-marmore-crema-valencia.jpeg";
+import marromImperialPremium from "@/assets/importada-marmore-marrom-imperial-premium.jpeg";
+import marmoreBronze from "@/assets/importada-marmore-bronze.jpeg";
+import marromImperadorChines from "@/assets/importada-marmore-marrom-imperador-chines.jpeg";
+import marromImperadorEspanhol from "@/assets/importada-marmore-marrom-imperador-espanhol.jpeg";
+import montDore from "@/assets/importada-marmore-mont-dore.jpeg";
+import neroChinesPremium from "@/assets/importada-marmore-nero-chines-premium.jpeg";
 
 export type Origem = "Nacionais" | "Importadas" | "Ultra Potenza" | "Vitta";
 export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito";
@@ -414,5 +424,75 @@ export const colecao: Pedra[] = [
     origem: "Importadas",
     image: calizaCapri,
     descricao: "Calcário espanhol bege claro com pontos delicados, atmosfera mediterrânea.",
+  },
+  {
+    nome: "Mármore Carrara Gioia Premium",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: carraraGioiaPremium,
+    descricao: "Versão importada premium do Carrara, branco com veios cinza expressivos.",
+  },
+  {
+    nome: "Mármore Crema Egípcio",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: cremaEgipcio,
+    descricao: "Bege quente do Egito com manchas naturais, atmosfera mediterrânea autêntica.",
+  },
+  {
+    nome: "Mármore Crema Marfil",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: cremaMarfil,
+    descricao: "Clássico bege espanhol uniforme, um dos mármores mais vendidos do mundo.",
+  },
+  {
+    nome: "Mármore Crema Valencia",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: cremaValencia,
+    descricao: "Bege rosado espanhol com veios alaranjados, charme rústico e elegante.",
+  },
+  {
+    nome: "Mármore Marrom Imperial Premium",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: marromImperialPremium,
+    descricao: "Marrom escuro com veios brancos dramáticos, importado de alta sofisticação.",
+  },
+  {
+    nome: "Mármore Bronze",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: marmoreBronze,
+    descricao: "Marrom acinzentado com veios brancos marcantes, sofisticação contemporânea.",
+  },
+  {
+    nome: "Mármore Marrom Imperador Chinês",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: marromImperadorChines,
+    descricao: "Marrom escuro com manchas claras, importado da China com excelente custo-benefício.",
+  },
+  {
+    nome: "Mármore Marrom Imperador Espanhol",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: marromImperadorEspanhol,
+    descricao: "Clássico marrom espanhol com veios bege, ícone do luxo europeu.",
+  },
+  {
+    nome: "Mármore Mont Dore",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: montDore,
+    descricao: "Bege claro francês com textura fina, sofisticação discreta para projetos clean.",
+  },
+  {
+    nome: "Mármore Nero Chinês Premium",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: neroChinesPremium,
+    descricao: "Preto profundo com veios brancos marcantes, importado para projetos icônicos.",
   },
 ];
