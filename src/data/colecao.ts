@@ -62,9 +62,19 @@ import marromImperadorChines from "@/assets/importada-marmore-marrom-imperador-c
 import marromImperadorEspanhol from "@/assets/importada-marmore-marrom-imperador-espanhol.jpeg";
 import montDore from "@/assets/importada-marmore-mont-dore.jpeg";
 import neroChinesPremium from "@/assets/importada-marmore-nero-chines-premium.jpeg";
+import neroEspanhol from "@/assets/importada-marmore-nero-espanhol.jpeg";
+import neroMontoro from "@/assets/importada-marmore-nero-montoro.jpeg";
+import onixWhite from "@/assets/importada-onix-white.jpeg";
+import onixYellow from "@/assets/importada-onix-yellow.jpeg";
+import perlinoBianco from "@/assets/importada-marmore-perlino-bianco.jpeg";
+import rainForestGold from "@/assets/importada-marmore-rain-forest-gold.jpeg";
+import rainForestGreen from "@/assets/importada-marmore-rain-forest-green.jpeg";
+import rainForestMulticolor from "@/assets/importada-marmore-rain-forest-multicolor.jpeg";
+import rainForestSilver from "@/assets/importada-marmore-rain-forest-silver.jpeg";
+import relvinha from "@/assets/nacional-marmore-relvinha.jpeg";
 
 export type Origem = "Nacionais" | "Importadas" | "Ultra Potenza" | "Vitta";
-export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito";
+export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito" | "Ônix";
 
 export interface Pedra {
   nome: string;
@@ -494,5 +504,75 @@ export const colecao: Pedra[] = [
     origem: "Importadas",
     image: neroChinesPremium,
     descricao: "Preto profundo com veios brancos marcantes, importado para projetos icônicos.",
+  },
+  {
+    nome: "Mármore Nero Espanhol",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: neroEspanhol,
+    descricao: "Preto profundo espanhol com veios brancos marcantes, sofisticação ibérica.",
+  },
+  {
+    nome: "Mármore Nero Montoro",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: neroMontoro,
+    descricao: "Preto espanhol com veios cinza horizontais, movimentação dramática única.",
+  },
+  {
+    nome: "Ônix White",
+    tipo: "Ônix",
+    origem: "Importadas",
+    image: onixWhite,
+    descricao: "Ônix branco translúcido, perfeito para painéis retroiluminados de luxo.",
+  },
+  {
+    nome: "Ônix Yellow",
+    tipo: "Ônix",
+    origem: "Importadas",
+    image: onixYellow,
+    descricao: "Ônix amarelo intenso translúcido, peça exclusiva para projetos icônicos.",
+  },
+  {
+    nome: "Mármore Perlino Bianco",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: perlinoBianco,
+    descricao: "Mármore italiano bege claro com textura uniforme, atemporal e elegante.",
+  },
+  {
+    nome: "Mármore Rain Forest Gold",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: rainForestGold,
+    descricao: "Mármore indiano dourado com veios marrons em rede, exótico e sofisticado.",
+  },
+  {
+    nome: "Mármore Rain Forest Green",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: rainForestGreen,
+    descricao: "Mármore indiano verde-musgo com veios bordô, movimentação natural marcante.",
+  },
+  {
+    nome: "Mármore Rain Forest Multicolor",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: rainForestMulticolor,
+    descricao: "Mármore indiano marrom dourado com veios vermelhos, exuberância tropical.",
+  },
+  {
+    nome: "Mármore Rain Forest Silver",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: rainForestSilver,
+    descricao: "Mármore indiano verde acinzentado com veios bordô, padrão exclusivo.",
+  },
+  {
+    nome: "Mármore Relvinha",
+    tipo: "Mármore",
+    origem: "Nacionais",
+    image: relvinha,
+    descricao: "Mármore brasileiro bege acinzentado com riscas suaves, extraído em MG.",
   },
 ];
