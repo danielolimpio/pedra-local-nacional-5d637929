@@ -7,11 +7,12 @@ import heroGranite from "@/assets/hero-granite.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import bathroom from "@/assets/bathroom-luxury.webp";
 import churrasqueira from "@/assets/churrasqueira.webp";
-import sieva from "@/assets/granite-siena.webp";
-import saoGabriel from "@/assets/granite-sao-gabriel.webp";
-import carrara from "@/assets/marble-carrara.webp";
+import carraraGioia from "@/assets/marble-carrara-gioia.jpeg";
+import marromImperial from "@/assets/marble-marrom-imperial.jpeg";
+import marbleBronze from "@/assets/marble-bronze.jpeg";
+import neroChines from "@/assets/marble-nero-chines.jpeg";
+import verdeGuatemala from "@/assets/marble-verde-guatemala.jpeg";
 import calacatta from "@/assets/marble-calacatta.webp";
-import quartzWhite from "@/assets/quartz-white.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -129,11 +130,11 @@ function HomePage() {
           description="Trabalhamos apenas com pedras de primeira linha — granito São Gabriel, Branco Siena, Preto Absoluto, mármore Carrara, Calacatta Gold, quartzo branco e os exóticos como Taj Mahal e Onix."
         />
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <StoneCard image={saoGabriel} name="Granito São Gabriel" category="Granito" price="R$ 480" to="/granito" alt="Granito São Gabriel preto polido para cozinha" />
-          <StoneCard image={sieva} name="Granito Branco Siena" category="Granito" price="R$ 520" to="/granito" alt="Granito Branco Siena para bancada de cozinha" />
-          <StoneCard image={carrara} name="Mármore Carrara" category="Mármore" price="R$ 890" to="/marmore" alt="Mármore branco Carrara importado para bancada" />
-          <StoneCard image={calacatta} name="Mármore Calacatta Gold" category="Mármore" price="R$ 1.450" to="/marmore" alt="Mármore Calacatta Gold com veios dourados" />
-          <StoneCard image={quartzWhite} name="Quartzo Branco" category="Quartzo" price="R$ 1.180" to="/quartzo" alt="Quartzo branco para bancada de cozinha moderna" />
+          <StoneCard image={carraraGioia} name="Mármore Carrara Gioia" category="Mármore" price="R$ 950" to="/marmore" alt="Mármore Carrara Gioia branco com veios cinza" />
+          <StoneCard image={marromImperial} name="Mármore Marrom Imperial" category="Mármore" price="R$ 720" to="/marmore" alt="Mármore Marrom Imperial com veios brancos" />
+          <StoneCard image={marbleBronze} name="Mármore Bronze" category="Mármore" price="R$ 780" to="/marmore" alt="Mármore Bronze marrom claro com veios brancos" />
+          <StoneCard image={neroChines} name="Mármore Nero Chinês" category="Mármore" price="R$ 690" to="/marmore" alt="Mármore Nero Chinês preto com veios brancos" />
+          <StoneCard image={verdeGuatemala} name="Mármore Verde Guatemala" category="Mármore" price="R$ 890" to="/marmore" alt="Mármore Verde Guatemala com tons profundos" />
           <Link to="/galeria" className="group flex aspect-[4/5] items-center justify-center border border-dashed border-border bg-card p-8 text-center transition-all hover:border-gold">
             <div>
               <p className="eyebrow">Mais opções</p>
