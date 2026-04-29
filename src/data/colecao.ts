@@ -32,6 +32,16 @@ import travertino from "@/assets/nacional-marmore-travertino.jpeg";
 import classicoCachoeiro from "@/assets/nacional-marmore-classico-cachoeiro.jpeg";
 import brancoExtra from "@/assets/nacional-marmore-branco-extra.jpeg";
 import rajadoCinza from "@/assets/nacional-marmore-rajado-cinza.jpeg";
+import ornamentalGuidoni from "@/assets/nacional-granito-ornamental-guidoni.jpeg";
+import ornamentalValcelio from "@/assets/nacional-granito-ornamental-valcelio.jpeg";
+import pretoSantaAngelica from "@/assets/nacional-granito-preto-santa-angelica.jpeg";
+import pretoIndiano from "@/assets/nacional-granito-preto-indiano.jpeg";
+import pretoSaoGabriel from "@/assets/nacional-granito-preto-sao-gabriel.jpeg";
+import pretoViaLactea from "@/assets/nacional-granito-preto-via-lactea.jpeg";
+import verdeCandeias from "@/assets/nacional-granito-verde-candeias.jpeg";
+import verdePavao from "@/assets/nacional-granito-verde-pavao.jpeg";
+import verdeUbatuba from "@/assets/nacional-granito-verde-ubatuba.jpeg";
+import vermelhoBrasilia from "@/assets/nacional-granito-vermelho-brasilia.jpeg";
 
 export type Origem = "Nacionais" | "Importadas" | "Ultra Potenza" | "Vitta";
 export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito";
@@ -254,5 +264,75 @@ export const colecao: Pedra[] = [
     origem: "Nacionais",
     image: rajadoCinza,
     descricao: "Branco com rajados cinza marcantes, movimentação elegante e contemporânea.",
+  },
+  {
+    nome: "Granito Ornamental Guidoni",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: ornamentalGuidoni,
+    descricao: "Bege amarelado clássico com pontos marrons, alta procura para bancadas.",
+  },
+  {
+    nome: "Granito Ornamental Valcélio",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: ornamentalValcelio,
+    descricao: "Tons bege rosados com movimentação suave, ideal para cozinhas amplas.",
+  },
+  {
+    nome: "Granito Preto Santa Angélica",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: pretoSantaAngelica,
+    descricao: "Preto absoluto com leves brilhos, sofisticação máxima em projetos modernos.",
+  },
+  {
+    nome: "Granito Preto Indiano",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: pretoIndiano,
+    descricao: "Preto com veios brancos marcantes, movimentação dramática e exclusiva.",
+  },
+  {
+    nome: "Granito Preto São Gabriel",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: pretoSaoGabriel,
+    descricao: "Preto absoluto uniforme, clássico atemporal para bancadas elegantes.",
+  },
+  {
+    nome: "Granito Preto Via Láctea",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: pretoViaLactea,
+    descricao: "Fundo preto com veios brancos como estrelas, visual marcante e sofisticado.",
+  },
+  {
+    nome: "Granito Verde Candeias",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: verdeCandeias,
+    descricao: "Verde escuro com movimentação cinza, elegante para revestimentos e bancadas.",
+  },
+  {
+    nome: "Granito Verde Pavão",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: verdePavao,
+    descricao: "Preto esverdeado com brilhos cristalinos, robusto e luxuoso.",
+  },
+  {
+    nome: "Granito Verde Ubatuba",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: verdeUbatuba,
+    descricao: "Verde escuro com pontos dourados, um dos granitos brasileiros mais vendidos.",
+  },
+  {
+    nome: "Granito Vermelho Brasília",
+    tipo: "Granito",
+    origem: "Nacionais",
+    image: vermelhoBrasilia,
+    descricao: "Vermelho intenso com pontos pretos, marcante e exclusivo.",
   },
 ];
