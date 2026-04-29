@@ -42,6 +42,16 @@ import verdeCandeias from "@/assets/nacional-granito-verde-candeias.jpeg";
 import verdePavao from "@/assets/nacional-granito-verde-pavao.jpeg";
 import verdeUbatuba from "@/assets/nacional-granito-verde-ubatuba.jpeg";
 import vermelhoBrasilia from "@/assets/nacional-granito-vermelho-brasilia.jpeg";
+import bateigBlue from "@/assets/importada-marmore-bateig-blue.jpeg";
+import brancoPighes from "@/assets/importada-marmore-branco-pighes.jpeg";
+import brancoSivec from "@/assets/importada-marmore-branco-sivec.jpeg";
+import brancoThassos from "@/assets/importada-marmore-branco-thassos.jpeg";
+import bronzeArmani from "@/assets/importada-marmore-bronze-armani.jpeg";
+import calacattaExtra from "@/assets/importada-marmore-calacatta-extra.jpeg";
+import calacattaOro from "@/assets/importada-marmore-calacatta-oro.jpeg";
+import calizaAlba from "@/assets/importada-marmore-caliza-alba.jpeg";
+import calizaBlanca from "@/assets/importada-marmore-caliza-blanca.jpeg";
+import calizaCapri from "@/assets/importada-marmore-caliza-capri.jpeg";
 
 export type Origem = "Nacionais" | "Importadas" | "Ultra Potenza" | "Vitta";
 export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito";
@@ -334,5 +344,75 @@ export const colecao: Pedra[] = [
     origem: "Nacionais",
     image: vermelhoBrasilia,
     descricao: "Vermelho intenso com pontos pretos, marcante e exclusivo.",
+  },
+  {
+    nome: "Mármore Bateig Blue",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: bateigBlue,
+    descricao: "Calcário cinza-azulado da Espanha, textura suave para projetos contemporâneos.",
+  },
+  {
+    nome: "Mármore Branco Pighes",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: brancoPighes,
+    descricao: "Mármore italiano branco com veios cinza delicados, elegância clássica.",
+  },
+  {
+    nome: "Mármore Branco Sivec",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: brancoSivec,
+    descricao: "Mármore grego branco puríssimo, fundo uniforme e luminosidade rara.",
+  },
+  {
+    nome: "Mármore Branco Thassos",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: brancoThassos,
+    descricao: "Mármore grego ultra branco da ilha de Thassos, máximo padrão de luxo.",
+  },
+  {
+    nome: "Mármore Bronze Armani",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: bronzeArmani,
+    descricao: "Marrom escuro com veios brancos marcantes, sofisticação turca exclusiva.",
+  },
+  {
+    nome: "Mármore Calacatta Extra",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: calacattaExtra,
+    descricao: "Mármore italiano branco com veios dourados intensos, ícone do luxo mundial.",
+  },
+  {
+    nome: "Mármore Calacatta Oro",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: calacattaOro,
+    descricao: "Branco italiano com veios dourados delicados, sofisticação atemporal.",
+  },
+  {
+    nome: "Mármore Caliza Alba",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: calizaAlba,
+    descricao: "Calcário espanhol bege claro com textura uniforme, ideal para revestimentos.",
+  },
+  {
+    nome: "Mármore Caliza Blanca",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: calizaBlanca,
+    descricao: "Calcário espanhol branco quase liso, minimalismo e sofisticação.",
+  },
+  {
+    nome: "Mármore Caliza Capri",
+    tipo: "Mármore",
+    origem: "Importadas",
+    image: calizaCapri,
+    descricao: "Calcário espanhol bege claro com pontos delicados, atmosfera mediterrânea.",
   },
 ];
