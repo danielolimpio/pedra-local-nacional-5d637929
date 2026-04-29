@@ -4,6 +4,8 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero } from "./granito";
 import { FAQ } from "@/components/FAQ";
+import { useState, useMemo } from "react";
+import { colecao, type Origem, type Tipo } from "@/data/colecao";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import bathroom from "@/assets/bathroom-luxury.webp";
 import churrasqueira from "@/assets/churrasqueira.webp";
@@ -66,6 +68,8 @@ function GaleriaPage() {
           ))}
         </div>
       </section>
+
+      <ColecaoCompleta />
 
       <FAQ
         title="Perguntas sobre nossos projetos"
