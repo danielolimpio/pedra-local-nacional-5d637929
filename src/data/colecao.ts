@@ -42,6 +42,16 @@ import verdeCandeias from "@/assets/nacional-granito-verde-candeias.jpeg";
 import verdePavao from "@/assets/nacional-granito-verde-pavao.jpeg";
 import verdeUbatuba from "@/assets/nacional-granito-verde-ubatuba.jpeg";
 import vermelhoBrasilia from "@/assets/nacional-granito-vermelho-brasilia.jpeg";
+import bateigBlue from "@/assets/importada-marmore-bateig-blue.jpeg";
+import brancoPighes from "@/assets/importada-marmore-branco-pighes.jpeg";
+import brancoSivec from "@/assets/importada-marmore-branco-sivec.jpeg";
+import brancoThassos from "@/assets/importada-marmore-branco-thassos.jpeg";
+import bronzeArmani from "@/assets/importada-marmore-bronze-armani.jpeg";
+import calacattaExtra from "@/assets/importada-marmore-calacatta-extra.jpeg";
+import calacattaOro from "@/assets/importada-marmore-calacatta-oro.jpeg";
+import calizaAlba from "@/assets/importada-marmore-caliza-alba.jpeg";
+import calizaBlanca from "@/assets/importada-marmore-caliza-blanca.jpeg";
+import calizaCapri from "@/assets/importada-marmore-caliza-capri.jpeg";
 
 export type Origem = "Nacionais" | "Importadas" | "Ultra Potenza" | "Vitta";
 export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito";
