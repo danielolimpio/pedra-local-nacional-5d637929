@@ -7,11 +7,12 @@ import heroGranite from "@/assets/hero-granite.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import bathroom from "@/assets/bathroom-luxury.webp";
 import churrasqueira from "@/assets/churrasqueira.webp";
-import sieva from "@/assets/granite-siena.webp";
-import saoGabriel from "@/assets/granite-sao-gabriel.webp";
-import carrara from "@/assets/marble-carrara.webp";
+import carraraGioia from "@/assets/marble-carrara-gioia.jpeg";
+import marromImperial from "@/assets/marble-marrom-imperial.jpeg";
+import marbleBronze from "@/assets/marble-bronze.jpeg";
+import neroChines from "@/assets/marble-nero-chines.jpeg";
+import verdeGuatemala from "@/assets/marble-verde-guatemala.jpeg";
 import calacatta from "@/assets/marble-calacatta.webp";
-import quartzWhite from "@/assets/quartz-white.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
