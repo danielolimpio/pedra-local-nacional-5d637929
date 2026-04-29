@@ -62,9 +62,19 @@ import marromImperadorChines from "@/assets/importada-marmore-marrom-imperador-c
 import marromImperadorEspanhol from "@/assets/importada-marmore-marrom-imperador-espanhol.jpeg";
 import montDore from "@/assets/importada-marmore-mont-dore.jpeg";
 import neroChinesPremium from "@/assets/importada-marmore-nero-chines-premium.jpeg";
+import neroEspanhol from "@/assets/importada-marmore-nero-espanhol.jpeg";
+import neroMontoro from "@/assets/importada-marmore-nero-montoro.jpeg";
+import onixWhite from "@/assets/importada-onix-white.jpeg";
+import onixYellow from "@/assets/importada-onix-yellow.jpeg";
+import perlinoBianco from "@/assets/importada-marmore-perlino-bianco.jpeg";
+import rainForestGold from "@/assets/importada-marmore-rain-forest-gold.jpeg";
+import rainForestGreen from "@/assets/importada-marmore-rain-forest-green.jpeg";
+import rainForestMulticolor from "@/assets/importada-marmore-rain-forest-multicolor.jpeg";
+import rainForestSilver from "@/assets/importada-marmore-rain-forest-silver.jpeg";
+import relvinha from "@/assets/nacional-marmore-relvinha.jpeg";
 
 export type Origem = "Nacionais" | "Importadas" | "Ultra Potenza" | "Vitta";
-export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito";
+export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito" | "Ônix";
 
 export interface Pedra {
   nome: string;
