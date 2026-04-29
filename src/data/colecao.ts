@@ -12,6 +12,16 @@ import arabesco from "@/assets/nacional-granito-arabesco.jpeg";
 import begeBahia from "@/assets/nacional-marmore-bege-bahia.jpeg";
 import brancoMarfim from "@/assets/nacional-granito-branco-marfim.jpeg";
 import brancoCaravelas from "@/assets/nacional-granito-branco-caravelas.jpeg";
+import brancoCarrarinha from "@/assets/nacional-marmore-branco-carrarinha.jpeg";
+import brancoCeara from "@/assets/nacional-granito-branco-ceara.jpeg";
+import brancoDallas from "@/assets/nacional-granito-branco-dallas.jpeg";
+import brancoFortaleza from "@/assets/nacional-granito-branco-fortaleza.jpeg";
+import brancoItaunas from "@/assets/nacional-granito-branco-itaunas.jpeg";
+import brancoPintaVerde from "@/assets/nacional-marmore-branco-pinta-verde.jpeg";
+import brancoSiena from "@/assets/nacional-granito-branco-siena.jpeg";
+import cafeImperial from "@/assets/nacional-granito-cafe-imperial.jpeg";
+import cinzaAbsoluto from "@/assets/nacional-granito-cinza-absoluto.jpeg";
+import cinzaCastelo from "@/assets/nacional-granito-cinza-castelo.jpeg";
 
 export type Origem = "Nacionais" | "Importadas" | "Ultra Potenza" | "Vitta";
 export type Tipo = "Granito" | "Mármore" | "Quartzo" | "Quartzito";
