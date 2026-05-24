@@ -185,11 +185,11 @@ function BlogPostPage() {
         </header>
 
         <div className="mx-auto max-w-3xl px-6 py-20">
-          {post.body.map((b, i) => {
+          {post.body.map((b: { h?: string; p?: string; ul?: string[] }, i: number) => {
             if (b.h) return <h2 key={i} className="mt-12 font-serif text-3xl text-foreground">{b.h}</h2>;
             if (b.ul) return (
               <ul key={i} className="mt-6 space-y-2 text-muted-foreground">
-                {b.ul.map((li) => <li key={li}>• {li}</li>)}
+                {b.ul.map((li: string) => <li key={li}>• {li}</li>)}
               </ul>
             );
             return <p key={i} className="mt-6 leading-relaxed text-muted-foreground">{b.p}</p>;
