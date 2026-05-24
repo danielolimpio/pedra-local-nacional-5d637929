@@ -30,7 +30,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Marmorarias.shop — Granito, Mármore e Quartzo Premium Sob Medida" },
+      { title: "Marmorarias.shop" },
       { name: "description", content: "Marmoraria premium especializada em granito São Gabriel, mármore Carrara, Calacatta e quartzo. Bancadas para cozinha, banheiro e churrasqueira sob medida. Atendemos todo o Brasil." },
       { name: "keywords", content: "marmoraria, marmorarias, marmoraria perto de mim, marmoraria São Paulo, marmoraria Rio de Janeiro, marmoraria online, granito para cozinha, mármore para bancada, granito São Gabriel, mármore Carrara, mármore Calacatta Gold, quartzo branco bancada, quartzito Taj Mahal, bancada de granito sob medida, pia de mármore cozinha, preço granito m2, tabela de preços marmoraria 2026, churrasqueira em granito, soleira de granito" },
       { name: "author", content: "Marmorarias.shop" },
@@ -48,7 +48,6 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "canonical", href: "https://marmorarias.shop" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" },
