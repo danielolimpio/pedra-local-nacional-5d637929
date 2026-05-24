@@ -17,7 +17,7 @@ import calacatta from "@/assets/marble-calacatta.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Marmoraria Premium: Granito, Mármore e Quartzo Sob Medida" },
+      { title: "Marmoraria Premium — Granito, Mármore e Quartzo" },
       { name: "description", content: "Bancadas em granito São Gabriel, mármore Carrara e quartzo branco. Preço por m², instalação profissional e entrega em todo o Brasil. Peça orçamento." },
       { name: "keywords", content: "marmoraria, marmoraria perto de mim, bancada de granito, mármore Carrara, quartzo branco, granito São Gabriel, Calacatta Gold, quartzito Taj Mahal, marmoraria São Paulo" },
       { property: "og:title", content: "Marmoraria Premium — Granito, Mármore e Quartzo" },
