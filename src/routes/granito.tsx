@@ -7,6 +7,13 @@ import sieva from "@/assets/granite-siena.webp";
 import saoGabriel from "@/assets/granite-sao-gabriel.webp";
 import hero from "@/assets/hero-granite.webp";
 
+const granitoFaq = [
+  { q: "Granito mancha com vinho ou café?", a: "Não, desde que receba a selagem hidrofugante. Aplicamos resina premium em toda chapa antes da entrega." },
+  { q: "Posso colocar panela quente direto?", a: "Sim. O granito resiste a temperaturas acima de 300°C sem deformação ou marcas." },
+  { q: "Qual a espessura ideal para bancada?", a: "Trabalhamos com chapas de 2cm e 3cm. Para ilhas e cooktops, 3cm é o recomendado." },
+  { q: "Granito amarela com o tempo?", a: "Granitos polidos não amarelam. Apenas mármores claros sem manutenção podem oxidar." },
+];
+
 export const Route = createFileRoute("/granito")({
   head: () => ({
     meta: [
@@ -20,9 +27,18 @@ export const Route = createFileRoute("/granito")({
       { name: "twitter:image", content: `https://marmorarias.shop${hero}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/granito" }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: granitoFaq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      }),
+    }],
   }),
   component: GranitoPage,
 });
+
 
 const granitos = [
   { name: "Granito São Gabriel", img: saoGabriel, price: "R$ 480", desc: "Preto profundo com finos pontos brancos. Resistente, não mancha facilmente — o queridinho das cozinhas brasileiras." },
