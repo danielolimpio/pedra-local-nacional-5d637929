@@ -198,7 +198,7 @@ function HomePage() {
           <h2 className="mt-6 font-serif text-4xl md:text-6xl">
             Seu projeto merece a <em className="text-gold not-italic">pedra certa</em>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-cream/75">
+          <p className="mx-auto mt-6 max-w-2xl text-cream/90">
             Solicite um orçamento gratuito. Nossa equipe envia tabela de preços, sugestões de
             material para sua aplicação e estimativa por metro quadrado.
           </p>
@@ -221,7 +221,7 @@ function ApplicationCard({ image, title, kw, to }: { image: string; title: strin
         <div className="absolute inset-x-0 bottom-0 p-6 text-cream">
           <p className="eyebrow text-gold">Aplicação</p>
           <h3 className="mt-2 font-serif text-3xl">{title}</h3>
-          <p className="mt-2 text-sm text-cream/75">{kw}</p>
+          <p className="mt-2 text-sm text-cream/90">{kw}</p>
         </div>
       </div>
     </Link>
