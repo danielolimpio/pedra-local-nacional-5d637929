@@ -20,6 +20,32 @@ export const Route = createFileRoute("/contato")({
       { name: "twitter:image", content: `https://marmorarias.shop${calacatta}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/contato" }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: "Marmorarias.shop",
+        image: `https://marmorarias.shop${calacatta}`,
+        url: "https://marmorarias.shop/contato",
+        telephone: "+55-12-98251-9116",
+        email: "contato@marmorarias.shop",
+        priceRange: "$$",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Av. das Marmorarias, 1500",
+          addressLocality: "São Paulo",
+          addressRegion: "SP",
+          addressCountry: "BR",
+        },
+        openingHoursSpecification: [
+          { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "18:00" },
+          { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "13:00" },
+        ],
+        areaServed: "BR",
+        sameAs: ["https://instagram.com", "https://facebook.com"],
+      }),
+    }],
   }),
   component: ContatoPage,
 });
