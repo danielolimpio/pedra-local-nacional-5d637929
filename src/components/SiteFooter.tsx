@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 lg:grid-cols-5">
         <div>
           <img src={logo} alt="Marmorarias.shop" className="h-16 w-auto object-contain bg-cream/95 p-2" />
-          <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/70">
+          <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/90">
             Granito, mármore e quartzo sob medida para cozinhas, banheiros, churrasqueiras e
             projetos de alta arquitetura em todo o Brasil.
           </p>
@@ -27,7 +27,7 @@ export function SiteFooter() {
 
         <div>
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Materiais</h4>
-          <ul className="mt-6 space-y-3 text-sm text-cream/70">
+          <ul className="mt-6 space-y-3 text-sm text-cream/90">
             <li><Link to="/granito" className="hover:text-gold">Granito São Gabriel</Link></li>
             <li><Link to="/granito" className="hover:text-gold">Granito Branco Siena</Link></li>
             <li><Link to="/marmore" className="hover:text-gold">Mármore Carrara</Link></li>
@@ -38,7 +38,7 @@ export function SiteFooter() {
 
         <div>
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Aplicações</h4>
-          <ul className="mt-6 space-y-3 text-sm text-cream/70">
+          <ul className="mt-6 space-y-3 text-sm text-cream/90">
             <li><Link to="/cozinha" className="hover:text-gold">Bancada de Cozinha</Link></li>
             <li><Link to="/banheiro" className="hover:text-gold">Bancada de Banheiro</Link></li>
             <li><Link to="/cozinha" className="hover:text-gold">Churrasqueira Gourmet</Link></li>
@@ -49,17 +49,17 @@ export function SiteFooter() {
 
         <div>
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Contato</h4>
-          <ul className="mt-6 space-y-3 text-sm text-cream/70">
+          <ul className="mt-6 space-y-3 text-sm text-cream/90">
             <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-gold" />Av. das Marmorarias, 1500 — São Paulo / SP</li>
             <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold" />(12) 98251-9116</li>
             <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold" />contato@marmorarias.shop</li>
           </ul>
-          <p className="mt-6 text-xs text-cream/50">Atendemos todo o Brasil — projetos sob medida com entrega e instalação.</p>
+          <p className="mt-6 text-xs text-cream/80">Atendemos todo o Brasil — projetos sob medida com entrega e instalação.</p>
         </div>
 
         <div>
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Mapa do Site</h4>
-          <ul className="mt-6 space-y-3 text-sm text-cream/70">
+          <ul className="mt-6 space-y-3 text-sm text-cream/90">
             <li><Link to="/" className="hover:text-gold">Início</Link></li>
             <li><Link to="/precos" className="hover:text-gold">Preços por m²</Link></li>
             <li><Link to="/galeria" className="hover:text-gold">Galeria de Projetos</Link></li>
@@ -70,7 +70,7 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/50">
+      <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/80">
         © Copyright {new Date().getFullYear()} | Marmorarias Shop | Todos os direitos reservados | Desenvolvido por{" "}
         <a
           href="https://danielolimpio.com"
