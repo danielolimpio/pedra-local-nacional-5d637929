@@ -1,0 +1,24 @@
+# Marmorarias.shop
+
+> Marmoraria premium especializada em bancadas de granito, mármore e quartzo sob medida para cozinha, banheiro, churrasqueira e áreas externas. Atendimento nacional com entrega e instalação profissional.
+
+Marmorarias.shop é uma marmoraria digital que conecta clientes de todo o Brasil a pedras naturais e sintéticas de alta qualidade. O catálogo inclui granitos como São Gabriel e Preto Absoluto, mármores como Carrara e Calacatta Gold, quartzos brancos e quartzitos como Taj Mahal. Cada pedra é apresentada com preço por m², aplicações recomendadas e características de manutenção.
+
+## Pages
+
+- [/](/): Página inicial com destaques de produtos, diferenciais da marmoraria e chamadas para orçamento.
+- [Granito](/granito): Catálogo de granitos nacionais e importados — São Gabriel, Preto Absoluto, Verde Ubatuba, com preços e aplicações.
+- [Mármore](/marmore): Catálogo de mármores — Carrara, Calacatta Gold, Nero Marquina, Marrom Imperial e outros.
+- [Quartzo](/quartzo): Catálogo de quartzos sintéticos — branco puro, cinza, bege e com veios.
+- [Cozinha](/cozinha): Soluções de bancadas e ilhas para cozinha em granito, mármore e quartzo.
+- [Banheiro](/banheiro): Lavabos, tops de banheiro, nichos e soleiras em pedra natural.
+- [Preços](/precos): Tabela de preços por m² e por tipo de pedra, com estimativas de projeto.
+- [Galeria](/galeria): Fotos de projetos realizados em cozinhas, banheiros, churrasqueiras e áreas externas.
+- [Blog](/blog): Artigos sobre escolha de pedras, manutenção e tendências de marmoraria.
+- [Contato](/contato): Formulário de orçamento, telefone, WhatsApp, e-mail e horário de atendimento.
+
+## Blog
+
+- [Como Escolher Granito, Mármore ou Quartzo](/blog/como-escolher-granito-marmore-quartzo): Guia prático para comparar durabilidade, manutenção e custo-benefício entre pedras naturais e sintéticas.
+- [Manutenção de Pedras Naturais](/blog/manutencao-pedras-naturais): Dicas de limpeza, impermeabilização e cuidados diários para granito e mármore.
+- [Tendências de Marmoraria 2026](/blog/tendencias-marmoraria-2026): Tendências de design, cores e acabamentos para bancadas e revestimentos.
