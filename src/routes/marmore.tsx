@@ -8,6 +8,13 @@ import carrara from "@/assets/marble-carrara.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
 import bathroom from "@/assets/bathroom-luxury.webp";
 
+const marmoreFaq = [
+  { q: "Mármore branco mancha com vinho?", a: "É poroso, mas a aplicação de resina hidrofugante reduz drasticamente a absorção. Limpeza imediata evita manchas." },
+  { q: "Mármore Carrara é importado?", a: "Sim, vem da região de Carrara, na Itália. Trabalhamos com chapas selecionadas direto de cantaria." },
+  { q: "Diferença entre Carrara e Calacatta?", a: "Calacatta tem fundo mais branco e veios dourados marcantes. Carrara tem veios cinza mais sutis." },
+  { q: "Pode usar mármore em cozinha?", a: "Sim, com cuidados de manutenção e selagem profissional. Para uso intenso, granito ou quartzo são mais práticos." },
+];
+
 export const Route = createFileRoute("/marmore")({
   head: () => ({
     meta: [
@@ -21,9 +28,18 @@ export const Route = createFileRoute("/marmore")({
       { name: "twitter:image", content: `https://marmorarias.shop${calacatta}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/marmore" }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: marmoreFaq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      }),
+    }],
   }),
   component: MarmorePage,
 });
+
 
 function MarmorePage() {
   return (
