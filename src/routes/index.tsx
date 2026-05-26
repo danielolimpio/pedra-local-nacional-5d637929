@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
+import { FAQ } from "@/components/FAQ";
 import { ArrowRight, Award, Truck, Hammer, ShieldCheck } from "lucide-react";
 import heroGranite from "@/assets/hero-granite.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
@@ -189,6 +190,20 @@ function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* FAQ — head terms primárias */}
+      <FAQ
+        eyebrow="Dúvidas Frequentes"
+        title="Perguntas sobre marmoraria, granito e mármore"
+        items={[
+          { q: "O que faz uma marmoraria?", a: "Uma marmoraria seleciona, corta, acaba e instala pedras naturais (granito, mármore, quartzito) e sintéticas (quartzo, Silestone, Dekton) sob medida. Na Marmorarias.shop entregamos bancada de granito para cozinha, pia de mármore para banheiro, churrasqueira em granito flameado, soleira, peitoril e revestimentos em todo o Brasil." },
+          { q: "Tem marmoraria perto de mim?", a: "Atendemos todo o Brasil. Showroom presencial em São Paulo com cobertura completa em Grande SP, ABC, Campinas e São José dos Campos. Para Rio de Janeiro, Porto Alegre, Belo Horizonte, Curitiba, Brasília, Salvador, Goiânia, Recife e Florianópolis fazemos entrega e instalação via logística parceira." },
+          { q: "Qual a melhor pedra para bancada de cozinha?", a: "Para uso intenso, granito São Gabriel (R$ 480/m²) e quartzo branco (R$ 1.180/m²) são os mais indicados — resistem a calor, manchas e impacto. Mármore Carrara e Calacatta Gold entregam visual premium com cuidados de manutenção. Veja a tabela completa de preços por m²." },
+          { q: "Quanto custa o metro quadrado de granito?", a: "Em 2026: granito Cinza Andorinha R$ 420/m², São Gabriel R$ 480/m², Branco Siena R$ 520/m², Preto Absoluto R$ 590/m². Mármore Carrara R$ 890/m² e Calacatta Gold R$ 1.450/m². Quartzo branco a partir de R$ 1.180/m². Recortes e instalação são orçados à parte." },
+          { q: "Como solicitar orçamento de marmoraria online?", a: "Envie as medidas da bancada (largura x profundidade), tipo de aplicação (cozinha, banheiro, churrasqueira) e quantidade de recortes pelo nosso formulário ou WhatsApp (12) 98251-9116. Retornamos em até 24h com tabela de preço e sugestão de pedra." },
+          { q: "A marmoraria faz a instalação no Brasil todo?", a: "Sim. Temos equipe própria em São Paulo e parceiros credenciados nas principais capitais. O frete é calculado por região e a instalação inclui transporte, nivelamento e selagem hidrofugante. Garantia de 5 anos para defeitos de fabricação e instalação." },
+        ]}
+      />
 
       {/* CTA FINAL */}
       <section className="relative overflow-hidden bg-onyx text-cream">

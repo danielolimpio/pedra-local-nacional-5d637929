@@ -3,6 +3,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FAQ } from "@/components/FAQ";
 import { PageHero } from "./granito";
 import quartz from "@/assets/quartz-white.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
@@ -91,6 +92,18 @@ function QuartzoPage() {
           </table>
         </div>
       </section>
+
+      <FAQ
+        title="Perguntas sobre bancada de quartzo"
+        items={[
+          { q: "Quanto custa o quartzo branco para bancada por m²?", a: "O quartzo branco liso parte de R$ 1.180/m², o quartzo cinza R$ 1.120/m² e o quartzo Calacata (com veios) R$ 1.490/m². Recortes para cooktop, cuba e instalação são orçados à parte conforme o projeto." },
+          { q: "Silestone, Nanoglass ou Dekton: qual a diferença?", a: "Silestone é o quartzo tradicional, composto por 90% de quartzo natural com resinas. Nanoglass é vidro nano-cristalizado, super branco e zero porosidade. Dekton é a superfície ultracompacta mais resistente — suporta calor direto e uso externo." },
+          { q: "Quartzo é melhor que granito para cozinha?", a: "Depende do uso. Quartzo tem zero porosidade, não mancha e tem visual uniforme — ideal para bancadas longas sem emendas. Granito é mais resistente a calor direto e tem custo até 60% menor. Para uso doméstico intenso, ambos performam bem." },
+          { q: "Posso colocar panela quente no quartzo?", a: "Não é recomendado em quartzo tradicional e Silestone — temperaturas acima de 150°C podem amarelar a resina. Use descanso de panela. Para calor direto sem restrição, opte por Dekton ou granito." },
+          { q: "Quartzo branco amarela com o tempo?", a: "Não, se for usado corretamente. Evite exposição solar direta prolongada e contato com panelas quentes. A limpeza com pano úmido e sabão neutro preserva o branco original por décadas." },
+          { q: "Quartzo Calacata imita mármore Calacatta Gold?", a: "Sim, o quartzo Calacata reproduz os veios dourados do mármore Calacatta Gold, mas com zero porosidade e altíssima resistência a manchas. É a alternativa prática para quem deseja o visual sem a manutenção do mármore natural." },
+        ]}
+      />
     </PageLayout>
   );
 }
