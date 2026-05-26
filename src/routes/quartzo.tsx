@@ -3,6 +3,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FAQ } from "@/components/FAQ";
 import { PageHero } from "./granito";
 import quartz from "@/assets/quartz-white.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
