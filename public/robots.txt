@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /sitemap.xml
 Disallow: /api/
 
 # Bots de IA e busca
@@ -10,6 +12,12 @@ User-agent: Bingbot
 Allow: /
 
 User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://marmorarias.shop/sitemap.xml
