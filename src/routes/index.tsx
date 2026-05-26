@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
+import { FAQ } from "@/components/FAQ";
 import { ArrowRight, Award, Truck, Hammer, ShieldCheck } from "lucide-react";
 import heroGranite from "@/assets/hero-granite.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
