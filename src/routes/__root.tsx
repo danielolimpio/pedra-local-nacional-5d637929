@@ -87,6 +87,38 @@ export const Route = createRootRoute({
           },
         }),
       },
+      {
+        children: `
+(function(){
+  if (typeof window === 'undefined') return;
+  var h = window.location.hostname;
+  var inIframe = false; try { inIframe = window.self !== window.top; } catch(e) { inIframe = true; }
+  var isPreview = h.indexOf('lovable.app') !== -1 || h.indexOf('lovableproject.com') !== -1 || h.indexOf('id-preview--') !== -1 || h === 'localhost' || h === '127.0.0.1';
+  if (inIframe || isPreview) return;
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('/sw.js').catch(function(){});
+    });
+  }
+  var deferredPrompt = null;
+  var promptShown = false;
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+  function tryPrompt(){
+    if (promptShown || !deferredPrompt) return;
+    promptShown = true;
+    try { deferredPrompt.prompt(); } catch(err) { promptShown = false; return; }
+    deferredPrompt.userChoice && deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
+  }
+  ['click','touchend','keydown'].forEach(function(ev){
+    window.addEventListener(ev, tryPrompt, { capture: true, passive: true });
+  });
+  window.addEventListener('appinstalled', function(){ deferredPrompt = null; promptShown = true; });
+})();
+        `,
+      },
     ],
   }),
   shellComponent: RootShell,
