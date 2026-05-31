@@ -88,6 +88,13 @@ export const Route = createRootRoute({
         }),
       },
       {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-HQGVRWEG85",
+      },
+      {
+        children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HQGVRWEG85');`,
+      },
+      {
         children: `
 (function(){
   if (typeof window === 'undefined') return;
