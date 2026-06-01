@@ -70,6 +70,31 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
+
+      <div className="border-t border-cream/10 px-6 py-10">
+        <div className="mx-auto max-w-7xl">
+          <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Marmoraria por Cidade</h4>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs text-cream/80">
+            <Link to="/marmoraria/$cidade" params={{ cidade: "sao-paulo" }} className="hover:text-gold">Marmoraria São Paulo</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "rio-de-janeiro" }} className="hover:text-gold">Marmoraria Rio de Janeiro</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "belo-horizonte" }} className="hover:text-gold">Marmoraria BH</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "curitiba" }} className="hover:text-gold">Marmoraria Curitiba</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "porto-alegre" }} className="hover:text-gold">Marmoraria Porto Alegre</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "brasilia" }} className="hover:text-gold">Marmoraria Brasília</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "salvador" }} className="hover:text-gold">Marmoraria Salvador</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "recife" }} className="hover:text-gold">Marmoraria Recife</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "fortaleza" }} className="hover:text-gold">Marmoraria Fortaleza</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "goiania" }} className="hover:text-gold">Marmoraria Goiânia</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "florianopolis" }} className="hover:text-gold">Marmoraria Florianópolis</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "campinas" }} className="hover:text-gold">Marmoraria Campinas</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "sao-jose-dos-campos" }} className="hover:text-gold">Marmoraria SJC</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "santo-andre" }} className="hover:text-gold">Marmoraria Santo André</Link>
+            <Link to="/marmoraria/$cidade" params={{ cidade: "barueri" }} className="hover:text-gold">Marmoraria Barueri / Alphaville</Link>
+            <Link to="/marmoraria" className="text-gold hover:underline">Ver todas as cidades →</Link>
+          </div>
+        </div>
+      </div>
+
       <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/80">
         © Copyright {new Date().getFullYear()} | Marmorarias Shop | Todos os direitos reservados | Desenvolvido por{" "}
         <a
