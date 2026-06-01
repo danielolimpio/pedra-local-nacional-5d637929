@@ -13,6 +13,7 @@ import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as QuartzoRouteImport } from './routes/quartzo'
 import { Route as PrecosRouteImport } from './routes/precos'
 import { Route as MarmoreRouteImport } from './routes/marmore'
+import { Route as MarmorariaRouteImport } from './routes/marmoraria'
 import { Route as GranitoRouteImport } from './routes/granito'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as CozinhaRouteImport } from './routes/cozinha'
@@ -20,6 +21,7 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BanheiroRouteImport } from './routes/banheiro'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MarmorariaCidadeRouteImport } from './routes/marmoraria.$cidade'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const SitemapRoute = SitemapRouteImport.update({
@@ -40,6 +42,11 @@ const PrecosRoute = PrecosRouteImport.update({
 const MarmoreRoute = MarmoreRouteImport.update({
   id: '/marmore',
   path: '/marmore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarmorariaRoute = MarmorariaRouteImport.update({
+  id: '/marmoraria',
+  path: '/marmoraria',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GranitoRoute = GranitoRouteImport.update({
@@ -77,6 +84,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MarmorariaCidadeRoute = MarmorariaCidadeRouteImport.update({
+  id: '/$cidade',
+  path: '/$cidade',
+  getParentRoute: () => MarmorariaRoute,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -91,11 +103,13 @@ export interface FileRoutesByFullPath {
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
   '/granito': typeof GranitoRoute
+  '/marmoraria': typeof MarmorariaRouteWithChildren
   '/marmore': typeof MarmoreRoute
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
   '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/marmoraria/$cidade': typeof MarmorariaCidadeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -105,11 +119,13 @@ export interface FileRoutesByTo {
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
   '/granito': typeof GranitoRoute
+  '/marmoraria': typeof MarmorariaRouteWithChildren
   '/marmore': typeof MarmoreRoute
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
   '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/marmoraria/$cidade': typeof MarmorariaCidadeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -120,11 +136,13 @@ export interface FileRoutesById {
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
   '/granito': typeof GranitoRoute
+  '/marmoraria': typeof MarmorariaRouteWithChildren
   '/marmore': typeof MarmoreRoute
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
   '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/marmoraria/$cidade': typeof MarmorariaCidadeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -136,11 +154,13 @@ export interface FileRouteTypes {
     | '/cozinha'
     | '/galeria'
     | '/granito'
+    | '/marmoraria'
     | '/marmore'
     | '/precos'
     | '/quartzo'
     | '/sitemap'
     | '/blog/$slug'
+    | '/marmoraria/$cidade'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -150,11 +170,13 @@ export interface FileRouteTypes {
     | '/cozinha'
     | '/galeria'
     | '/granito'
+    | '/marmoraria'
     | '/marmore'
     | '/precos'
     | '/quartzo'
     | '/sitemap'
     | '/blog/$slug'
+    | '/marmoraria/$cidade'
   id:
     | '__root__'
     | '/'
@@ -164,11 +186,13 @@ export interface FileRouteTypes {
     | '/cozinha'
     | '/galeria'
     | '/granito'
+    | '/marmoraria'
     | '/marmore'
     | '/precos'
     | '/quartzo'
     | '/sitemap'
     | '/blog/$slug'
+    | '/marmoraria/$cidade'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -179,6 +203,7 @@ export interface RootRouteChildren {
   CozinhaRoute: typeof CozinhaRoute
   GaleriaRoute: typeof GaleriaRoute
   GranitoRoute: typeof GranitoRoute
+  MarmorariaRoute: typeof MarmorariaRouteWithChildren
   MarmoreRoute: typeof MarmoreRoute
   PrecosRoute: typeof PrecosRoute
   QuartzoRoute: typeof QuartzoRoute
@@ -213,6 +238,13 @@ declare module '@tanstack/react-router' {
       path: '/marmore'
       fullPath: '/marmore'
       preLoaderRoute: typeof MarmoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marmoraria': {
+      id: '/marmoraria'
+      path: '/marmoraria'
+      fullPath: '/marmoraria'
+      preLoaderRoute: typeof MarmorariaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/granito': {
@@ -264,6 +296,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/marmoraria/$cidade': {
+      id: '/marmoraria/$cidade'
+      path: '/$cidade'
+      fullPath: '/marmoraria/$cidade'
+      preLoaderRoute: typeof MarmorariaCidadeRouteImport
+      parentRoute: typeof MarmorariaRoute
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -284,6 +323,18 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
+interface MarmorariaRouteChildren {
+  MarmorariaCidadeRoute: typeof MarmorariaCidadeRoute
+}
+
+const MarmorariaRouteChildren: MarmorariaRouteChildren = {
+  MarmorariaCidadeRoute: MarmorariaCidadeRoute,
+}
+
+const MarmorariaRouteWithChildren = MarmorariaRoute._addFileChildren(
+  MarmorariaRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BanheiroRoute: BanheiroRoute,
@@ -292,6 +343,7 @@ const rootRouteChildren: RootRouteChildren = {
   CozinhaRoute: CozinhaRoute,
   GaleriaRoute: GaleriaRoute,
   GranitoRoute: GranitoRoute,
+  MarmorariaRoute: MarmorariaRouteWithChildren,
   MarmoreRoute: MarmoreRoute,
   PrecosRoute: PrecosRoute,
   QuartzoRoute: QuartzoRoute,
@@ -300,12 +352,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
