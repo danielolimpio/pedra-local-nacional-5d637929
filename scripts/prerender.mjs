@@ -6,6 +6,12 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
+const CIDADES = [
+  "sao-paulo","rio-de-janeiro","belo-horizonte","curitiba","porto-alegre",
+  "brasilia","salvador","goiania","recife","fortaleza","florianopolis",
+  "campinas","sao-jose-dos-campos","santo-andre","barueri",
+];
+
 const ROUTES = [
   "/",
   "/cozinha",
@@ -20,8 +26,15 @@ const ROUTES = [
   "/blog/como-escolher-granito-marmore-quartzo",
   "/blog/manutencao-pedras-naturais",
   "/blog/tendencias-marmoraria-2026",
+  "/blog/quartzito-taj-mahal-preco-m2",
+  "/blog/diferenca-granito-marmore-quartzo-quartzito",
+  "/blog/como-medir-bancada-cozinha",
+  "/blog/preco-marmoraria-2026-tabela",
+  "/marmoraria",
+  ...CIDADES.map((c) => `/marmoraria/${c}`),
   "/sitemap",
 ];
+
 
 const DIST_CLIENT = path.resolve("dist/client");
 const SERVER_ENTRY = path.resolve("dist/server/index.js");
