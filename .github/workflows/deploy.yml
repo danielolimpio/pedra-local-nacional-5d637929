@@ -26,11 +26,8 @@ jobs:
       - name: Instalar dependências
         run: bun install --frozen-lockfile
 
-      - name: Build do projeto (SSR + client)
+      - name: Build do projeto + prerender SSG
         run: bun run build
-
-      - name: Prerender estático (gera index.html por rota)
-        run: node scripts/prerender.mjs
 
       - name: Copiar arquivos estáticos da Hostinger
         run: |
@@ -44,13 +41,20 @@ jobs:
           [ -f public/icon-512.png ] && cp -f public/icon-512.png dist/client/icon-512.png || true
           [ -f public/apple-touch-icon.png ] && cp -f public/apple-touch-icon.png dist/client/apple-touch-icon.png || true
 
-      - name: Validar index.html gerado
+      - name: Validar HTML SSG gerado
         run: |
           if [ ! -f dist/client/index.html ]; then
             echo "::error::dist/client/index.html ausente. Abortando deploy."
             find dist/client -maxdepth 3 -type f | sort
             exit 1
           fi
+          for f in dist/client/granito.html dist/client/blog.html dist/client/marmoraria/barueri.html; do
+            if [ ! -f "$f" ]; then
+              echo "::error::$f ausente. Abortando deploy para evitar site SPA não indexável."
+              find dist/client -maxdepth 4 -type f | sort
+              exit 1
+            fi
+          done
           echo "OK: index.html presente ($(wc -c < dist/client/index.html) bytes)"
           ls -la dist/client/
 
