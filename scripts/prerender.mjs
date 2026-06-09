@@ -12,7 +12,7 @@ import { readFileSync } from "node:fs";
 
 function extractSlugs(file) {
   const src = readFileSync(file, "utf8");
-  return [...src.matchAll(/\bslug:\s*"([^"]+)"|mk\(\s*"([^"]+)"/g)]
+  return [...src.matchAll(/\bslug:\s*"([^"]+)"|\b(?:mk|g|m|q|qz)\(\s*"([^"]+)"/g)]
     .map((m) => m[1] || m[2])
     .filter(Boolean);
 }
