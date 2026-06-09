@@ -112,6 +112,20 @@ function PedraPage() {
           { q: `Vocês entregam ${p.nome} em todo o Brasil?`, a: `Sim. Atendemos as principais capitais e regiões metropolitanas com entrega e instalação inclusas. Confira sua cidade em /marmoraria.` },
         ]}
       />
+
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <h2 className="font-serif text-2xl text-foreground">Termos buscados sobre {p.nome}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Resumo das principais dúvidas e variações de busca atendidas por esta página — preços, acabamentos, aplicações, comparativos e regiões de entrega.
+        </p>
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {p.keywords.map((k: string) => (
+            <li key={k} className="rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
+              {k}
+            </li>
+          ))}
+        </ul>
+      </section>
     </PageLayout>
   );
 }
