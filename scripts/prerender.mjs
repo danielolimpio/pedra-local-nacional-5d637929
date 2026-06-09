@@ -6,22 +6,24 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-const CIDADES = [
-  "sao-paulo","rio-de-janeiro","belo-horizonte","curitiba","porto-alegre",
-  "brasilia","salvador","goiania","recife","fortaleza","florianopolis",
-  "campinas","sao-jose-dos-campos","santo-andre","barueri",
-];
+// Importa as listas dinâmicas direto do source (Node consegue ler TS via import? não — vamos espelhar manualmente)
+// Mantemos espelho simples: lê os arquivos e extrai os slugs com regex (sem ts-loader).
+import { readFileSync } from "node:fs";
+
+function extractSlugs(file) {
+  const src = readFileSync(file, "utf8");
+  return [...src.matchAll(/\bslug:\s*"([^"]+)"|mk\(\s*"([^"]+)"/g)]
+    .map((m) => m[1] || m[2])
+    .filter(Boolean);
+}
+
+const CIDADES = [...new Set(extractSlugs("src/data/cidades.ts"))];
+const PEDRAS = [...new Set(extractSlugs("src/data/pedras.ts"))];
+const SERVICOS = [...new Set(extractSlugs("src/data/servicos.ts"))];
 
 const ROUTES = [
-  "/",
-  "/cozinha",
-  "/banheiro",
-  "/precos",
-  "/galeria",
-  "/contato",
-  "/granito",
-  "/marmore",
-  "/quartzo",
+  "/", "/cozinha", "/banheiro", "/precos", "/galeria", "/contato",
+  "/granito", "/marmore", "/quartzo",
   "/blog",
   "/blog/como-escolher-granito-marmore-quartzo",
   "/blog/manutencao-pedras-naturais",
@@ -32,6 +34,10 @@ const ROUTES = [
   "/blog/preco-marmoraria-2026-tabela",
   "/marmoraria",
   ...CIDADES.map((c) => `/marmoraria/${c}`),
+  "/pedras",
+  ...PEDRAS.map((p) => `/pedras/${p}`),
+  "/servicos",
+  ...SERVICOS.map((s) => `/servicos/${s}`),
   "/sitemap",
 ];
 
