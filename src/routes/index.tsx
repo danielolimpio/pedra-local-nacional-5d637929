@@ -8,11 +8,11 @@ import heroGranite from "@/assets/hero-granite.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import bathroom from "@/assets/bathroom-luxury.webp";
 import churrasqueira from "@/assets/churrasqueira.webp";
-import carraraGioia from "@/assets/marble-carrara-gioia.jpeg";
-import marromImperial from "@/assets/marble-marrom-imperial.jpeg";
-import marbleBronze from "@/assets/marble-bronze.jpeg";
-import neroChines from "@/assets/marble-nero-chines.jpeg";
-import verdeGuatemala from "@/assets/marble-verde-guatemala.jpeg";
+import carraraGioia from "@/assets/marble-carrara-gioia.webp";
+import marromImperial from "@/assets/marble-marrom-imperial.webp";
+import marbleBronze from "@/assets/marble-bronze.webp";
+import neroChines from "@/assets/marble-nero-chines.webp";
+import verdeGuatemala from "@/assets/marble-verde-guatemala.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
 
 export const Route = createFileRoute("/")({
