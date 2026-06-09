@@ -1,24 +1,29 @@
 # Redirecionamento para HTTPS e domínio canônico marmorarias.shop
 DirectoryIndex index.html
+Options -MultiViews
+
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
 
 RewriteEngine On
 
-# Forçar HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Redirecionar www para não-www (canônico)
+# Forçar HTTPS + não-www em um único redirecionamento canônico
+RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\.marmorarias\.shop$ [NC]
 RewriteRule ^(.*)$ https://marmorarias.shop/$1 [L,R=301]
 
-# 1) Servir HTML pré-renderizado por rota (SSG) quando existir
-#    Ex.: /granito -> /granito/index.html ; /marmoraria/sao-paulo -> /marmoraria/sao-paulo/index.html
+# 1) Servir HTML SSG sem redirecionar para barra final
+#    Ex.: /granito -> /granito.html ; /blog/artigo -> /blog/artigo.html
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]
+
+# 2) Compatibilidade: servir index.html pré-renderizado por rota quando existir
 RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
 RewriteRule ^(.+?)/?$ /$1/index.html [L]
 
-# 2) SPA fallback (apenas se não houver HTML pré-renderizado)
+# 3) SPA fallback (apenas se não houver HTML pré-renderizado)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]
@@ -46,4 +51,5 @@ RewriteRule ^ index.html [L]
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Robots-Tag "index, follow"
 </IfModule>
