@@ -81,11 +81,16 @@ for (const route of ROUTES) {
       failed++;
       continue;
     }
-    const outDir =
-      route === "/" ? DIST_CLIENT : path.join(DIST_CLIENT, route.replace(/^\//, ""));
+    const relativeRoute = route.replace(/^\//, "");
+    const outDir = route === "/" ? DIST_CLIENT : path.join(DIST_CLIENT, relativeRoute);
     await mkdir(outDir, { recursive: true });
     const outFile = path.join(outDir, "index.html");
     await writeFile(outFile, html, "utf8");
+    if (route !== "/") {
+      const flatFile = path.join(DIST_CLIENT, `${relativeRoute}.html`);
+      await mkdir(path.dirname(flatFile), { recursive: true });
+      await writeFile(flatFile, html, "utf8");
+    }
     console.log(`[prerender] ${route} -> ${path.relative(process.cwd(), outFile)} (${html.length}b)`);
   } catch (err) {
     console.error(`[prerender] ${route} falhou:`, err);
