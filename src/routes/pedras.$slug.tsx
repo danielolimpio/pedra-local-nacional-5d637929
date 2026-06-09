@@ -76,7 +76,7 @@ function PedraPage() {
             <p className="mt-6 leading-relaxed text-muted-foreground">{p.resumo}</p>
             <h3 className="mt-8 font-serif text-2xl">Aplicações recomendadas</h3>
             <ul className="mt-4 space-y-2 text-muted-foreground">
-              {p.aplicacoes.map((a) => <li key={a}>• {a}</li>)}
+              {p.aplicacoes.map((a: string) => <li key={a}>• {a}</li>)}
             </ul>
             <h3 className="mt-8 font-serif text-2xl">Características</h3>
             <ul className="mt-4 space-y-2 text-muted-foreground">
