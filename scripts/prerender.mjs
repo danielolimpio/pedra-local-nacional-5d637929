@@ -37,7 +37,11 @@ const ROUTES = [
 
 
 const DIST_CLIENT = path.resolve("dist/client");
-const SERVER_ENTRY = path.resolve("dist/server/index.js");
+const SERVER_CANDIDATES = [
+  "dist/server/server.js",
+  "dist/server/index.js",
+];
+const SERVER_ENTRY = SERVER_CANDIDATES.map((p) => path.resolve(p)).find((p) => existsSync(p)) || path.resolve(SERVER_CANDIDATES[0]);
 
 if (!existsSync(SERVER_ENTRY)) {
   console.error(`[prerender] Server entry não encontrado: ${SERVER_ENTRY}`);
