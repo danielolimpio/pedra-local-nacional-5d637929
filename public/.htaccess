@@ -11,7 +11,14 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.marmorarias\.shop$ [NC]
 RewriteRule ^(.*)$ https://marmorarias.shop/$1 [L,R=301]
 
-# SPA fallback
+# 1) Servir HTML pré-renderizado por rota (SSG) quando existir
+#    Ex.: /granito -> /granito/index.html ; /marmoraria/sao-paulo -> /marmoraria/sao-paulo/index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.+?)/?$ /$1/index.html [L]
+
+# 2) SPA fallback (apenas se não houver HTML pré-renderizado)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]
