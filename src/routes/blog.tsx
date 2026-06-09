@@ -48,6 +48,34 @@ const posts = [
     img: calacatta,
     cat: "Tendências",
   },
+  {
+    slug: "quartzito-taj-mahal-preco-m2" as const,
+    title: "Quartzito Taj Mahal: preço por m², características e onde aplicar",
+    desc: "Preço atualizado, comparativo com Calacatta Gold e dicas de aplicação em bancadas e ilhas.",
+    img: calacatta,
+    cat: "Quartzito",
+  },
+  {
+    slug: "diferenca-granito-marmore-quartzo-quartzito" as const,
+    title: "Granito, mármore, quartzo ou quartzito: qual é o melhor?",
+    desc: "Comparativo completo entre resistência, preço, manutenção e aplicação ideal para cada pedra.",
+    img: hero,
+    cat: "Guia de Escolha",
+  },
+  {
+    slug: "como-medir-bancada-cozinha" as const,
+    title: "Como medir bancada de cozinha corretamente para orçamento",
+    desc: "Passo a passo para tirar medidas e receber um orçamento preciso de marmoraria.",
+    img: kitchen,
+    cat: "Guia Prático",
+  },
+  {
+    slug: "preco-marmoraria-2026-tabela" as const,
+    title: "Quanto custa uma marmoraria em 2026? Tabela atualizada",
+    desc: "Tabela de preços de granito, mármore, quartzo, instalação, recortes e frete por região.",
+    img: hero,
+    cat: "Preços",
+  },
 ];
 
 function BlogPage() {
