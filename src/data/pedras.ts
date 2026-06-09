@@ -10,14 +10,67 @@ export type Pedra = {
   keywords: string[];
 };
 
-const g = (s: string, n: string, origem: string, p: number, cor: string, resumo: string, aplic: string[], kw: string[]): Pedra =>
-  ({ slug: s, nome: n, categoria: "Granito", origem, precoMin: p, cor, resumo, aplicacoes: aplic, keywords: kw });
-const m = (s: string, n: string, origem: string, p: number, cor: string, resumo: string, aplic: string[], kw: string[]): Pedra =>
-  ({ slug: s, nome: n, categoria: "Mármore", origem, precoMin: p, cor, resumo, aplicacoes: aplic, keywords: kw });
-const q = (s: string, n: string, origem: string, p: number, cor: string, resumo: string, aplic: string[], kw: string[]): Pedra =>
-  ({ slug: s, nome: n, categoria: "Quartzo", origem, precoMin: p, cor, resumo, aplicacoes: aplic, keywords: kw });
-const qz = (s: string, n: string, origem: string, p: number, cor: string, resumo: string, aplic: string[], kw: string[]): Pedra =>
-  ({ slug: s, nome: n, categoria: "Quartzito", origem, precoMin: p, cor, resumo, aplicacoes: aplic, keywords: kw });
+// Gerador de keywords long-tail — multiplica a cobertura SEO de cada pedra
+// sem alterar layout. As variantes alimentam <meta name="keywords"> em
+// /pedras/{slug} e o JSON-LD/copy correlato.
+function longTail(nome: string, categoria: Pedra["categoria"]): string[] {
+  const n = nome.toLowerCase();
+  const baseAcab = ["polido", "escovado", "flameado", "levigado", "apicoado", "amaciado"];
+  const baseAplic = [
+    "bancada de cozinha", "bancada de banheiro", "pia de cozinha", "pia esculpida",
+    "churrasqueira gourmet", "lavabo", "ilha de cozinha", "mesa de jantar",
+    "soleira", "peitoril", "escada", "revestimento de parede", "fachada",
+    "lareira", "área gourmet", "espelho de pia",
+  ];
+  const compras = [
+    `${n} preço`, `${n} preço m2`, `${n} preço por metro quadrado`, `${n} valor m2`,
+    `${n} m2 instalado`, `${n} chapa inteira`, `${n} chapa preço`,
+    `comprar ${n}`, `${n} sob medida`, `${n} orçamento`, `${n} parcelado`,
+    `${n} promoção`, `${n} direto da fábrica`, `${n} atacado`,
+    `${n} preço 2026`, `${n} tabela de preços`,
+  ];
+  const acab = baseAcab.map((a) => `${n} ${a}`);
+  const aplic = baseAplic.map((a) => `${n} para ${a}`);
+  const comparativas = [
+    `${n} vs granito`, `${n} vs mármore`, `${n} vs quartzo`, `${n} vs quartzito`,
+    `${n} ou granito qual escolher`, `${n} é melhor que mármore`,
+    `${n} mancha`, `${n} risca`, `${n} resiste calor`, `${n} é poroso`,
+    `como limpar ${n}`, `como cuidar de ${n}`, `${n} manutenção`,
+    `${n} amarelado o que fazer`, `${n} selagem hidrofugante`,
+  ];
+  const intencao = [
+    `${n} cozinha branca`, `${n} cozinha preta`, `${n} cozinha pequena`,
+    `${n} cozinha americana`, `${n} cozinha moderna`, `${n} cozinha clássica`,
+    `${n} banheiro pequeno`, `${n} banheiro de luxo`,
+    `${n} apartamento`, `${n} casa alto padrão`, `${n} projeto arquitetônico`,
+    `${n} fotos`, `${n} antes e depois`, `${n} inspiração`, `${n} pinterest`,
+  ];
+  const fornecedor = [
+    `marmoraria ${n}`, `fornecedor de ${n}`, `onde comprar ${n}`,
+    `${n} sao paulo`, `${n} rio de janeiro`, `${n} belo horizonte`,
+    `${n} brasília`, `${n} curitiba`, `${n} porto alegre`, `${n} salvador`,
+    `${n} recife`, `${n} fortaleza`, `${n} goiânia`, `${n} campinas`,
+    `instalação de ${n}`, `entrega de ${n}`,
+  ];
+  const cat = categoria.toLowerCase();
+  const catKw = [
+    `${cat} ${n}`, `tipo de ${cat} ${n}`, `${cat} para bancada ${n}`,
+    `melhor ${cat} ${n}`,
+  ];
+  return [...acab, ...aplic, ...compras, ...comparativas, ...intencao, ...fornecedor, ...catKw];
+}
+
+function make(categoria: Pedra["categoria"]) {
+  return (s: string, n: string, origem: string, p: number, cor: string, resumo: string, aplic: string[], kw: string[]): Pedra => ({
+    slug: s, nome: n, categoria, origem, precoMin: p, cor, resumo,
+    aplicacoes: aplic,
+    keywords: [...new Set([...kw, ...longTail(n, categoria)])],
+  });
+}
+const g = make("Granito");
+const m = make("Mármore");
+const q = make("Quartzo");
+const qz = make("Quartzito");
 
 export const pedras: Pedra[] = [
   // Granitos
