@@ -1,5 +1,10 @@
 # Redirecionamento para HTTPS e domínio canônico marmorarias.shop
 DirectoryIndex index.html
+Options -MultiViews
+
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
 
 RewriteEngine On
 
