@@ -10,8 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as QuartzoRouteImport } from './routes/quartzo'
 import { Route as PrecosRouteImport } from './routes/precos'
+import { Route as PedrasRouteImport } from './routes/pedras'
 import { Route as MarmoreRouteImport } from './routes/marmore'
 import { Route as MarmorariaRouteImport } from './routes/marmoraria'
 import { Route as GranitoRouteImport } from './routes/granito'
@@ -21,12 +23,19 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BanheiroRouteImport } from './routes/banheiro'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicosSlugRouteImport } from './routes/servicos.$slug'
+import { Route as PedrasSlugRouteImport } from './routes/pedras.$slug'
 import { Route as MarmorariaCidadeRouteImport } from './routes/marmoraria.$cidade'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const SitemapRoute = SitemapRouteImport.update({
   id: '/sitemap',
   path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosRoute = ServicosRouteImport.update({
+  id: '/servicos',
+  path: '/servicos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuartzoRoute = QuartzoRouteImport.update({
@@ -37,6 +46,11 @@ const QuartzoRoute = QuartzoRouteImport.update({
 const PrecosRoute = PrecosRouteImport.update({
   id: '/precos',
   path: '/precos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PedrasRoute = PedrasRouteImport.update({
+  id: '/pedras',
+  path: '/pedras',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarmoreRoute = MarmoreRouteImport.update({
@@ -84,6 +98,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicosSlugRoute = ServicosSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ServicosRoute,
+} as any)
+const PedrasSlugRoute = PedrasSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => PedrasRoute,
+} as any)
 const MarmorariaCidadeRoute = MarmorariaCidadeRouteImport.update({
   id: '/$cidade',
   path: '/$cidade',
@@ -105,11 +129,15 @@ export interface FileRoutesByFullPath {
   '/granito': typeof GranitoRoute
   '/marmoraria': typeof MarmorariaRouteWithChildren
   '/marmore': typeof MarmoreRoute
+  '/pedras': typeof PedrasRouteWithChildren
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
+  '/servicos': typeof ServicosRouteWithChildren
   '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/marmoraria/$cidade': typeof MarmorariaCidadeRoute
+  '/pedras/$slug': typeof PedrasSlugRoute
+  '/servicos/$slug': typeof ServicosSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -121,11 +149,15 @@ export interface FileRoutesByTo {
   '/granito': typeof GranitoRoute
   '/marmoraria': typeof MarmorariaRouteWithChildren
   '/marmore': typeof MarmoreRoute
+  '/pedras': typeof PedrasRouteWithChildren
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
+  '/servicos': typeof ServicosRouteWithChildren
   '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/marmoraria/$cidade': typeof MarmorariaCidadeRoute
+  '/pedras/$slug': typeof PedrasSlugRoute
+  '/servicos/$slug': typeof ServicosSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -138,11 +170,15 @@ export interface FileRoutesById {
   '/granito': typeof GranitoRoute
   '/marmoraria': typeof MarmorariaRouteWithChildren
   '/marmore': typeof MarmoreRoute
+  '/pedras': typeof PedrasRouteWithChildren
   '/precos': typeof PrecosRoute
   '/quartzo': typeof QuartzoRoute
+  '/servicos': typeof ServicosRouteWithChildren
   '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/marmoraria/$cidade': typeof MarmorariaCidadeRoute
+  '/pedras/$slug': typeof PedrasSlugRoute
+  '/servicos/$slug': typeof ServicosSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -156,11 +192,15 @@ export interface FileRouteTypes {
     | '/granito'
     | '/marmoraria'
     | '/marmore'
+    | '/pedras'
     | '/precos'
     | '/quartzo'
+    | '/servicos'
     | '/sitemap'
     | '/blog/$slug'
     | '/marmoraria/$cidade'
+    | '/pedras/$slug'
+    | '/servicos/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -172,11 +212,15 @@ export interface FileRouteTypes {
     | '/granito'
     | '/marmoraria'
     | '/marmore'
+    | '/pedras'
     | '/precos'
     | '/quartzo'
+    | '/servicos'
     | '/sitemap'
     | '/blog/$slug'
     | '/marmoraria/$cidade'
+    | '/pedras/$slug'
+    | '/servicos/$slug'
   id:
     | '__root__'
     | '/'
@@ -188,11 +232,15 @@ export interface FileRouteTypes {
     | '/granito'
     | '/marmoraria'
     | '/marmore'
+    | '/pedras'
     | '/precos'
     | '/quartzo'
+    | '/servicos'
     | '/sitemap'
     | '/blog/$slug'
     | '/marmoraria/$cidade'
+    | '/pedras/$slug'
+    | '/servicos/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -205,8 +253,10 @@ export interface RootRouteChildren {
   GranitoRoute: typeof GranitoRoute
   MarmorariaRoute: typeof MarmorariaRouteWithChildren
   MarmoreRoute: typeof MarmoreRoute
+  PedrasRoute: typeof PedrasRouteWithChildren
   PrecosRoute: typeof PrecosRoute
   QuartzoRoute: typeof QuartzoRoute
+  ServicosRoute: typeof ServicosRouteWithChildren
   SitemapRoute: typeof SitemapRoute
 }
 
@@ -217,6 +267,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap'
       fullPath: '/sitemap'
       preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos': {
+      id: '/servicos'
+      path: '/servicos'
+      fullPath: '/servicos'
+      preLoaderRoute: typeof ServicosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quartzo': {
@@ -231,6 +288,13 @@ declare module '@tanstack/react-router' {
       path: '/precos'
       fullPath: '/precos'
       preLoaderRoute: typeof PrecosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pedras': {
+      id: '/pedras'
+      path: '/pedras'
+      fullPath: '/pedras'
+      preLoaderRoute: typeof PedrasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/marmore': {
@@ -296,6 +360,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/servicos/$slug': {
+      id: '/servicos/$slug'
+      path: '/$slug'
+      fullPath: '/servicos/$slug'
+      preLoaderRoute: typeof ServicosSlugRouteImport
+      parentRoute: typeof ServicosRoute
+    }
+    '/pedras/$slug': {
+      id: '/pedras/$slug'
+      path: '/$slug'
+      fullPath: '/pedras/$slug'
+      preLoaderRoute: typeof PedrasSlugRouteImport
+      parentRoute: typeof PedrasRoute
+    }
     '/marmoraria/$cidade': {
       id: '/marmoraria/$cidade'
       path: '/$cidade'
@@ -335,6 +413,29 @@ const MarmorariaRouteWithChildren = MarmorariaRoute._addFileChildren(
   MarmorariaRouteChildren,
 )
 
+interface PedrasRouteChildren {
+  PedrasSlugRoute: typeof PedrasSlugRoute
+}
+
+const PedrasRouteChildren: PedrasRouteChildren = {
+  PedrasSlugRoute: PedrasSlugRoute,
+}
+
+const PedrasRouteWithChildren =
+  PedrasRoute._addFileChildren(PedrasRouteChildren)
+
+interface ServicosRouteChildren {
+  ServicosSlugRoute: typeof ServicosSlugRoute
+}
+
+const ServicosRouteChildren: ServicosRouteChildren = {
+  ServicosSlugRoute: ServicosSlugRoute,
+}
+
+const ServicosRouteWithChildren = ServicosRoute._addFileChildren(
+  ServicosRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BanheiroRoute: BanheiroRoute,
@@ -345,8 +446,10 @@ const rootRouteChildren: RootRouteChildren = {
   GranitoRoute: GranitoRoute,
   MarmorariaRoute: MarmorariaRouteWithChildren,
   MarmoreRoute: MarmoreRoute,
+  PedrasRoute: PedrasRouteWithChildren,
   PrecosRoute: PrecosRoute,
   QuartzoRoute: QuartzoRoute,
+  ServicosRoute: ServicosRouteWithChildren,
   SitemapRoute: SitemapRoute,
 }
 export const routeTree = rootRouteImport

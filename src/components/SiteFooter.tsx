@@ -28,22 +28,23 @@ export function SiteFooter() {
         <div>
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Materiais</h4>
           <ul className="mt-6 space-y-3 text-sm text-cream/90">
-            <li><Link to="/granito" className="hover:text-gold">Granito São Gabriel</Link></li>
-            <li><Link to="/granito" className="hover:text-gold">Granito Branco Siena</Link></li>
-            <li><Link to="/marmore" className="hover:text-gold">Mármore Carrara</Link></li>
-            <li><Link to="/marmore" className="hover:text-gold">Mármore Calacatta Gold</Link></li>
-            <li><Link to="/quartzo" className="hover:text-gold">Quartzo Branco</Link></li>
+            <li><Link to="/granito" className="hover:text-gold">Granito</Link></li>
+            <li><Link to="/marmore" className="hover:text-gold">Mármore</Link></li>
+            <li><Link to="/quartzo" className="hover:text-gold">Quartzo</Link></li>
+            <li><Link to="/pedras" className="hover:text-gold">Catálogo de Pedras (30+)</Link></li>
+            <li><Link to="/pedras/$slug" params={{ slug: "quartzito-taj-mahal" }} className="hover:text-gold">Quartzito Taj Mahal</Link></li>
+            <li><Link to="/pedras/$slug" params={{ slug: "marmore-calacatta-gold" }} className="hover:text-gold">Calacatta Gold</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Aplicações</h4>
+          <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Serviços</h4>
           <ul className="mt-6 space-y-3 text-sm text-cream/90">
-            <li><Link to="/cozinha" className="hover:text-gold">Bancada de Cozinha</Link></li>
-            <li><Link to="/banheiro" className="hover:text-gold">Bancada de Banheiro</Link></li>
-            <li><Link to="/cozinha" className="hover:text-gold">Churrasqueira Gourmet</Link></li>
-            <li><Link to="/galeria" className="hover:text-gold">Pisos e Soleiras</Link></li>
-            <li><Link to="/precos" className="hover:text-gold">Tabela de Preços</Link></li>
+            <li><Link to="/servicos/$slug" params={{ slug: "bancada-de-cozinha" }} className="hover:text-gold">Bancada de Cozinha</Link></li>
+            <li><Link to="/servicos/$slug" params={{ slug: "bancada-de-banheiro" }} className="hover:text-gold">Bancada de Banheiro</Link></li>
+            <li><Link to="/servicos/$slug" params={{ slug: "churrasqueira-gourmet" }} className="hover:text-gold">Churrasqueira Gourmet</Link></li>
+            <li><Link to="/servicos/$slug" params={{ slug: "pia-esculpida" }} className="hover:text-gold">Pia Esculpida</Link></li>
+            <li><Link to="/servicos" className="hover:text-gold">Todos os serviços (20)</Link></li>
           </ul>
         </div>
 
