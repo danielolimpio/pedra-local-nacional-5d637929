@@ -116,7 +116,7 @@ function CidadePage() {
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
             <div className="mt-6 flex flex-wrap gap-2">
-              {mapsBairros.map((b) => (
+              {mapsBairros.map((b: string) => (
                 <a
                   key={b}
                   href={`https://www.google.com/maps/search/marmoraria+${encodeURIComponent(b + " " + c.nome)}`}
@@ -177,7 +177,7 @@ function CidadePage() {
             </p>
             <h3 className="mt-8 font-serif text-2xl">Bairros de {c.nome} com mais marmorarias</h3>
             <ul className="mt-4 grid grid-cols-2 gap-2 text-muted-foreground">
-              {c.bairros.map((b) => (
+              {c.bairros.map((b: string) => (
                 <li key={b} className="text-sm">• Marmoraria em {b}</li>
               ))}
             </ul>
