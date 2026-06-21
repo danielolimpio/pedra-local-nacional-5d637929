@@ -23,13 +23,13 @@ export const Route = createFileRoute("/marmoraria/$cidade")({
     const c = loaderData?.cidade;
     if (!c) return { meta: [{ title: "Guia de Marmorarias" }] };
     const url = `https://marmorarias.shop/marmoraria/${c.slug}`;
-    const title = `Marmorarias em ${c.nome} (${c.uf}): preços, granito, mármore e quartzo`;
-    const desc = `Guia de marmorarias em ${c.nome}/${c.uf}: faixa de preço por m² de granito, mármore Carrara, Calacatta e quartzo, prazos médios, bairros atendidos e como encontrar marmoraria perto de você em ${c.nome}.`;
+    const title = `Marmorarias em ${c.nome} (${c.uf}): preço m², granito, mármore, quartzo e quartzito`;
+    const desc = `Guia de marmorarias em ${c.nome}/${c.uf}: preço por m² de granito São Gabriel, Preto Absoluto, Branco Siena, mármore Carrara, Calacatta Gold, Nero Marquina, quartzo branco e quartzito Taj Mahal. Bancada de cozinha, banheiro, ilha, churrasqueira, soleira e pia esculpida. Prazos, bairros e como achar marmoraria perto de você em ${c.nome}.`;
     return {
       meta: [
         { title },
         { name: "description", content: desc },
-        { name: "keywords", content: `marmoraria ${c.nome}, marmorarias em ${c.nome}, marmoraria perto de mim ${c.nome}, marmoraria ${c.uf}, preço marmoraria ${c.nome}, granito ${c.nome}, mármore ${c.nome}, bancada de granito ${c.nome}, pia de mármore ${c.nome}, quartzo ${c.nome}, quartzito ${c.nome}, orçamento marmoraria ${c.nome}, melhores marmorarias ${c.nome}` },
+        { name: "keywords", content: `marmoraria ${c.nome}, marmorarias em ${c.nome}, marmoraria perto de mim ${c.nome}, marmoraria ${c.uf}, melhor marmoraria ${c.nome}, marmoraria barata ${c.nome}, orçamento marmoraria ${c.nome}, preço marmoraria ${c.nome} m2, granito ${c.nome}, granito sao gabriel ${c.nome}, granito preto absoluto ${c.nome} preço m2, granito branco siena ${c.nome}, granito verde ubatuba ${c.nome}, granito amarelo ${c.nome}, mármore ${c.nome}, mármore carrara ${c.nome}, mármore calacatta gold ${c.nome}, mármore nero marquina preço m2 ${c.nome}, mármore travertino ${c.nome}, quartzo ${c.nome}, quartzo branco ${c.nome}, silestone ${c.nome}, quartzito ${c.nome}, quartzito taj mahal ${c.nome}, bancada de granito ${c.nome}, bancada de cozinha ${c.nome}, bancada de banheiro ${c.nome}, pia de mármore ${c.nome}, pia esculpida ${c.nome}, soleira de granito ${c.nome}, peitoril ${c.nome}, escada de granito ${c.nome}, ilha de cozinha ${c.nome}, churrasqueira em pedra ${c.nome}, fachada de pedra ${c.nome}, ${c.bairros.slice(0, 4).map((b: string) => `marmoraria ${b}`).join(", ")}` },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:url", content: url },
