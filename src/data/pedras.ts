@@ -15,49 +15,85 @@ export type Pedra = {
 // /pedras/{slug} e o JSON-LD/copy correlato.
 function longTail(nome: string, categoria: Pedra["categoria"]): string[] {
   const n = nome.toLowerCase();
-  const baseAcab = ["polido", "escovado", "flameado", "levigado", "apicoado", "amaciado"];
+  // Remove o prefixo da categoria (ex.: "granito sao gabriel" -> "sao gabriel")
+  // pra cobrir buscas que omitem a palavra "granito/mármore/quartzo/quartzito"
+  const semCat = n.replace(/^(granito|mármore|marmore|quartzito|quartzo)\s+/, "");
+  const baseAcab = ["polido", "escovado", "flameado", "levigado", "apicoado", "amaciado", "jateado", "brilhado", "fosco"];
   const baseAplic = [
     "bancada de cozinha", "bancada de banheiro", "pia de cozinha", "pia esculpida",
     "churrasqueira gourmet", "lavabo", "ilha de cozinha", "mesa de jantar",
     "soleira", "peitoril", "escada", "revestimento de parede", "fachada",
-    "lareira", "área gourmet", "espelho de pia",
+    "lareira", "área gourmet", "espelho de pia", "rodapé", "bancada de varanda",
+    "tampo de mesa", "balcão de loja", "recepção", "piso interno", "piso externo",
   ];
   const compras = [
     `${n} preço`, `${n} preço m2`, `${n} preço por metro quadrado`, `${n} valor m2`,
-    `${n} m2 instalado`, `${n} chapa inteira`, `${n} chapa preço`,
-    `comprar ${n}`, `${n} sob medida`, `${n} orçamento`, `${n} parcelado`,
-    `${n} promoção`, `${n} direto da fábrica`, `${n} atacado`,
-    `${n} preço 2026`, `${n} tabela de preços`,
+    `${n} valor por metro`, `${n} m2 instalado`, `${n} preço instalado`,
+    `${n} chapa inteira`, `${n} chapa preço`, `${n} chapa m2`,
+    `comprar ${n}`, `${n} sob medida`, `${n} orçamento`, `${n} orçamento online`,
+    `${n} parcelado`, `${n} promoção`, `${n} direto da fábrica`, `${n} atacado`,
+    `${n} preço 2026`, `${n} preço hoje`, `${n} tabela de preços`,
+    `${n} qual o valor`, `${n} quanto custa`, `${n} barato`, `${n} mais barato`,
+    `${n} preço justo`, `${n} 2cm preço`, `${n} 3cm preço`,
+    `${n} chapa 2cm`, `${n} chapa 3cm`,
+    // Versão sem o prefixo de categoria
+    `${semCat} preço`, `${semCat} preço m2`, `${semCat} valor m2`, `${semCat} m2 instalado`,
+    `${semCat} preço por metro quadrado`, `${semCat} qual o valor`, `${semCat} quanto custa`,
   ];
-  const acab = baseAcab.map((a) => `${n} ${a}`);
-  const aplic = baseAplic.map((a) => `${n} para ${a}`);
+  const acab = baseAcab.flatMap((a) => [`${n} ${a}`, `${n} acabamento ${a}`, `${semCat} ${a}`]);
+  const aplic = baseAplic.flatMap((a) => [`${n} para ${a}`, `${n} em ${a}`, `${semCat} para ${a}`]);
   const comparativas = [
     `${n} vs granito`, `${n} vs mármore`, `${n} vs quartzo`, `${n} vs quartzito`,
-    `${n} ou granito qual escolher`, `${n} é melhor que mármore`,
+    `${n} vs porcelanato`, `${n} vs silestone`, `${n} vs dekton`,
+    `${n} ou granito qual escolher`, `${n} ou mármore`, `${n} ou quartzo`,
+    `${n} é melhor que mármore`, `${n} comparativo`,
     `${n} mancha`, `${n} risca`, `${n} resiste calor`, `${n} é poroso`,
+    `${n} amarela`, `${n} mancha com vinho`, `${n} mancha com café`,
+    `${n} resistência`, `${n} durabilidade`, `${n} vida útil`,
     `como limpar ${n}`, `como cuidar de ${n}`, `${n} manutenção`,
     `${n} amarelado o que fazer`, `${n} selagem hidrofugante`,
+    `${n} produto de limpeza`, `${n} como tirar mancha`,
+    `${n} pode usar álcool`, `${n} pode usar água sanitária`,
   ];
   const intencao = [
-    `${n} cozinha branca`, `${n} cozinha preta`, `${n} cozinha pequena`,
-    `${n} cozinha americana`, `${n} cozinha moderna`, `${n} cozinha clássica`,
-    `${n} banheiro pequeno`, `${n} banheiro de luxo`,
-    `${n} apartamento`, `${n} casa alto padrão`, `${n} projeto arquitetônico`,
-    `${n} fotos`, `${n} antes e depois`, `${n} inspiração`, `${n} pinterest`,
+    `${n} cozinha branca`, `${n} cozinha preta`, `${n} cozinha cinza`,
+    `${n} cozinha pequena`, `${n} cozinha americana`, `${n} cozinha moderna`,
+    `${n} cozinha clássica`, `${n} cozinha planejada`, `${n} cozinha gourmet`,
+    `${n} cozinha com ilha`, `${n} cozinha em u`, `${n} cozinha corredor`,
+    `${n} banheiro pequeno`, `${n} banheiro de luxo`, `${n} banheiro social`,
+    `${n} suíte master`, `${n} lavabo decorado`,
+    `${n} apartamento`, `${n} casa alto padrão`, `${n} sobrado`,
+    `${n} projeto arquitetônico`, `${n} obra residencial`, `${n} obra comercial`,
+    `${n} fotos`, `${n} fotos reais`, `${n} antes e depois`,
+    `${n} inspiração`, `${n} pinterest`, `${n} instagram`,
+    `${n} combina com armário branco`, `${n} combina com madeira`,
+    `${n} combina com cuba preta`, `${n} combina com torneira dourada`,
   ];
   const fornecedor = [
     `marmoraria ${n}`, `fornecedor de ${n}`, `onde comprar ${n}`,
-    `${n} sao paulo`, `${n} rio de janeiro`, `${n} belo horizonte`,
-    `${n} brasília`, `${n} curitiba`, `${n} porto alegre`, `${n} salvador`,
-    `${n} recife`, `${n} fortaleza`, `${n} goiânia`, `${n} campinas`,
-    `instalação de ${n}`, `entrega de ${n}`,
+    `${n} perto de mim`, `${n} loja perto de mim`, `${n} depósito perto de mim`,
+    `${n} sao paulo`, `${n} sp`, `${n} rio de janeiro`, `${n} rj`,
+    `${n} belo horizonte`, `${n} bh`, `${n} mg`,
+    `${n} brasília`, `${n} df`, `${n} curitiba`, `${n} pr`,
+    `${n} porto alegre`, `${n} rs`, `${n} salvador`, `${n} ba`,
+    `${n} recife`, `${n} pe`, `${n} fortaleza`, `${n} ce`,
+    `${n} goiânia`, `${n} go`, `${n} campinas`, `${n} sjc`,
+    `${n} guarulhos`, `${n} osasco`, `${n} barueri`, `${n} santo andré`,
+    `${n} são bernardo`, `${n} santos`, `${n} sorocaba`, `${n} ribeirão preto`,
+    `instalação de ${n}`, `entrega de ${n}`, `frete ${n}`,
+    `${n} entrega rápida`, `${n} pronta entrega`,
   ];
   const cat = categoria.toLowerCase();
   const catKw = [
-    `${cat} ${n}`, `tipo de ${cat} ${n}`, `${cat} para bancada ${n}`,
-    `melhor ${cat} ${n}`,
+    `${cat} ${n}`, `${cat} ${semCat}`, `tipo de ${cat} ${n}`,
+    `${cat} para bancada ${n}`, `${cat} para cozinha ${n}`,
+    `${cat} para banheiro ${n}`, `melhor ${cat} ${n}`,
+    `${cat} ${n} bom`, `${cat} ${n} qualidade`, `${cat} ${n} chapa`,
   ];
-  return [...acab, ...aplic, ...compras, ...comparativas, ...intencao, ...fornecedor, ...catKw];
+  return [
+    ...acab, ...aplic, ...compras, ...comparativas, ...intencao,
+    ...fornecedor, ...catKw,
+  ];
 }
 
 function make(categoria: Pedra["categoria"]) {
