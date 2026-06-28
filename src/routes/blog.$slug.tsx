@@ -966,7 +966,16 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogPostPage() {
-  const { post } = Route.useLoaderData();
+  const { post, slug } = Route.useLoaderData();
+  const related = Object.entries(POSTS)
+    .filter(([s]) => s !== slug)
+    .slice(0, 3)
+    .map(([s, p]) => ({ slug: s as keyof typeof POSTS, ...p }));
+  const recent = Object.entries(POSTS)
+    .filter(([s]) => s !== slug)
+    .slice(0, 5)
+    .map(([s, p]) => ({ slug: s as keyof typeof POSTS, title: p.title }));
+
   return (
     <PageLayout>
       <Breadcrumbs items={[{ label: "Blog", to: "/blog" }, { label: post.title }]} />
@@ -978,31 +987,154 @@ function BlogPostPage() {
             <Link to="/blog" className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold hover:text-cream">
               <ArrowLeft className="h-3.5 w-3.5" /> Voltar ao Blog
             </Link>
-            <p className="mt-8 eyebrow text-gold">{post.cat} • {post.date}</p>
+            <p className="mt-8 eyebrow text-gold">{post.cat}</p>
             <h1 className="mt-4 font-serif text-4xl leading-tight md:text-6xl">{post.title}</h1>
             <p className="mt-6 max-w-2xl text-cream/80">{post.desc}</p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs uppercase tracking-[0.18em] text-cream/70">
+              <span className="inline-flex items-center gap-2"><User className="h-3.5 w-3.5 text-gold" /> {post.author ?? "Equipe Marmorarias.shop"}</span>
+              <span className="inline-flex items-center gap-2"><Calendar className="h-3.5 w-3.5 text-gold" /> {post.date}</span>
+              {post.readTime && <span className="inline-flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-gold" /> {post.readTime}</span>}
+            </div>
           </div>
         </header>
 
-        <div className="mx-auto max-w-3xl px-6 py-20">
-          {post.body.map((b: { h?: string; p?: string; ul?: string[] }, i: number) => {
-            if (b.h) return <h2 key={i} className="mt-12 font-serif text-3xl text-foreground">{b.h}</h2>;
-            if (b.ul) return (
-              <ul key={i} className="mt-6 space-y-2 text-muted-foreground">
-                {b.ul.map((li: string) => <li key={li}>• {li}</li>)}
-              </ul>
-            );
-            return <p key={i} className="mt-6 leading-relaxed text-muted-foreground">{b.p}</p>;
-          })}
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[minmax(0,1fr)_280px]">
+          {/* MAIN CONTENT */}
+          <div className="min-w-0">
+            {post.body.map((b, i) => {
+              if (b.h) return <h2 key={i} className="mt-14 mb-2 font-serif text-3xl text-foreground">{b.h}</h2>;
+              if (b.img) return (
+                <figure key={i} className="my-10">
+                  <img src={b.img.src} alt={b.img.alt} loading="lazy" width={1600} height={1000} className="w-full" />
+                  {b.img.caption && <figcaption className="mt-3 text-center text-xs text-muted-foreground italic">{b.img.caption}</figcaption>}
+                </figure>
+              );
+              if (b.ul) return (
+                <ul key={i} className="mt-6 mb-6 space-y-3 text-muted-foreground leading-relaxed">
+                  {b.ul.map((li) => <li key={li} className="pl-4 border-l-2 border-gold/40">{li}</li>)}
+                </ul>
+              );
+              if (b.html) return <p key={i} className="mt-6 leading-[1.85] text-muted-foreground [&_a]:text-gold [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-foreground" dangerouslySetInnerHTML={{ __html: b.html }} />;
+              return <p key={i} className="mt-6 leading-[1.85] text-muted-foreground">{b.p}</p>;
+            })}
 
-          <div className="mt-16 border-t border-border pt-10 text-center">
-            <p className="eyebrow text-gold">Pronto para começar?</p>
-            <h3 className="mt-4 font-serif text-3xl">Solicite seu orçamento</h3>
-            <Link to="/contato" className="mt-6 inline-flex items-center bg-foreground px-10 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">
-              Falar com Especialista
-            </Link>
+            {post.tags && post.tags.length > 0 && (
+              <div className="mt-14 flex flex-wrap gap-2 border-t border-border pt-8">
+                {post.tags.map((t) => (
+                  <span key={t} className="border border-border bg-secondary px-3 py-1 text-xs uppercase tracking-wider text-muted-foreground">{t}</span>
+                ))}
+              </div>
+            )}
+
+            {/* AUTHOR BLOCK */}
+            <div className="mt-12 flex items-start gap-5 border border-border bg-secondary p-6">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-gold text-onyx">
+                <User className="h-7 w-7" strokeWidth={1.4} />
+              </div>
+              <div>
+                <p className="eyebrow text-gold">Sobre o autor</p>
+                <h3 className="mt-1 font-serif text-xl text-foreground">{post.author ?? "Equipe Marmorarias.shop"}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Conteúdo escrito pela equipe técnica da Marmorarias.shop — especialistas em granito,
+                  mármore, quartzo e quartzito, com mais de uma década de experiência em projetos de
+                  bancadas, escadas, fachadas e revestimentos em todo o Brasil.
+                </p>
+              </div>
+            </div>
+
+            {/* FAQ */}
+            {post.faq && post.faq.length > 0 && (
+              <section className="mt-16 border-t border-border pt-10">
+                <p className="eyebrow text-gold">Dúvidas Frequentes</p>
+                <h2 className="mt-3 font-serif text-3xl text-foreground">Perguntas frequentes sobre este tema</h2>
+                <div className="mt-8 divide-y divide-border border-t border-b border-border">
+                  {post.faq.map((it, i) => (
+                    <details key={i} className="group py-5">
+                      <summary className="flex cursor-pointer items-start justify-between gap-4 font-serif text-lg text-foreground hover:text-gold">
+                        <span>{it.q}</span>
+                        <span className="text-gold transition-transform group-open:rotate-45">+</span>
+                      </summary>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{it.a}</p>
+                    </details>
+                  ))}
+                </div>
+                <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                      "@context": "https://schema.org",
+                      "@type": "FAQPage",
+                      mainEntity: post.faq.map((it) => ({
+                        "@type": "Question",
+                        name: it.q,
+                        acceptedAnswer: { "@type": "Answer", text: it.a },
+                      })),
+                    }),
+                  }}
+                />
+              </section>
+            )}
+
+            {/* CTA */}
+            <div className="mt-16 border-t border-border pt-10 text-center">
+              <p className="eyebrow text-gold">Pronto para começar?</p>
+              <h3 className="mt-4 font-serif text-3xl">Solicite seu orçamento</h3>
+              <Link to="/contato" className="mt-6 inline-flex items-center bg-foreground px-10 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">
+                Falar com Especialista
+              </Link>
+            </div>
           </div>
+
+          {/* SIDEBAR */}
+          <aside className="space-y-10 lg:sticky lg:top-24 lg:self-start">
+            <div className="border border-border bg-card p-6">
+              <p className="eyebrow text-gold">Categoria</p>
+              <p className="mt-2 font-serif text-xl text-foreground">{post.cat}</p>
+            </div>
+
+            <div className="border border-border bg-card p-6">
+              <p className="eyebrow text-gold">Leituras populares</p>
+              <ul className="mt-4 space-y-3">
+                {recent.map((r) => (
+                  <li key={r.slug}>
+                    <Link to="/blog/$slug" params={{ slug: r.slug }} className="block text-sm leading-snug text-foreground hover:text-gold">
+                      {r.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border border-gold/30 bg-onyx p-6 text-cream">
+              <p className="eyebrow text-gold">Catálogo de pedras</p>
+              <p className="mt-3 text-sm leading-relaxed text-cream/80">
+                Mais de 100 modelos de granito, mármore, quartzo e quartzito com preço por m² atualizado.
+              </p>
+              <Link to="/pedras" className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold hover:text-cream">
+                Ver catálogo →
+              </Link>
+            </div>
+          </aside>
         </div>
+
+        {/* RELATED POSTS */}
+        <section className="border-t border-border bg-secondary py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <p className="eyebrow text-gold">Continue lendo</p>
+            <h2 className="mt-3 font-serif text-3xl text-foreground">Artigos recomendados</h2>
+            <div className="mt-10 grid gap-8 md:grid-cols-3">
+              {related.map((r) => (
+                <Link key={r.slug} to="/blog/$slug" params={{ slug: r.slug }} className="group block">
+                  <div className="aspect-[4/3] overflow-hidden bg-muted">
+                    <img src={r.img} alt={r.title} loading="lazy" width={800} height={600} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  </div>
+                  <p className="mt-5 eyebrow text-gold">{r.cat}</p>
+                  <h3 className="mt-2 font-serif text-xl leading-snug text-foreground group-hover:text-gold">{r.title}</h3>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       </article>
     </PageLayout>
   );
