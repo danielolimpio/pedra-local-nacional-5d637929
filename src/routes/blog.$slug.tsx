@@ -866,7 +866,7 @@ const POSTS: Record<string, Post> = {
         "Degrau em quartzito Taj Mahal: R$ 820 a R$ 1.280",
         "Instalação completa por degrau (Grande SP): R$ 70 a R$ 140",
       ] },
-      { p: "Para uma escada residencial padrão com 12 a 14 degraus em granito São Gabriel polido com friso antiderrapante, o investimento total fica entre R$ 4.500 e R$ 7.500, instalação inclusa. A mesma escada em mármore Branco Carrara sobe para R$ 8.500 a R$ 12.500. Já em quartzito Taj Mahal, a faixa é de R$ 16 mil a R$ 22 mil. Solicite seu orçamento personalizado para receber a tabela exata da sua região." },
+      { html: "Para uma escada residencial padrão com 12 a 14 degraus em granito São Gabriel polido com friso antiderrapante, o investimento total fica entre R$ 4.500 e R$ 7.500, instalação inclusa. A mesma escada em mármore Branco Carrara sobe para R$ 8.500 a R$ 12.500. Já em quartzito Taj Mahal, a faixa é de R$ 16 mil a R$ 22 mil. <a href=\"/contato\">Solicite seu orçamento personalizado</a> para receber a tabela exata da sua região." },
 
       { h: "Manutenção e durabilidade: o que fazer mês a mês" },
       { p: "A boa notícia é que a manutenção de uma escada de pedra é uma das mais simples da casa. Limpeza diária com pano úmido e sabão neutro, secagem rápida e nada de produtos ácidos resolvem 95% do trabalho. Os outros 5% são a selagem profissional, recomendada a cada dois anos em mármores e travertinos, e a cada três anos em granitos." },
