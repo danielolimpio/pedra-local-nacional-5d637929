@@ -909,6 +909,8 @@ const POSTS: Record<string, Post> = {
     ],
   },
 };
+
+export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
     const post = POSTS[params.slug];
     if (!post) throw notFound();
