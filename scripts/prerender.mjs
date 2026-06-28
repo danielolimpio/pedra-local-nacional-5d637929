@@ -25,6 +25,7 @@ const ROUTES = [
   "/", "/cozinha", "/banheiro", "/precos", "/galeria", "/contato",
   "/granito", "/marmore", "/quartzo",
   "/blog",
+  "/blog/pedra-para-escada-granito-marmore-travertino",
   "/blog/como-escolher-granito-marmore-quartzo",
   "/blog/manutencao-pedras-naturais",
   "/blog/tendencias-marmoraria-2026",
