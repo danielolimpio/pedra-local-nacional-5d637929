@@ -8,6 +8,7 @@ import hero from "@/assets/hero-granite.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import siena from "@/assets/granite-siena.webp";
+import escadaCover from "@/assets/blog-escada-granito-cover.jpg";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
