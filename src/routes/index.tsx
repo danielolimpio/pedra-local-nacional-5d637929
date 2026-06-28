@@ -14,6 +14,7 @@ import marbleBronze from "@/assets/marble-bronze.webp";
 import neroChines from "@/assets/marble-nero-chines.webp";
 import verdeGuatemala from "@/assets/marble-verde-guatemala.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
+import escadaCover from "@/assets/blog-escada-granito-cover.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -188,6 +189,35 @@ function HomePage() {
             <strong>Campinas</strong>, <strong>São José dos Campos</strong>, <strong>Goiânia</strong> e <strong>Recife</strong>.
             Quartzito Taj Mahal, granito São Gabriel, mármore Calacatta Gold e quartzo branco com instalação profissional.
           </p>
+        </div>
+      </section>
+
+      {/* BLOG EM DESTAQUE */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <SectionHeader
+          eyebrow="Do Blog"
+          title="Insights e guias de marmoraria"
+          description="Conteúdo prático sobre granito, mármore, quartzito, preços, manutenção e tendências atemporais para o seu projeto."
+        />
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {[
+            { slug: "pedra-para-escada-granito-marmore-travertino" as const, title: "Pedra para Escada: Granito, Mármore ou Travertino — Guia Definitivo 2026", cat: "Guia de Escolha", img: escadaCover },
+            { slug: "quartzito-taj-mahal-preco-m2" as const, title: "Quartzito Taj Mahal: preço por m² e onde aplicar", cat: "Quartzito", img: calacatta },
+            { slug: "diferenca-granito-marmore-quartzo-quartzito" as const, title: "Granito, mármore, quartzo ou quartzito: qual é o melhor?", cat: "Guia de Escolha", img: heroGranite },
+          ].map((p) => (
+            <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group block">
+              <div className="aspect-[4/3] overflow-hidden bg-muted">
+                <img src={p.img} alt={p.title} loading="lazy" width={800} height={600} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <p className="mt-5 eyebrow text-gold">{p.cat}</p>
+              <h3 className="mt-2 font-serif text-xl leading-snug text-foreground group-hover:text-gold">{p.title}</h3>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-foreground hover:text-gold">
+            Ver todos os artigos <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
       </section>
 

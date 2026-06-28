@@ -1,11 +1,21 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import hero from "@/assets/hero-granite.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import siena from "@/assets/granite-siena.webp";
+import escadaCover from "@/assets/blog-escada-granito-cover.jpg";
+import escadaMid from "@/assets/blog-escada-marmore-mid.jpg";
+
+type BodyBlock = {
+  h?: string;
+  p?: string;
+  html?: string;
+  ul?: string[];
+  img?: { src: string; alt: string; caption?: string };
+};
 
 type Post = {
   title: string;
@@ -13,7 +23,11 @@ type Post = {
   img: string;
   cat: string;
   date: string;
-  body: { h?: string; p?: string; ul?: string[] }[];
+  readTime?: string;
+  author?: string;
+  body: BodyBlock[];
+  faq?: { q: string; a: string }[];
+  tags?: string[];
 };
 
 const POSTS: Record<string, Post> = {
@@ -766,6 +780,134 @@ const POSTS: Record<string, Post> = {
       ] },
     ],
   },
+  "pedra-para-escada-granito-marmore-travertino": {
+    title: "Pedra para Escada: Granito, Mármore ou Travertino — Guia Definitivo 2026",
+    desc: "Guia completo para escolher a melhor pedra para escada interna e externa: granito, mármore, travertino e quartzito. Medidas, antiderrapância, preço por degrau, manutenção e tendências atemporais.",
+    img: escadaCover,
+    cat: "Guia de Escolha",
+    date: "28 de junho de 2026",
+    readTime: "13 min de leitura",
+    author: "Equipe Marmorarias.shop",
+    tags: ["pedra para escada", "granito para escada", "marmore para escada", "travertino", "degrau de granito", "espelho de escada", "escada interna", "escada externa", "antiderrapante"],
+    body: [
+      { p: "Pouca gente percebe, mas a escada é o elemento da casa que mais sofre desgaste por metro quadrado. Recebe pisadas todos os dias, suporta peso concentrado em uma área pequena e ainda precisa parecer bonita de qualquer ângulo — afinal, é a primeira coisa que se vê quando se entra em um sobrado ou em um lobby. Por isso a escolha da pedra para escada não é detalhe de acabamento: é decisão estrutural, estética e de segurança ao mesmo tempo." },
+      { p: "Neste guia, vamos destrinchar tudo o que você precisa saber antes de fechar o orçamento da sua marmoraria: quais pedras valem o investimento, quais medidas seguir, como garantir antiderrapância sem perder o brilho, quanto custa em 2026 e quais erros mais comuns acabam custando uma reforma inteira poucos anos depois. O texto vale tanto para quem está reformando um sobrado pequeno quanto para quem está especificando uma escada principal de cobertura ou loja." },
+
+      { h: "Por que a escada exige uma pedra diferente do resto da casa" },
+      { p: "Antes de comparar materiais, vale entender o que faz a escada ser um caso à parte. Um degrau recebe, em média, entre 3.000 e 7.000 pisadas por mês em uma residência de quatro pessoas. Em ambiente comercial, esse número se multiplica por dez. Toda essa carga concentra-se justamente na quina do piso — o ponto mais frágil de qualquer pedra natural." },
+      { p: "Além do desgaste mecânico, a escada combina dois inimigos clássicos da pedra: umidade trazida pelo calçado e variação térmica entre andares. Em escadas externas, soma-se ainda chuva, vento e dilatação por sol direto. Por isso uma pedra que funciona perfeitamente na sala de jantar pode trincar em três anos se mal especificada para a escada." },
+      { p: "Outro ponto que costuma passar despercebido é o desempenho acústico. Pedras densas como granito amortecem o som da pisada melhor do que porcelanato fino, especialmente quando assentadas sobre argamassa estabilizada com manta acústica. Em apartamentos duplex, isso faz diferença real para vizinhos do andar de baixo." },
+
+      { h: "Granito para escada: o queridinho do Brasil" },
+      { p: "Disparado, o granito é a pedra mais usada em escadas brasileiras — e tem motivo. É a rocha mais densa entre as opções acessíveis, resiste muito bem ao tráfego intenso, suporta limpeza com produtos comuns e tem variedade enorme de cores nacionais por preços que cabem no orçamento de quase qualquer reforma." },
+      { p: "Em termos práticos, um degrau de granito polido bem assentado dura 40 anos sem perder brilho perceptível. As cores mais usadas são as escuras — Preto São Gabriel, Preto Indiano, Verde Ubatuba e Marrom Imperial — porque escondem melhor o desgaste natural da quina e harmonizam com madeira, ferro e vidro, que são os três acabamentos mais comuns em guarda-corpos modernos." },
+      { ul: [
+        "Preto São Gabriel — clássico atemporal, granulação fina, custo médio",
+        "Branco Itaúnas — para escadas em ambientes claros e minimalistas",
+        "Cinza Andorinha — neutro, combina com qualquer paleta",
+        "Verde Ubatuba — toque clássico, esconde marcas de uso",
+        "Preto Aracruz — visual sóbrio, pouca variação de chapa para chapa",
+      ] },
+      { html: "Outro motivo para o granito dominar o segmento é o acabamento flameado. Quando a chapa passa pelo maçarico industrial, a superfície fica naturalmente rugosa e ganha alta antiderrapância — qualidade obrigatória em escadas externas e bastante recomendada em áreas molhadas. Para entender melhor as diferenças entre os tipos de superfície, vale ler nosso <a href=\"/blog/tipos-de-acabamento-de-pedra\">guia sobre acabamentos de pedra</a> antes de fechar o pedido." },
+
+      { img: { src: escadaMid, alt: "Escada interna revestida em mármore branco com guarda-corpo de vidro e iluminação natural lateral", caption: "Escada em mármore branco com guarda-corpo de vidro temperado — projeto típico de residência alto padrão em 2026." } },
+
+      { h: "Mármore para escada: o luxo que pede projeto bem feito" },
+      { html: "O mármore continua sendo a pedra mais desejada para escadas de alto padrão. Branco Carrara, Calacatta Gold e Travertino Romano são presença certa em projetos publicados em revistas de arquitetura como a <a href=\"https://casavogue.globo.com/\" target=\"_blank\" rel=\"noopener\">Casa Vogue</a> e em portais como o <a href=\"https://www.archdaily.com.br/br\" target=\"_blank\" rel=\"noopener\">ArchDaily Brasil</a>. O motivo é simples: nenhuma outra pedra tem veio tão expressivo, tão único e tão luxuoso." },
+      { p: "Mas o mármore exige conversa franca antes da compra. É uma rocha metamórfica mais porosa que o granito, sensível a líquidos ácidos e mais delicada na quina. Em escada residencial de uso normal, sobrevive sem problemas — em escada comercial com cinco mil pisadas diárias, começa a marcar a região central do degrau em poucos anos." },
+      { p: "Para projetos de escada de mármore que duram décadas, três cuidados são inegociáveis: selagem hidrofugante de qualidade aplicada antes da entrega, espessura mínima de 3 cm no piso (nunca 2 cm) e quina arredondada com raio mínimo de 5 mm. Esses três detalhes resolvem 90% dos problemas que aparecem em escadas mal especificadas." },
+      { ul: [
+        "Mármore Branco Carrara — clássico italiano, veio cinza suave",
+        "Calacatta Gold — veios dourados, premium absoluto",
+        "Mármore Travertino — visual rústico-elegante, cores quentes",
+        "Mármore Crema Marfil — bege uniforme, fácil combinação",
+        "Mármore Nero Marquina — preto com veios brancos, alta sofisticação",
+      ] },
+
+      { h: "Travertino: o renascimento da pedra romana" },
+      { p: "O travertino voltou com força nos últimos anos, especialmente em projetos de inspiração mediterrânea e em interiores que misturam orgânico e contemporâneo. É uma pedra calcária formada por depósito de carbonato em fontes termais — daí os poros característicos que dão personalidade única ao material." },
+      { p: "Para escadas, o travertino tem uma vantagem prática enorme: a textura natural reduz a sensação de escorregão, mesmo no acabamento polido. A versão bruta (sem preenchimento dos poros) é ainda mais antiderrapante, mas exige limpeza mais cuidadosa para evitar acúmulo de sujeira nos micro-relevos." },
+      { p: "A cor mais usada continua sendo o travertino romano clássico, em tons de bege quente. Em projetos contemporâneos brasileiros vemos crescer o uso do travertino navona (mais claro) e do travertino noce (marrom escuro), criando contrastes interessantes entre o piso da escada e os espelhos, ou entre o degrau e o guarda-corpo metálico." },
+
+      { h: "Quartzito: quando o cliente quer o melhor dos dois mundos" },
+      { p: "O quartzito merece capítulo próprio. É a pedra natural mais resistente entre as opções estéticas, combina o visual marmorizado com a dureza do granito e tem ganhado espaço em escadas de cobertura, lofts e projetos premium. Taj Mahal, Mont Blanc e Patagônia são os três nomes que aparecem mais nos orçamentos de marmoraria nos últimos 24 meses." },
+      { p: "O ponto de atenção é o preço: uma escada em quartzito Taj Mahal sai entre R$ 2.300 e R$ 3.200 por metro quadrado, considerando piso e espelho. Para uma escada de 12 degraus em residência média, o investimento total varia entre R$ 18 mil e R$ 28 mil — três a quatro vezes o custo de uma escada em granito São Gabriel. Em troca, o cliente leva durabilidade superior, manutenção mínima e um visual que valoriza claramente o imóvel na revenda." },
+
+      { h: "Medidas técnicas: piso, espelho e balanço" },
+      { p: "A nomenclatura básica é simples. O piso é a parte horizontal onde o pé pisa. O espelho é a parte vertical entre um piso e outro. O balanço é a saliência do piso que avança sobre o espelho — em geral entre 2 e 4 cm para criar a sombra característica do degrau e amortecer o impacto visual da escada." },
+      { p: "As medidas mais usadas em residências brasileiras são piso de 28 a 32 cm de profundidade, espelho de 17 a 18 cm de altura e largura útil de 90 a 110 cm. Para escadas comerciais, a NBR 9050 (norma de acessibilidade da ABNT) exige largura mínima de 120 cm e relação piso-espelho que respeite a fórmula de Blondel (2 x espelho + piso = 63 a 65 cm)." },
+      { ul: [
+        "Espessura do piso: 3 cm é o padrão técnico — 2 cm só em escadas decorativas de pouco uso",
+        "Espessura do espelho: 2 cm é suficiente, já que não recebe carga",
+        "Balanço (nariz): 2 a 4 cm, com pingadeira ou friso antiderrapante na quina",
+        "Quina arredondada: raio mínimo de 5 mm para reduzir lascamento",
+        "Junta entre peças: 2 mm preenchidas com rejunte epóxi cor da pedra",
+      ] },
+      { p: "Uma decisão importante é entre piso colado direto sobre a estrutura existente (mais comum em reformas) ou piso assentado sobre nivelamento de argamassa fresca (mais usado em obras novas). O segundo método é tecnicamente melhor porque distribui a carga de forma mais uniforme e reduz risco de trinca por flexão da estrutura sob o degrau." },
+
+      { h: "Antiderrapância e segurança: o item que ninguém pode pular" },
+      { p: "Aqui mora o erro mais comum em escadas residenciais bonitas: pedra polida brilhando, escada linda no Instagram, dois meses de uso e o primeiro escorregão sério no banho. Pedra polida em escada interna funciona apenas se a casa for adulta, sem crianças pequenas e sem idosos. Caso contrário, a recomendação técnica é clara: friso antiderrapante na quina ou acabamento levigado em todo o piso." },
+      { html: "O friso antiderrapante é uma ranhura paralela à borda, feita com disco diamantado, que cria duas ou três linhas finas onde o calçado encontra atrito extra. É o caminho do meio mais elegante: mantém o brilho do piso polido e resolve a segurança no ponto crítico. Para escadas externas, a norma técnica do <a href=\"https://www.gov.br/inmetro/pt-br\" target=\"_blank\" rel=\"noopener\">Inmetro</a> recomenda atrito mínimo R11 em superfícies expostas a água — atingido com flameado, jateado ou pedras naturalmente rugosas." },
+      { p: "Outra opção em alta é a faixa antiderrapante de alumínio embutida na quina, com inserto de borracha colorida. Cumpre função de segurança, pode ser trocada quando desgastar e tem custo baixo (R$ 35 a R$ 60 por metro linear instalado). Em projetos corporativos é praticamente obrigatória." },
+
+      { h: "Iluminação: a aliada que multiplica o efeito visual" },
+      { p: "Escada bem iluminada parece mais cara e é mais segura. Hoje, dois sistemas dominam: fita de LED embutida no rodapé lateral (cria efeito sutil de luz rasante sobre o piso) e spot embutido na lateral de cada espelho, iluminando o próximo degrau de baixo para cima. Os dois podem ser combinados, e a marmoraria precisa prever o canal de passagem dos cabos antes de colar as peças." },
+      { p: "Para mármores claros e travertinos, a temperatura de cor recomendada é entre 2700K e 3000K (luz quente), que valoriza os veios sem deixar a pedra com aparência fria. Em granitos escuros, 3000K a 3500K funcionam melhor. Sensores de presença com timer de 30 segundos ajudam na conta de luz e dispensam interruptores em ambos os pavimentos." },
+
+      { h: "Preço médio por degrau em 2026" },
+      { p: "Um degrau completo (piso + espelho + balanço + acabamento na quina) varia conforme pedra, espessura e acabamento. A tabela abaixo serve como base para você comparar orçamentos de marmoraria sem cair em valores muito acima ou muito abaixo do mercado." },
+      { ul: [
+        "Degrau em granito Cinza Andorinha (polido, 30 cm de piso): R$ 180 a R$ 260",
+        "Degrau em granito São Gabriel (polido com friso antiderrapante): R$ 240 a R$ 340",
+        "Degrau em granito flameado preto: R$ 280 a R$ 420",
+        "Degrau em mármore Travertino Romano: R$ 380 a R$ 520",
+        "Degrau em mármore Branco Carrara: R$ 460 a R$ 680",
+        "Degrau em mármore Calacatta Gold importado: R$ 760 a R$ 1.180",
+        "Degrau em quartzito Taj Mahal: R$ 820 a R$ 1.280",
+        "Instalação completa por degrau (Grande SP): R$ 70 a R$ 140",
+      ] },
+      { html: "Para uma escada residencial padrão com 12 a 14 degraus em granito São Gabriel polido com friso antiderrapante, o investimento total fica entre R$ 4.500 e R$ 7.500, instalação inclusa. A mesma escada em mármore Branco Carrara sobe para R$ 8.500 a R$ 12.500. Já em quartzito Taj Mahal, a faixa é de R$ 16 mil a R$ 22 mil. <a href=\"/contato\">Solicite seu orçamento personalizado</a> para receber a tabela exata da sua região." },
+
+      { h: "Manutenção e durabilidade: o que fazer mês a mês" },
+      { p: "A boa notícia é que a manutenção de uma escada de pedra é uma das mais simples da casa. Limpeza diária com pano úmido e sabão neutro, secagem rápida e nada de produtos ácidos resolvem 95% do trabalho. Os outros 5% são a selagem profissional, recomendada a cada dois anos em mármores e travertinos, e a cada três anos em granitos." },
+      { p: "Manchas pontuais têm soluções rápidas: pasta de bicarbonato com água oxigenada para café e vinho em mármore, detergente desengordurante para óleo em granito de cozinha aberta, e cera mineral aplicada anualmente para devolver o brilho. Em escadas de uso intenso, um polimento técnico com discos diamantados a cada 8 a 10 anos restaura o brilho original sem necessidade de troca. O passo a passo completo está no nosso guia de manutenção de pedras naturais." },
+
+      { h: "Tendências atemporais para escadas em 2026 e além" },
+      { p: "Diferente de tendências passageiras, escada é investimento que precisa durar 20, 30 anos sem parecer datada. As escolhas que mais resistem ao tempo seguem três princípios: pedras de paleta neutra (preto, branco, bege), acabamentos com textura mas sem exagero, e guarda-corpos minimalistas que não competem com a pedra." },
+      { p: "Em 2026, os projetos mais bem avaliados misturam pedra escura no piso da escada com guarda-corpo de vidro temperado fixado por sapatas inox. Outra combinação forte é mármore branco com corrimão de madeira maciça em tom mel ou nogueira — uma releitura contemporânea da escada clássica europeia. Escadas flutuantes (sem espelho aparente, com degraus em balanço apoiados em viga de aço) seguem em alta para projetos de loft e cobertura." },
+
+      { h: "Erros mais comuns que custam caro depois" },
+      { p: "Listamos os deslizes que mais aparecem nos chamados de pós-venda de marmoraria — todos absolutamente evitáveis com uma conversa técnica antes de cortar a chapa." },
+      { ul: [
+        "Pedra polida sem friso antiderrapante em casa com crianças ou idosos",
+        "Espessura de 2 cm em piso de escada (correto é 3 cm)",
+        "Quina viva sem arredondamento — lasca em poucos meses",
+        "Selagem feita pelo cliente com produto errado, gerando mancha permanente",
+        "Falta de previsão de passagem para fita de LED — obriga reabertura depois",
+        "Rejunte cinza padrão em pedra clara — destaca a junta em vez de esconder",
+        "Compra de chapas de lotes diferentes — variação de cor visível em dia ensolarado",
+        "Escada externa em mármore poroso sem selante hidrofugante reforçado",
+      ] },
+
+      { h: "Como pedir o orçamento certo" },
+      { p: "Para receber um orçamento real e comparável entre marmorarias, envie sempre cinco informações: número total de degraus, medida exata de piso e espelho de cada um (algumas escadas têm degraus diferentes no patamar), tipo de pedra desejada (ou faixa de orçamento), foto da estrutura atual e indicação de friso antiderrapante ou acabamento alternativo." },
+      { p: "Com essas informações, uma boa marmoraria devolve a proposta em até 48 horas, com discriminação de material, mão de obra, frete, instalação, selagem e prazo de entrega. Desconfie de orçamento muito abaixo da média — quase sempre significa pedra de segunda linha, espessura menor que a especificada ou ausência de acabamento na quina, que precisará ser feito depois por outro profissional, encarecendo o conjunto." },
+
+      { h: "Considerações finais" },
+      { p: "A pedra ideal para sua escada depende de três variáveis: o uso real do espaço, o orçamento disponível e o estilo do restante da casa. Granito São Gabriel é a resposta certa para a maioria dos brasileiros — combina preço, durabilidade e visual neutro. Mármore Carrara entrega o sonho clássico de luxo para quem aceita a manutenção um pouco mais cuidadosa. Travertino é a escolha sofisticada para projetos de inspiração mediterrânea ou orgânica. Quartzito é o investimento para quem quer o melhor sem se preocupar com manutenção por décadas." },
+      { p: "Acertar essa escolha logo de cara economiza tempo, dinheiro e frustração. Se ficou em dúvida entre dois materiais, conte com a nossa equipe — atendemos todo o Brasil com orientação técnica gratuita antes da contratação." },
+    ],
+    faq: [
+      { q: "Qual a melhor pedra para escada interna?", a: "Para escada interna residencial, o granito São Gabriel polido com friso antiderrapante é a melhor relação custo-benefício. Para projetos de alto padrão, mármore Branco Carrara e quartzito Taj Mahal são as opções mais procuradas. Travertino entrega visual sofisticado com antiderrapância natural." },
+      { q: "Qual a espessura ideal do piso de uma escada de granito?", a: "A espessura técnica recomendada é 3 cm para o piso (parte horizontal) e 2 cm para o espelho (parte vertical). Espessuras menores podem ser usadas em escadas decorativas de pouco uso, mas não atendem ao desgaste de uso diário em residência." },
+      { q: "Mármore na escada é seguro? Não escorrega?", a: "Mármore polido escorrega sim em contato com água ou calçado úmido. Para escadas de mármore, sempre especifique friso antiderrapante na quina, faixa antiderrapante de alumínio ou acabamento levigado em vez de polido. Em escadas externas, prefira pedras com acabamento flameado ou pedras naturalmente rugosas." },
+      { q: "Quanto custa uma escada de granito completa em 2026?", a: "Uma escada residencial padrão com 12 a 14 degraus em granito São Gabriel polido com friso antiderrapante e instalação custa entre R$ 4.500 e R$ 7.500 em 2026. O mesmo modelo em mármore Carrara fica entre R$ 8.500 e R$ 12.500, e em quartzito Taj Mahal entre R$ 16.000 e R$ 22.000." },
+      { q: "Posso usar pedra polida em escada com crianças?", a: "Não é recomendado. Pedra polida em escada interna com crianças pequenas ou idosos representa risco real de escorregão. A solução é manter o brilho do polido e adicionar friso antiderrapante na quina, ou optar por acabamento levigado (fosco) em todo o piso. Em escadas externas, sempre flameado ou jateado." },
+      { q: "Travertino na escada precisa de cuidado especial?", a: "O travertino é uma pedra calcária mais porosa que o granito. Para escadas, exige selagem hidrofugante de qualidade aplicada antes da entrega e reaplicação a cada 18 a 24 meses. Em escadas externas, recomendamos o travertino bruto sem preenchimento dos poros, que tem antiderrapância natural superior." },
+      { q: "Qual a diferença entre piso, espelho e balanço da escada?", a: "Piso é a parte horizontal onde o pé pisa, geralmente de 28 a 32 cm de profundidade. Espelho é a parte vertical entre dois pisos, com altura entre 17 e 18 cm. Balanço (ou nariz) é a pequena saliência do piso que avança sobre o espelho, entre 2 e 4 cm, criando sombra visual e amortecendo o impacto da pisada." },
+      { q: "Posso misturar duas pedras diferentes na mesma escada?", a: "Sim, e é uma tendência em alta em 2026. Combinações comuns: piso em mármore branco com espelho em mármore preto, ou piso em granito escuro com lateral em madeira maciça. O importante é manter coerência com o restante da decoração e garantir que ambas as pedras tenham a mesma espessura técnica no piso." },
+    ],
+  },
 };
 
 export const Route = createFileRoute("/blog/$slug")({
@@ -824,7 +966,16 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogPostPage() {
-  const { post } = Route.useLoaderData();
+  const { post, slug } = Route.useLoaderData() as { post: Post; slug: string };
+  const related = Object.entries(POSTS)
+    .filter(([s]) => s !== slug)
+    .slice(0, 3)
+    .map(([s, p]) => ({ slug: s as keyof typeof POSTS, ...p }));
+  const recent = Object.entries(POSTS)
+    .filter(([s]) => s !== slug)
+    .slice(0, 5)
+    .map(([s, p]) => ({ slug: s as keyof typeof POSTS, title: p.title }));
+
   return (
     <PageLayout>
       <Breadcrumbs items={[{ label: "Blog", to: "/blog" }, { label: post.title }]} />
@@ -836,31 +987,154 @@ function BlogPostPage() {
             <Link to="/blog" className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold hover:text-cream">
               <ArrowLeft className="h-3.5 w-3.5" /> Voltar ao Blog
             </Link>
-            <p className="mt-8 eyebrow text-gold">{post.cat} • {post.date}</p>
+            <p className="mt-8 eyebrow text-gold">{post.cat}</p>
             <h1 className="mt-4 font-serif text-4xl leading-tight md:text-6xl">{post.title}</h1>
             <p className="mt-6 max-w-2xl text-cream/80">{post.desc}</p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs uppercase tracking-[0.18em] text-cream/70">
+              <span className="inline-flex items-center gap-2"><User className="h-3.5 w-3.5 text-gold" /> {post.author ?? "Equipe Marmorarias.shop"}</span>
+              <span className="inline-flex items-center gap-2"><Calendar className="h-3.5 w-3.5 text-gold" /> {post.date}</span>
+              {post.readTime && <span className="inline-flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-gold" /> {post.readTime}</span>}
+            </div>
           </div>
         </header>
 
-        <div className="mx-auto max-w-3xl px-6 py-20">
-          {post.body.map((b: { h?: string; p?: string; ul?: string[] }, i: number) => {
-            if (b.h) return <h2 key={i} className="mt-12 font-serif text-3xl text-foreground">{b.h}</h2>;
-            if (b.ul) return (
-              <ul key={i} className="mt-6 space-y-2 text-muted-foreground">
-                {b.ul.map((li: string) => <li key={li}>• {li}</li>)}
-              </ul>
-            );
-            return <p key={i} className="mt-6 leading-relaxed text-muted-foreground">{b.p}</p>;
-          })}
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[minmax(0,1fr)_280px]">
+          {/* MAIN CONTENT */}
+          <div className="min-w-0">
+            {post.body.map((b, i) => {
+              if (b.h) return <h2 key={i} className="mt-14 mb-2 font-serif text-3xl text-foreground">{b.h}</h2>;
+              if (b.img) return (
+                <figure key={i} className="my-10">
+                  <img src={b.img.src} alt={b.img.alt} loading="lazy" width={1600} height={1000} className="w-full" />
+                  {b.img.caption && <figcaption className="mt-3 text-center text-xs text-muted-foreground italic">{b.img.caption}</figcaption>}
+                </figure>
+              );
+              if (b.ul) return (
+                <ul key={i} className="mt-6 mb-6 space-y-3 text-muted-foreground leading-relaxed">
+                  {b.ul.map((li) => <li key={li} className="pl-4 border-l-2 border-gold/40">{li}</li>)}
+                </ul>
+              );
+              if (b.html) return <p key={i} className="mt-6 leading-[1.85] text-muted-foreground [&_a]:text-gold [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-foreground" dangerouslySetInnerHTML={{ __html: b.html }} />;
+              return <p key={i} className="mt-6 leading-[1.85] text-muted-foreground">{b.p}</p>;
+            })}
 
-          <div className="mt-16 border-t border-border pt-10 text-center">
-            <p className="eyebrow text-gold">Pronto para começar?</p>
-            <h3 className="mt-4 font-serif text-3xl">Solicite seu orçamento</h3>
-            <Link to="/contato" className="mt-6 inline-flex items-center bg-foreground px-10 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">
-              Falar com Especialista
-            </Link>
+            {post.tags && post.tags.length > 0 && (
+              <div className="mt-14 flex flex-wrap gap-2 border-t border-border pt-8">
+                {post.tags.map((t) => (
+                  <span key={t} className="border border-border bg-secondary px-3 py-1 text-xs uppercase tracking-wider text-muted-foreground">{t}</span>
+                ))}
+              </div>
+            )}
+
+            {/* AUTHOR BLOCK */}
+            <div className="mt-12 flex items-start gap-5 border border-border bg-secondary p-6">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-gold text-onyx">
+                <User className="h-7 w-7" strokeWidth={1.4} />
+              </div>
+              <div>
+                <p className="eyebrow text-gold">Sobre o autor</p>
+                <h3 className="mt-1 font-serif text-xl text-foreground">{post.author ?? "Equipe Marmorarias.shop"}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Conteúdo escrito pela equipe técnica da Marmorarias.shop — especialistas em granito,
+                  mármore, quartzo e quartzito, com mais de uma década de experiência em projetos de
+                  bancadas, escadas, fachadas e revestimentos em todo o Brasil.
+                </p>
+              </div>
+            </div>
+
+            {/* FAQ */}
+            {post.faq && post.faq.length > 0 && (
+              <section className="mt-16 border-t border-border pt-10">
+                <p className="eyebrow text-gold">Dúvidas Frequentes</p>
+                <h2 className="mt-3 font-serif text-3xl text-foreground">Perguntas frequentes sobre este tema</h2>
+                <div className="mt-8 divide-y divide-border border-t border-b border-border">
+                  {post.faq.map((it, i) => (
+                    <details key={i} className="group py-5">
+                      <summary className="flex cursor-pointer items-start justify-between gap-4 font-serif text-lg text-foreground hover:text-gold">
+                        <span>{it.q}</span>
+                        <span className="text-gold transition-transform group-open:rotate-45">+</span>
+                      </summary>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{it.a}</p>
+                    </details>
+                  ))}
+                </div>
+                <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                      "@context": "https://schema.org",
+                      "@type": "FAQPage",
+                      mainEntity: post.faq.map((it) => ({
+                        "@type": "Question",
+                        name: it.q,
+                        acceptedAnswer: { "@type": "Answer", text: it.a },
+                      })),
+                    }),
+                  }}
+                />
+              </section>
+            )}
+
+            {/* CTA */}
+            <div className="mt-16 border-t border-border pt-10 text-center">
+              <p className="eyebrow text-gold">Pronto para começar?</p>
+              <h3 className="mt-4 font-serif text-3xl">Solicite seu orçamento</h3>
+              <Link to="/contato" className="mt-6 inline-flex items-center bg-foreground px-10 py-4 text-xs uppercase tracking-[0.25em] text-background hover:bg-gold hover:text-onyx">
+                Falar com Especialista
+              </Link>
+            </div>
           </div>
+
+          {/* SIDEBAR */}
+          <aside className="space-y-10 lg:sticky lg:top-24 lg:self-start">
+            <div className="border border-border bg-card p-6">
+              <p className="eyebrow text-gold">Categoria</p>
+              <p className="mt-2 font-serif text-xl text-foreground">{post.cat}</p>
+            </div>
+
+            <div className="border border-border bg-card p-6">
+              <p className="eyebrow text-gold">Leituras populares</p>
+              <ul className="mt-4 space-y-3">
+                {recent.map((r) => (
+                  <li key={r.slug}>
+                    <Link to="/blog/$slug" params={{ slug: r.slug }} className="block text-sm leading-snug text-foreground hover:text-gold">
+                      {r.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border border-gold/30 bg-onyx p-6 text-cream">
+              <p className="eyebrow text-gold">Catálogo de pedras</p>
+              <p className="mt-3 text-sm leading-relaxed text-cream/80">
+                Mais de 100 modelos de granito, mármore, quartzo e quartzito com preço por m² atualizado.
+              </p>
+              <Link to="/pedras" className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold hover:text-cream">
+                Ver catálogo →
+              </Link>
+            </div>
+          </aside>
         </div>
+
+        {/* RELATED POSTS */}
+        <section className="border-t border-border bg-secondary py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <p className="eyebrow text-gold">Continue lendo</p>
+            <h2 className="mt-3 font-serif text-3xl text-foreground">Artigos recomendados</h2>
+            <div className="mt-10 grid gap-8 md:grid-cols-3">
+              {related.map((r) => (
+                <Link key={r.slug} to="/blog/$slug" params={{ slug: r.slug }} className="group block">
+                  <div className="aspect-[4/3] overflow-hidden bg-muted">
+                    <img src={r.img} alt={r.title} loading="lazy" width={800} height={600} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  </div>
+                  <p className="mt-5 eyebrow text-gold">{r.cat}</p>
+                  <h3 className="mt-2 font-serif text-xl leading-snug text-foreground group-hover:text-gold">{r.title}</h3>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       </article>
     </PageLayout>
   );

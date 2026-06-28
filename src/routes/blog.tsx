@@ -8,6 +8,7 @@ import hero from "@/assets/hero-granite.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import siena from "@/assets/granite-siena.webp";
+import escadaCover from "@/assets/blog-escada-granito-cover.jpg";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/blog")({
 });
 
 const posts = [
+  { slug: "pedra-para-escada-granito-marmore-travertino" as const, title: "Pedra para Escada: Granito, Mármore ou Travertino — Guia Definitivo 2026", desc: "Guia completo para escolher pedra de escada: tipos, medidas, antiderrapância, preço por degrau e tendências atemporais.", img: escadaCover, cat: "Guia de Escolha" },
   { slug: "como-escolher-granito-marmore-quartzo" as const, title: "Como escolher entre granito, mármore e quartzo", desc: "Guia completo para decidir o material ideal para sua bancada de cozinha, banheiro ou área gourmet.", img: siena, cat: "Guia de Escolha" },
   { slug: "manutencao-pedras-naturais" as const, title: "Manutenção de pedras naturais: o guia definitivo", desc: "Como limpar, selar e preservar granito, mármore e quartzo por décadas.", img: kitchen, cat: "Manutenção" },
   { slug: "tendencias-marmoraria-2026" as const, title: "Tendências de marmoraria 2026: cores, acabamentos e estilos", desc: "Quartzitos exóticos, Calacatta, levigados e bancadas monolíticas dominam o ano.", img: calacatta, cat: "Tendências" },
