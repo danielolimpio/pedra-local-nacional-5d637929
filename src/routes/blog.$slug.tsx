@@ -808,7 +808,7 @@ const POSTS: Record<string, Post> = {
         "Verde Ubatuba — toque clássico, esconde marcas de uso",
         "Preto Aracruz — visual sóbrio, pouca variação de chapa para chapa",
       ] },
-      { p: "Outro motivo para o granito dominar o segmento é o acabamento flameado. Quando a chapa passa pelo maçarico industrial, a superfície fica naturalmente rugosa e ganha alta antiderrapância — qualidade obrigatória em escadas externas e bastante recomendada em áreas molhadas. Para entender melhor as diferenças entre os tipos de superfície, vale ler nosso guia sobre acabamentos de pedra antes de fechar o pedido." },
+      { html: "Outro motivo para o granito dominar o segmento é o acabamento flameado. Quando a chapa passa pelo maçarico industrial, a superfície fica naturalmente rugosa e ganha alta antiderrapância — qualidade obrigatória em escadas externas e bastante recomendada em áreas molhadas. Para entender melhor as diferenças entre os tipos de superfície, vale ler nosso <a href=\"/blog/tipos-de-acabamento-de-pedra\">guia sobre acabamentos de pedra</a> antes de fechar o pedido." },
 
       { img: { src: escadaMid, alt: "Escada interna revestida em mármore branco com guarda-corpo de vidro e iluminação natural lateral", caption: "Escada em mármore branco com guarda-corpo de vidro temperado — projeto típico de residência alto padrão em 2026." } },
 
