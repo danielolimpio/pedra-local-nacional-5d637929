@@ -14,6 +14,9 @@ import marbleBronze from "@/assets/marble-bronze.webp";
 import neroChines from "@/assets/marble-nero-chines.webp";
 import verdeGuatemala from "@/assets/marble-verde-guatemala.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
+import escadaCover from "@/assets/blog-escada-granito-cover.jpg";
+import kitchenBlog from "@/assets/kitchen-luxury.webp";
+import sienaBlog from "@/assets/granite-siena.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
