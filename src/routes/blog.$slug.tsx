@@ -1,11 +1,21 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import hero from "@/assets/hero-granite.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import siena from "@/assets/granite-siena.webp";
+import escadaCover from "@/assets/blog-escada-granito-cover.jpg";
+import escadaMid from "@/assets/blog-escada-marmore-mid.jpg";
+
+type BodyBlock = {
+  h?: string;
+  p?: string;
+  html?: string;
+  ul?: string[];
+  img?: { src: string; alt: string; caption?: string };
+};
 
 type Post = {
   title: string;
@@ -13,7 +23,11 @@ type Post = {
   img: string;
   cat: string;
   date: string;
-  body: { h?: string; p?: string; ul?: string[] }[];
+  readTime?: string;
+  author?: string;
+  body: BodyBlock[];
+  faq?: { q: string; a: string }[];
+  tags?: string[];
 };
 
 const POSTS: Record<string, Post> = {
