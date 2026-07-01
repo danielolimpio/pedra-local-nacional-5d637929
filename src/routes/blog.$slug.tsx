@@ -1196,6 +1196,9 @@ const POSTS: Record<string, Post> = {
       { q: "Preciso de projeto de arquiteto para fazer área gourmet?", a: "Não é obrigatório do ponto de vista legal, mas é fortemente recomendado tecnicamente. Um projeto arquitetônico técnico para área gourmet residencial custa entre R$ 3.500 e R$ 8.000 no Brasil em 2026 e evita retrabalhos que facilmente ultrapassam R$ 15.000 a R$ 30.000. O arquiteto resolve integração com a casa, dimensionamento ergonômico, definição técnica de materiais, projeto elétrico e hidráulico e detalhamento executivo que a marmoraria e o pedreiro seguem." },
     ],
   },
+};
+
+
 
 
 export const Route = createFileRoute("/blog/$slug")({
