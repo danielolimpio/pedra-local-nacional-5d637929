@@ -25,6 +25,8 @@ const ROUTES = [
   "/", "/cozinha", "/banheiro", "/precos", "/galeria", "/contato",
   "/granito", "/marmore", "/quartzo",
   "/blog",
+  "/blog/pia-esculpida-marmore-granito-modelos-precos-2026",
+  "/blog/area-gourmet-projeto-pedras-custos-2026",
   "/blog/pedra-para-escada-granito-marmore-travertino",
   "/blog/como-escolher-granito-marmore-quartzo",
   "/blog/manutencao-pedras-naturais",
