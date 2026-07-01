@@ -8,6 +8,10 @@ import kitchen from "@/assets/kitchen-luxury.webp";
 import siena from "@/assets/granite-siena.webp";
 import escadaCover from "@/assets/blog-escada-granito-cover.jpg";
 import escadaMid from "@/assets/blog-escada-marmore-mid.jpg";
+import piaCover from "@/assets/blog-pia-esculpida-cover.jpg";
+import piaMid from "@/assets/blog-pia-esculpida-mid.jpg";
+import gourmetCover from "@/assets/blog-area-gourmet-cover.jpg";
+import gourmetMid from "@/assets/blog-area-gourmet-mid.jpg";
 
 type BodyBlock = {
   h?: string;
