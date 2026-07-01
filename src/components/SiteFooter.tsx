@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 lg:grid-cols-5">
         <div>
           <img src={logo} alt="Marmorarias.shop" className="h-16 w-auto object-contain bg-cream/95 p-2" />
-          <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/90">
+          <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/70">
             Granito, mármore e quartzo sob medida para cozinhas, banheiros, churrasqueiras e
             projetos de alta arquitetura em todo o Brasil.
           </p>
@@ -27,40 +27,39 @@ export function SiteFooter() {
 
         <div>
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Materiais</h4>
-          <ul className="mt-6 space-y-3 text-sm text-cream/90">
-            <li><Link to="/granito" className="hover:text-gold">Granito</Link></li>
-            <li><Link to="/marmore" className="hover:text-gold">Mármore</Link></li>
-            <li><Link to="/quartzo" className="hover:text-gold">Quartzo</Link></li>
-            <li><Link to="/pedras" className="hover:text-gold">Catálogo de Pedras (30+)</Link></li>
-            <li><Link to="/pedras/$slug" params={{ slug: "quartzito-taj-mahal" }} className="hover:text-gold">Quartzito Taj Mahal</Link></li>
-            <li><Link to="/pedras/$slug" params={{ slug: "marmore-calacatta-gold" }} className="hover:text-gold">Calacatta Gold</Link></li>
+          <ul className="mt-6 space-y-3 text-sm text-cream/70">
+            <li><Link to="/granito" className="hover:text-gold">Granito São Gabriel</Link></li>
+            <li><Link to="/granito" className="hover:text-gold">Granito Branco Siena</Link></li>
+            <li><Link to="/marmore" className="hover:text-gold">Mármore Carrara</Link></li>
+            <li><Link to="/marmore" className="hover:text-gold">Mármore Calacatta Gold</Link></li>
+            <li><Link to="/quartzo" className="hover:text-gold">Quartzo Branco</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Serviços</h4>
-          <ul className="mt-6 space-y-3 text-sm text-cream/90">
-            <li><Link to="/servicos/$slug" params={{ slug: "bancada-de-cozinha" }} className="hover:text-gold">Bancada de Cozinha</Link></li>
-            <li><Link to="/servicos/$slug" params={{ slug: "bancada-de-banheiro" }} className="hover:text-gold">Bancada de Banheiro</Link></li>
-            <li><Link to="/servicos/$slug" params={{ slug: "churrasqueira-gourmet" }} className="hover:text-gold">Churrasqueira Gourmet</Link></li>
-            <li><Link to="/servicos/$slug" params={{ slug: "pia-esculpida" }} className="hover:text-gold">Pia Esculpida</Link></li>
-            <li><Link to="/servicos" className="hover:text-gold">Todos os serviços (20)</Link></li>
+          <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Aplicações</h4>
+          <ul className="mt-6 space-y-3 text-sm text-cream/70">
+            <li><Link to="/cozinha" className="hover:text-gold">Bancada de Cozinha</Link></li>
+            <li><Link to="/banheiro" className="hover:text-gold">Bancada de Banheiro</Link></li>
+            <li><Link to="/cozinha" className="hover:text-gold">Churrasqueira Gourmet</Link></li>
+            <li><Link to="/galeria" className="hover:text-gold">Pisos e Soleiras</Link></li>
+            <li><Link to="/precos" className="hover:text-gold">Tabela de Preços</Link></li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Contato</h4>
-          <ul className="mt-6 space-y-3 text-sm text-cream/90">
+          <ul className="mt-6 space-y-3 text-sm text-cream/70">
             <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-gold" />Av. das Marmorarias, 1500 — São Paulo / SP</li>
             <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold" />(12) 98251-9116</li>
             <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold" />contato@marmorarias.shop</li>
           </ul>
-          <p className="mt-6 text-xs text-cream/80">Atendemos todo o Brasil — projetos sob medida com entrega e instalação.</p>
+          <p className="mt-6 text-xs text-cream/50">Atendemos todo o Brasil — projetos sob medida com entrega e instalação.</p>
         </div>
 
         <div>
           <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Mapa do Site</h4>
-          <ul className="mt-6 space-y-3 text-sm text-cream/90">
+          <ul className="mt-6 space-y-3 text-sm text-cream/70">
             <li><Link to="/" className="hover:text-gold">Início</Link></li>
             <li><Link to="/precos" className="hover:text-gold">Preços por m²</Link></li>
             <li><Link to="/galeria" className="hover:text-gold">Galeria de Projetos</Link></li>
@@ -71,32 +70,7 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-
-      <div className="border-t border-cream/10 px-6 py-10">
-        <div className="mx-auto max-w-7xl">
-          <h4 className="text-xs uppercase tracking-[0.25em] text-gold">Marmoraria por Cidade</h4>
-          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs text-cream/80">
-            <Link to="/marmoraria/$cidade" params={{ cidade: "sao-paulo" }} className="hover:text-gold">Marmoraria São Paulo</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "rio-de-janeiro" }} className="hover:text-gold">Marmoraria Rio de Janeiro</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "belo-horizonte" }} className="hover:text-gold">Marmoraria BH</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "curitiba" }} className="hover:text-gold">Marmoraria Curitiba</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "porto-alegre" }} className="hover:text-gold">Marmoraria Porto Alegre</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "brasilia" }} className="hover:text-gold">Marmoraria Brasília</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "salvador" }} className="hover:text-gold">Marmoraria Salvador</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "recife" }} className="hover:text-gold">Marmoraria Recife</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "fortaleza" }} className="hover:text-gold">Marmoraria Fortaleza</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "goiania" }} className="hover:text-gold">Marmoraria Goiânia</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "florianopolis" }} className="hover:text-gold">Marmoraria Florianópolis</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "campinas" }} className="hover:text-gold">Marmoraria Campinas</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "sao-jose-dos-campos" }} className="hover:text-gold">Marmoraria SJC</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "santo-andre" }} className="hover:text-gold">Marmoraria Santo André</Link>
-            <Link to="/marmoraria/$cidade" params={{ cidade: "barueri" }} className="hover:text-gold">Marmoraria Barueri / Alphaville</Link>
-            <Link to="/marmoraria" className="text-gold hover:underline">Ver todas as cidades →</Link>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/80">
+      <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/50">
         © Copyright {new Date().getFullYear()} | Marmorarias Shop | Todos os direitos reservados | Desenvolvido por{" "}
         <a
           href="https://danielolimpio.com"

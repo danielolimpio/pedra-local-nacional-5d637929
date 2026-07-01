@@ -20,32 +20,6 @@ export const Route = createFileRoute("/contato")({
       { name: "twitter:image", content: `https://marmorarias.shop${calacatta}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/contato" }],
-    scripts: [{
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        name: "Marmorarias.shop",
-        image: `https://marmorarias.shop${calacatta}`,
-        url: "https://marmorarias.shop/contato",
-        telephone: "+55-12-98251-9116",
-        email: "contato@marmorarias.shop",
-        priceRange: "$$",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Av. das Marmorarias, 1500",
-          addressLocality: "São Paulo",
-          addressRegion: "SP",
-          addressCountry: "BR",
-        },
-        openingHoursSpecification: [
-          { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "18:00" },
-          { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "13:00" },
-        ],
-        areaServed: "BR",
-        sameAs: ["https://instagram.com", "https://facebook.com"],
-      }),
-    }],
   }),
   component: ContatoPage,
 });
@@ -89,9 +63,6 @@ function ContatoPage() {
       <FAQ
         title="Dúvidas sobre atendimento e orçamento"
         items={[
-          { q: "Vocês são marmoraria perto de mim? Quais regiões atendem?", a: "Atendemos todo o Brasil. Showroom em São Paulo (Av. das Marmorarias, 1500) com cobertura presencial em São Paulo capital, ABC (Santo André, São Bernardo, São Caetano), Zona Sul, Zona Oeste, Campinas, São José dos Campos e Grande SP. Para demais capitais — Rio de Janeiro, Porto Alegre, Belo Horizonte, Curitiba, Brasília, Salvador, Goiânia — entregamos e instalamos via logística parceira." },
-          { q: "Tem marmoraria em Santo André e ABC com entrega rápida?", a: "Sim. Atendemos toda a região do ABC (Santo André, São Bernardo do Campo, São Caetano do Sul, Diadema, Mauá) com prazo médio de 10 a 15 dias úteis entre orçamento aprovado e instalação. Visita técnica para gabarito sem custo adicional na região." },
-          { q: "Como funciona uma marmoraria online?", a: "Você envia as medidas e fotos pelo WhatsApp ou formulário, recebe o orçamento em até 24h com sugestão de pedra e preço por m². Após aprovação, agendamos visita técnica para gabarito definitivo, produzimos a peça e fazemos a instalação. Tudo sem precisar visitar o showroom — embora a visita seja recomendada para escolher a chapa exata." },
           { q: "Em quanto tempo recebo o orçamento?", a: "Retornamos em até 24 horas úteis com tabela de preço, sugestão de material e prazo de entrega. Para urgências, contate-nos diretamente pelo WhatsApp (12) 98251-9116." },
           { q: "Quais informações preciso enviar para o orçamento?", a: "Envie as medidas da bancada (largura x profundidade), tipo de aplicação (cozinha, banheiro, churrasqueira), preferência de material e quantidade de recortes (cooktop, cuba, torneira). Fotos do ambiente ajudam." },
           { q: "Vocês fazem visita técnica para medição?", a: "Sim. Após a aprovação do orçamento preliminar, agendamos a visita para o gabarito (medição definitiva). Em São Paulo capital e região não cobramos a visita; outras regiões têm taxa simbólica abatida no pedido." },

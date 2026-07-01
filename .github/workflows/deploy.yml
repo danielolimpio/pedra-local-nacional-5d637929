@@ -26,35 +26,25 @@ jobs:
       - name: Instalar dependências
         run: bun install --frozen-lockfile
 
-      - name: Build do projeto + prerender SSG
+      - name: Build do projeto (SSR + client)
         run: bun run build
+
+      - name: Prerender estático (gera index.html por rota)
+        run: node scripts/prerender.mjs
 
       - name: Copiar arquivos estáticos da Hostinger
         run: |
           cp -f public/.htaccess dist/client/.htaccess
           [ -f public/robots.txt ] && cp -f public/robots.txt dist/client/robots.txt || true
           [ -f public/sitemap.xml ] && cp -f public/sitemap.xml dist/client/sitemap.xml || true
-          [ -f public/llms.txt ] && cp -f public/llms.txt dist/client/llms.txt || true
-          [ -f public/manifest.webmanifest ] && cp -f public/manifest.webmanifest dist/client/manifest.webmanifest || true
-          [ -f public/sw.js ] && cp -f public/sw.js dist/client/sw.js || true
-          [ -f public/icon-192.png ] && cp -f public/icon-192.png dist/client/icon-192.png || true
-          [ -f public/icon-512.png ] && cp -f public/icon-512.png dist/client/icon-512.png || true
-          [ -f public/apple-touch-icon.png ] && cp -f public/apple-touch-icon.png dist/client/apple-touch-icon.png || true
 
-      - name: Validar HTML SSG gerado
+      - name: Validar index.html gerado
         run: |
           if [ ! -f dist/client/index.html ]; then
             echo "::error::dist/client/index.html ausente. Abortando deploy."
             find dist/client -maxdepth 3 -type f | sort
             exit 1
           fi
-          for f in dist/client/granito.html dist/client/blog.html dist/client/marmoraria/barueri.html; do
-            if [ ! -f "$f" ]; then
-              echo "::error::$f ausente. Abortando deploy para evitar site SPA não indexável."
-              find dist/client -maxdepth 4 -type f | sort
-              exit 1
-            fi
-          done
           echo "OK: index.html presente ($(wc -c < dist/client/index.html) bytes)"
           ls -la dist/client/
 

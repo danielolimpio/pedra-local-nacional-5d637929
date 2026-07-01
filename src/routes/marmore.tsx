@@ -8,17 +8,6 @@ import carrara from "@/assets/marble-carrara.webp";
 import calacatta from "@/assets/marble-calacatta.webp";
 import bathroom from "@/assets/bathroom-luxury.webp";
 
-const marmoreFaq = [
-  { q: "Mármore ou granito: qual escolher para banheiro?", a: "Mármore Carrara e Calacatta entregam visual sofisticado e são ótimos para bancada de banheiro com selagem hidrofugante. Granito é mais resistente a produtos ácidos (perfumes, esmaltes) e dispensa cuidados. Para lavabo decorativo, mármore. Para uso intenso da família, granito." },
-  { q: "Mármore branco mancha com vinho?", a: "É poroso, mas a aplicação de resina hidrofugante reduz drasticamente a absorção. Limpeza imediata evita manchas." },
-  { q: "Quanto custa o metro quadrado de mármore travertino?", a: "O mármore Travertino Romano, com acabamento bujardado, custa em média R$ 720/m². É ideal para revestimentos rústicos, pisos, fachadas e áreas externas — recortes e instalação são orçados à parte." },
-  { q: "Mármore Carrara é importado?", a: "Sim, vem da região de Carrara, na Itália. Trabalhamos com chapas selecionadas direto de cantaria." },
-  { q: "Diferença entre Carrara e Calacatta?", a: "Calacatta tem fundo mais branco e veios dourados marcantes. Carrara tem veios cinza mais sutis." },
-  { q: "Como limpar mármore branco sem riscar?", a: "Use pano de microfibra com sabão neutro diluído em água. Evite limão, vinagre, álcool puro, desinfetantes e esponjas abrasivas. Para manchas, aplique pasta de bicarbonato e água por 24h. Reaplique a resina hidrofugante a cada 18-24 meses." },
-  { q: "Pode usar mármore em cozinha?", a: "Sim, com cuidados de manutenção e selagem profissional. Para uso intenso, granito ou quartzo são mais práticos." },
-  { q: "Mármore Calacatta Gold vale o preço?", a: "Sim, para projetos de alto padrão. O Calacatta Gold custa R$ 1.450/m² importado da Itália e entrega veios dourados únicos — cada chapa é singular. É o mármore mais nobre da categoria, indicado para ilhas, lavabos e revestimentos statement." },
-];
-
 export const Route = createFileRoute("/marmore")({
   head: () => ({
     meta: [
@@ -32,18 +21,9 @@ export const Route = createFileRoute("/marmore")({
       { name: "twitter:image", content: `https://marmorarias.shop${calacatta}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/marmore" }],
-    scripts: [{
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: marmoreFaq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-      }),
-    }],
   }),
   component: MarmorePage,
 });
-
 
 function MarmorePage() {
   return (
@@ -85,14 +65,18 @@ function MarmorePage() {
         <div className="mt-24">
           <SectionHeader eyebrow="Dúvidas Frequentes" title="Perguntas sobre mármore" />
           <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {marmoreFaq.map(f => (
+            {[
+              { q: "Mármore branco mancha com vinho?", a: "É poroso, mas a aplicação de resina hidrofugante reduz drasticamente a absorção. Limpeza imediata evita manchas." },
+              { q: "Mármore Carrara é importado?", a: "Sim, vem da região de Carrara, na Itália. Trabalhamos com chapas selecionadas direto de cantaria." },
+              { q: "Diferença entre Carrara e Calacatta?", a: "Calacatta tem fundo mais branco e veios dourados marcantes. Carrara tem veios cinza mais sutis." },
+              { q: "Pode usar mármore em cozinha?", a: "Sim, com cuidados de manutenção e selagem profissional. Para uso intenso, granito ou quartzo são mais práticos." },
+            ].map(f => (
               <div key={f.q}>
                 <h3 className="font-serif text-lg">{f.q}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
               </div>
             ))}
           </div>
-
         </div>
       </section>
     </PageLayout>

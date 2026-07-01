@@ -7,18 +7,6 @@ import sieva from "@/assets/granite-siena.webp";
 import saoGabriel from "@/assets/granite-sao-gabriel.webp";
 import hero from "@/assets/hero-granite.webp";
 
-const granitoFaq = [
-  { q: "Qual o melhor granito para pia de cozinha?", a: "Os mais indicados são o granito São Gabriel (R$ 480/m²) pela alta resistência e baixo custo, o Preto Absoluto (R$ 590/m²) para cozinhas contemporâneas e o Branco Siena (R$ 520/m²) para ambientes claros. Todos suportam calor, impacto e uso intenso." },
-  { q: "Granito mancha com vinho ou café?", a: "Não, desde que receba a selagem hidrofugante. Aplicamos resina premium em toda chapa antes da entrega." },
-  { q: "Posso colocar panela quente direto?", a: "Sim. O granito resiste a temperaturas acima de 300°C sem deformação ou marcas." },
-  { q: "Tipos de acabamento de granito: polido, escovado ou flameado?", a: "Polido tem brilho espelhado e é ideal para cozinhas internas. Escovado entrega toque aveludado e antiderrapante, recomendado para banheiros. Flameado é rústico e antiderrapante, perfeito para churrasqueiras e áreas externas." },
-  { q: "Qual a espessura ideal para bancada?", a: "Trabalhamos com chapas de 2cm e 3cm. Para ilhas e cooktops, 3cm é o recomendado." },
-  { q: "Quanto custa o granito São Gabriel escovado por metro quadrado?", a: "O granito São Gabriel polido sai a R$ 480/m² e o acabamento escovado tem acréscimo de cerca de 15% — em torno de R$ 550/m². Recortes para cooktop e cuba são orçados à parte." },
-  { q: "Granito ou mármore: qual escolher para banheiro?", a: "Para bancada de banheiro de uso diário, o granito é mais resistente e dispensa cuidados. O mármore Carrara entrega visual sofisticado, mas exige selagem hidrofugante e atenção com produtos ácidos como perfumes e esmaltes." },
-  { q: "Como limpar bancada de granito sem manchar?", a: "Use pano úmido com sabão neutro no dia a dia. Evite produtos ácidos (limão, vinagre, desinfetantes fortes) e abrasivos. A cada 24 meses, reaplique a resina hidrofugante para preservar a proteção." },
-  { q: "Granito amarela com o tempo?", a: "Granitos polidos não amarelam. Apenas mármores claros sem manutenção podem oxidar." },
-];
-
 export const Route = createFileRoute("/granito")({
   head: () => ({
     meta: [
@@ -32,18 +20,9 @@ export const Route = createFileRoute("/granito")({
       { name: "twitter:image", content: `https://marmorarias.shop${hero}` },
     ],
     links: [{ rel: "canonical", href: "https://marmorarias.shop/granito" }],
-    scripts: [{
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: granitoFaq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-      }),
-    }],
   }),
   component: GranitoPage,
 });
-
 
 const granitos = [
   { name: "Granito São Gabriel", img: saoGabriel, price: "R$ 480", desc: "Preto profundo com finos pontos brancos. Resistente, não mancha facilmente — o queridinho das cozinhas brasileiras." },
@@ -120,7 +99,12 @@ function GranitoPage() {
         <div className="mt-24">
           <SectionHeader eyebrow="Dúvidas Frequentes" title="Perguntas sobre granito" />
           <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {granitoFaq.map(f => (
+            {[
+              { q: "Granito mancha com vinho ou café?", a: "Não, desde que receba a selagem hidrofugante. Aplicamos resina premium em toda chapa antes da entrega." },
+              { q: "Posso colocar panela quente direto?", a: "Sim. O granito resiste a temperaturas acima de 300°C sem deformação ou marcas." },
+              { q: "Qual a espessura ideal para bancada?", a: "Trabalhamos com chapas de 2cm e 3cm. Para ilhas e cooktops, 3cm é o recomendado." },
+              { q: "Granito amarela com o tempo?", a: "Granitos polidos não amarelam. Apenas mármores claros sem manutenção podem oxidar." },
+            ].map(f => (
               <div key={f.q}>
                 <h3 className="font-serif text-lg">{f.q}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
@@ -128,7 +112,6 @@ function GranitoPage() {
             ))}
           </div>
         </div>
-
       </section>
     </PageLayout>
   );

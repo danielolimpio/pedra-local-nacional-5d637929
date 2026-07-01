@@ -37,16 +37,17 @@ export const Route = createRootRoute({
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "theme-color", content: "#0a0a0a" },
       { property: "og:site_name", content: "Marmorarias.shop" },
+      { property: "og:title", content: "Marmorarias.shop — Granito, Mármore e Quartzo Premium" },
+      { property: "og:description", content: "Granito, mármore e quartzo sob medida para cozinhas, banheiros e churrasqueiras. Atendemos todo o Brasil." },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
+      { property: "og:url", content: "https://marmorarias.shop" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Marmorarias.shop — Granito, Mármore e Quartzo Premium" },
+      { name: "twitter:description", content: "Granito, mármore e quartzo sob medida. Atendemos todo o Brasil." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "manifest", href: "/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-      { rel: "icon", type: "image/png", sizes: "192x192", href: "/icon-192.png" },
-      { rel: "icon", type: "image/png", sizes: "512x512", href: "/icon-512.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" },
@@ -86,45 +87,6 @@ export const Route = createRootRoute({
             "query-input": "required name=search_term_string",
           },
         }),
-      },
-      {
-        async: true,
-        src: "https://www.googletagmanager.com/gtag/js?id=G-HQGVRWEG85",
-      },
-      {
-        children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HQGVRWEG85');`,
-      },
-      {
-        children: `
-(function(){
-  if (typeof window === 'undefined') return;
-  var h = window.location.hostname;
-  var inIframe = false; try { inIframe = window.self !== window.top; } catch(e) { inIframe = true; }
-  var isPreview = h.indexOf('lovable.app') !== -1 || h.indexOf('lovableproject.com') !== -1 || h.indexOf('id-preview--') !== -1 || h === 'localhost' || h === '127.0.0.1';
-  if (inIframe || isPreview) return;
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function(){
-      navigator.serviceWorker.register('/sw.js').catch(function(){});
-    });
-  }
-  var deferredPrompt = null;
-  var promptShown = false;
-  window.addEventListener('beforeinstallprompt', function(e){
-    e.preventDefault();
-    deferredPrompt = e;
-  });
-  function tryPrompt(){
-    if (promptShown || !deferredPrompt) return;
-    promptShown = true;
-    try { deferredPrompt.prompt(); } catch(err) { promptShown = false; return; }
-    deferredPrompt.userChoice && deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
-  }
-  ['click','touchend','keydown'].forEach(function(ev){
-    window.addEventListener(ev, tryPrompt, { capture: true, passive: true });
-  });
-  window.addEventListener('appinstalled', function(){ deferredPrompt = null; promptShown = true; });
-})();
-        `,
       },
     ],
   }),

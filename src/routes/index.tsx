@@ -2,19 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StoneCard } from "@/components/StoneCard";
-import { FAQ } from "@/components/FAQ";
 import { ArrowRight, Award, Truck, Hammer, ShieldCheck } from "lucide-react";
 import heroGranite from "@/assets/hero-granite.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import bathroom from "@/assets/bathroom-luxury.webp";
 import churrasqueira from "@/assets/churrasqueira.webp";
-import carraraGioia from "@/assets/marble-carrara-gioia.webp";
-import marromImperial from "@/assets/marble-marrom-imperial.webp";
-import marbleBronze from "@/assets/marble-bronze.webp";
-import neroChines from "@/assets/marble-nero-chines.webp";
-import verdeGuatemala from "@/assets/marble-verde-guatemala.webp";
+import carraraGioia from "@/assets/marble-carrara-gioia.jpeg";
+import marromImperial from "@/assets/marble-marrom-imperial.jpeg";
+import marbleBronze from "@/assets/marble-bronze.jpeg";
+import neroChines from "@/assets/marble-nero-chines.jpeg";
+import verdeGuatemala from "@/assets/marble-verde-guatemala.jpeg";
 import calacatta from "@/assets/marble-calacatta.webp";
-import escadaCover from "@/assets/blog-escada-granito-cover.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -192,49 +190,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* BLOG EM DESTAQUE */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <SectionHeader
-          eyebrow="Do Blog"
-          title="Insights e guias de marmoraria"
-          description="Conteúdo prático sobre granito, mármore, quartzito, preços, manutenção e tendências atemporais para o seu projeto."
-        />
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {[
-            { slug: "pedra-para-escada-granito-marmore-travertino" as const, title: "Pedra para Escada: Granito, Mármore ou Travertino — Guia Definitivo 2026", cat: "Guia de Escolha", img: escadaCover },
-            { slug: "quartzito-taj-mahal-preco-m2" as const, title: "Quartzito Taj Mahal: preço por m² e onde aplicar", cat: "Quartzito", img: calacatta },
-            { slug: "diferenca-granito-marmore-quartzo-quartzito" as const, title: "Granito, mármore, quartzo ou quartzito: qual é o melhor?", cat: "Guia de Escolha", img: heroGranite },
-          ].map((p) => (
-            <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group block">
-              <div className="aspect-[4/3] overflow-hidden bg-muted">
-                <img src={p.img} alt={p.title} loading="lazy" width={800} height={600} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              </div>
-              <p className="mt-5 eyebrow text-gold">{p.cat}</p>
-              <h3 className="mt-2 font-serif text-xl leading-snug text-foreground group-hover:text-gold">{p.title}</h3>
-            </Link>
-          ))}
-        </div>
-        <div className="mt-12 text-center">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-foreground hover:text-gold">
-            Ver todos os artigos <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
-      </section>
-
-      {/* FAQ — head terms primárias */}
-      <FAQ
-        eyebrow="Dúvidas Frequentes"
-        title="Perguntas sobre marmoraria, granito e mármore"
-        items={[
-          { q: "O que faz uma marmoraria?", a: "Uma marmoraria seleciona, corta, acaba e instala pedras naturais (granito, mármore, quartzito) e sintéticas (quartzo, Silestone, Dekton) sob medida. Na Marmorarias.shop entregamos bancada de granito para cozinha, pia de mármore para banheiro, churrasqueira em granito flameado, soleira, peitoril e revestimentos em todo o Brasil." },
-          { q: "Tem marmoraria perto de mim?", a: "Atendemos todo o Brasil. Showroom presencial em São Paulo com cobertura completa em Grande SP, ABC, Campinas e São José dos Campos. Para Rio de Janeiro, Porto Alegre, Belo Horizonte, Curitiba, Brasília, Salvador, Goiânia, Recife e Florianópolis fazemos entrega e instalação via logística parceira." },
-          { q: "Qual a melhor pedra para bancada de cozinha?", a: "Para uso intenso, granito São Gabriel (R$ 480/m²) e quartzo branco (R$ 1.180/m²) são os mais indicados — resistem a calor, manchas e impacto. Mármore Carrara e Calacatta Gold entregam visual premium com cuidados de manutenção. Veja a tabela completa de preços por m²." },
-          { q: "Quanto custa o metro quadrado de granito?", a: "Em 2026: granito Cinza Andorinha R$ 420/m², São Gabriel R$ 480/m², Branco Siena R$ 520/m², Preto Absoluto R$ 590/m². Mármore Carrara R$ 890/m² e Calacatta Gold R$ 1.450/m². Quartzo branco a partir de R$ 1.180/m². Recortes e instalação são orçados à parte." },
-          { q: "Como solicitar orçamento de marmoraria online?", a: "Envie as medidas da bancada (largura x profundidade), tipo de aplicação (cozinha, banheiro, churrasqueira) e quantidade de recortes pelo nosso formulário ou WhatsApp (12) 98251-9116. Retornamos em até 24h com tabela de preço e sugestão de pedra." },
-          { q: "A marmoraria faz a instalação no Brasil todo?", a: "Sim. Temos equipe própria em São Paulo e parceiros credenciados nas principais capitais. O frete é calculado por região e a instalação inclui transporte, nivelamento e selagem hidrofugante. Garantia de 5 anos para defeitos de fabricação e instalação." },
-        ]}
-      />
-
       {/* CTA FINAL */}
       <section className="relative overflow-hidden bg-onyx text-cream">
         <img src={calacatta} alt="" className="absolute inset-0 h-full w-full object-cover opacity-15" />
@@ -243,7 +198,7 @@ function HomePage() {
           <h2 className="mt-6 font-serif text-4xl md:text-6xl">
             Seu projeto merece a <em className="text-gold not-italic">pedra certa</em>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-cream/90">
+          <p className="mx-auto mt-6 max-w-2xl text-cream/75">
             Solicite um orçamento gratuito. Nossa equipe envia tabela de preços, sugestões de
             material para sua aplicação e estimativa por metro quadrado.
           </p>
@@ -266,7 +221,7 @@ function ApplicationCard({ image, title, kw, to }: { image: string; title: strin
         <div className="absolute inset-x-0 bottom-0 p-6 text-cream">
           <p className="eyebrow text-gold">Aplicação</p>
           <h3 className="mt-2 font-serif text-3xl">{title}</h3>
-          <p className="mt-2 text-sm text-cream/90">{kw}</p>
+          <p className="mt-2 text-sm text-cream/75">{kw}</p>
         </div>
       </div>
     </Link>
