@@ -9,6 +9,8 @@ import calacatta from "@/assets/marble-calacatta.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import siena from "@/assets/granite-siena.webp";
 import escadaCover from "@/assets/blog-escada-granito-cover.jpg";
+import piaCover from "@/assets/blog-pia-esculpida-cover.jpg";
+import gourmetCover from "@/assets/blog-area-gourmet-cover.jpg";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -28,6 +30,8 @@ export const Route = createFileRoute("/blog")({
 });
 
 const posts = [
+  { slug: "pia-esculpida-marmore-granito-modelos-precos-2026" as const, title: "Pia Esculpida em Mármore e Granito: Modelos, Preços e Como Escolher em 2026", desc: "Guia completo sobre pia esculpida — mármore, granito, quartzito, medidas, preço por peça, cuidados e tendências para banheiros e lavabos.", img: piaCover, cat: "Banheiro & Lavabo" },
+  { slug: "area-gourmet-projeto-pedras-custos-2026" as const, title: "Área Gourmet Completa: Projeto, Pedras, Custos e Tendências para 2026", desc: "Guia definitivo — projeto, medidas, melhores pedras para bancada e churrasqueira, custos e tendências para valorizar seu imóvel.", img: gourmetCover, cat: "Área Externa" },
   { slug: "pedra-para-escada-granito-marmore-travertino" as const, title: "Pedra para Escada: Granito, Mármore ou Travertino — Guia Definitivo 2026", desc: "Guia completo para escolher pedra de escada: tipos, medidas, antiderrapância, preço por degrau e tendências atemporais.", img: escadaCover, cat: "Guia de Escolha" },
   { slug: "como-escolher-granito-marmore-quartzo" as const, title: "Como escolher entre granito, mármore e quartzo", desc: "Guia completo para decidir o material ideal para sua bancada de cozinha, banheiro ou área gourmet.", img: siena, cat: "Guia de Escolha" },
   { slug: "manutencao-pedras-naturais" as const, title: "Manutenção de pedras naturais: o guia definitivo", desc: "Como limpar, selar e preservar granito, mármore e quartzo por décadas.", img: kitchen, cat: "Manutenção" },
