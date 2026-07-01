@@ -59,8 +59,10 @@ const ROUTES = [
 
 const DIST_CLIENT = path.resolve("dist/client");
 const SERVER_CANDIDATES = [
+  "dist/server/index.mjs",
   "dist/server/server.js",
   "dist/server/index.js",
+  ".output/server/index.mjs",
 ];
 const SERVER_ENTRY = SERVER_CANDIDATES.map((p) => path.resolve(p)).find((p) => existsSync(p)) || path.resolve(SERVER_CANDIDATES[0]);
 
