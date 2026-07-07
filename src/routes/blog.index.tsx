@@ -9,7 +9,7 @@ import calacatta from "@/assets/marble-calacatta.webp";
 import kitchen from "@/assets/kitchen-luxury.webp";
 import siena from "@/assets/granite-siena.webp";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { property: "og:url", content: "https://marmorarias.shop/blog" },

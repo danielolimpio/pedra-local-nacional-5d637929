@@ -17,9 +17,9 @@ import { Route as GranitoRouteImport } from './routes/granito'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as CozinhaRouteImport } from './routes/cozinha'
 import { Route as ContatoRouteImport } from './routes/contato'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BanheiroRouteImport } from './routes/banheiro'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const SitemapRoute = SitemapRouteImport.update({
@@ -62,11 +62,6 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BanheiroRoute = BanheiroRouteImport.update({
   id: '/banheiro',
   path: '/banheiro',
@@ -75,6 +70,11 @@ const BanheiroRoute = BanheiroRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
@@ -86,7 +86,6 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/banheiro': typeof BanheiroRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
@@ -96,11 +95,11 @@ export interface FileRoutesByFullPath {
   '/quartzo': typeof QuartzoRoute
   '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/banheiro': typeof BanheiroRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
@@ -110,12 +109,12 @@ export interface FileRoutesByTo {
   '/quartzo': typeof QuartzoRoute
   '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/banheiro': typeof BanheiroRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
@@ -125,13 +124,13 @@ export interface FileRoutesById {
   '/quartzo': typeof QuartzoRoute
   '/sitemap': typeof SitemapRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/banheiro'
-    | '/blog'
     | '/contato'
     | '/cozinha'
     | '/galeria'
@@ -141,11 +140,11 @@ export interface FileRouteTypes {
     | '/quartzo'
     | '/sitemap'
     | '/blog/$slug'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/banheiro'
-    | '/blog'
     | '/contato'
     | '/cozinha'
     | '/galeria'
@@ -155,11 +154,11 @@ export interface FileRouteTypes {
     | '/quartzo'
     | '/sitemap'
     | '/blog/$slug'
+    | '/blog'
   id:
     | '__root__'
     | '/'
     | '/banheiro'
-    | '/blog'
     | '/contato'
     | '/cozinha'
     | '/galeria'
@@ -169,12 +168,12 @@ export interface FileRouteTypes {
     | '/quartzo'
     | '/sitemap'
     | '/blog/$slug'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BanheiroRoute: typeof BanheiroRoute
-  BlogRoute: typeof BlogRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   CozinhaRoute: typeof CozinhaRoute
   GaleriaRoute: typeof GaleriaRoute
@@ -183,6 +182,7 @@ export interface RootRouteChildren {
   PrecosRoute: typeof PrecosRoute
   QuartzoRoute: typeof QuartzoRoute
   SitemapRoute: typeof SitemapRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -243,13 +243,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/banheiro': {
       id: '/banheiro'
       path: '/banheiro'
@@ -264,6 +257,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -274,20 +274,9 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BanheiroRoute: BanheiroRoute,
-  BlogRoute: BlogRouteWithChildren,
   ContatoRoute: ContatoRoute,
   CozinhaRoute: CozinhaRoute,
   GaleriaRoute: GaleriaRoute,
@@ -296,7 +285,17 @@ const rootRouteChildren: RootRouteChildren = {
   PrecosRoute: PrecosRoute,
   QuartzoRoute: QuartzoRoute,
   SitemapRoute: SitemapRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
