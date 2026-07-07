@@ -17,6 +17,7 @@ import { Route as GranitoRouteImport } from './routes/granito'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as CozinhaRouteImport } from './routes/cozinha'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BanheiroRouteImport } from './routes/banheiro'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -62,6 +63,11 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BanheiroRoute = BanheiroRouteImport.update({
   id: '/banheiro',
   path: '/banheiro',
@@ -73,19 +79,20 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/banheiro': typeof BanheiroRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
@@ -115,6 +122,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/banheiro': typeof BanheiroRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cozinha': typeof CozinhaRoute
   '/galeria': typeof GaleriaRoute
@@ -131,6 +139,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/banheiro'
+    | '/blog'
     | '/contato'
     | '/cozinha'
     | '/galeria'
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/banheiro'
+    | '/blog'
     | '/contato'
     | '/cozinha'
     | '/galeria'
@@ -174,6 +184,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BanheiroRoute: typeof BanheiroRoute
+  BlogRoute: typeof BlogRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   CozinhaRoute: typeof CozinhaRoute
   GaleriaRoute: typeof GaleriaRoute
@@ -182,8 +193,6 @@ export interface RootRouteChildren {
   PrecosRoute: typeof PrecosRoute
   QuartzoRoute: typeof QuartzoRoute
   SitemapRoute: typeof SitemapRoute
-  BlogSlugRoute: typeof BlogSlugRoute
-  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -244,6 +253,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/banheiro': {
       id: '/banheiro'
       path: '/banheiro'
@@ -260,24 +276,37 @@ declare module '@tanstack/react-router' {
     }
     '/blog/': {
       id: '/blog/'
-      path: '/blog'
+      path: '/'
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof BlogRoute
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/blog/$slug'
+      path: '/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof BlogRoute
     }
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BanheiroRoute: BanheiroRoute,
+  BlogRoute: BlogRouteWithChildren,
   ContatoRoute: ContatoRoute,
   CozinhaRoute: CozinhaRoute,
   GaleriaRoute: GaleriaRoute,
@@ -286,9 +315,16 @@ const rootRouteChildren: RootRouteChildren = {
   PrecosRoute: PrecosRoute,
   QuartzoRoute: QuartzoRoute,
   SitemapRoute: SitemapRoute,
-  BlogSlugRoute: BlogSlugRoute,
-  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
