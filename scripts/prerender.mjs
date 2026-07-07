@@ -24,7 +24,7 @@ const ROUTES = [
 ];
 
 const DIST_CLIENT = path.resolve("dist/client");
-const SERVER_ENTRY = path.resolve("dist/server/index.js");
+const SERVER_ENTRY = path.resolve("dist/server/index.mjs");
 
 if (!existsSync(SERVER_ENTRY)) {
   console.error(`[prerender] Server entry não encontrado: ${SERVER_ENTRY}`);
