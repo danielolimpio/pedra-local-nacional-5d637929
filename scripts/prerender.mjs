@@ -20,8 +20,21 @@ const ROUTES = [
   "/blog/como-escolher-granito-marmore-quartzo",
   "/blog/manutencao-pedras-naturais",
   "/blog/tendencias-marmoraria-2026",
+  "/pedras",
+  "/pedras/quartzito-taj-mahal",
+  "/pedras/marmore-calacatta-gold",
+  "/pedras/marmore-carrara",
+  "/pedras/granito-sao-gabriel",
+  "/pedras/granito-branco-siena",
+  "/pedras/quartzo-branco",
+  "/servicos",
+  "/servicos/bancada-de-cozinha",
+  "/servicos/bancada-de-banheiro",
+  "/servicos/churrasqueira-gourmet",
+  "/servicos/pia-esculpida",
   "/sitemap",
 ];
+
 
 const DIST_CLIENT = path.resolve("dist/client");
 const SERVER_ENTRY = path.resolve("dist/server/index.mjs");
