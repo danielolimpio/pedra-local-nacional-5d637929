@@ -60,7 +60,7 @@ function BlogPage() {
         <SectionHeader eyebrow="Artigos em Destaque" title="Aprenda com quem entende de pedra" />
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           {posts.map((p) => (
-            <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} reloadDocument className="group block">
+            <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group block">
               <div className="aspect-[4/5] overflow-hidden bg-muted">
                 <img src={p.img} alt={p.title} loading="lazy" width={800} height={1000} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Prerender estático: faz fetch nas rotas usando o handler SSR construído
 // e salva o HTML resultante em dist/client/<rota>/index.html
-import { mkdir, readdir, stat, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
@@ -37,89 +37,29 @@ const ROUTES = [
 
 
 const DIST_CLIENT = path.resolve("dist/client");
-const SERVER_ENTRY_DIRS = [path.resolve("dist/server"), path.resolve(".output/server")];
+const SERVER_ENTRY = path.resolve("dist/server/index.mjs");
 
-async function collectServerFiles(dir) {
-  if (!existsSync(dir)) return [];
-  const entries = await readdir(dir, { withFileTypes: true });
-  const files = await Promise.all(
-    entries.map(async (entry) => {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) return collectServerFiles(fullPath);
-      if (/\.(mjs|js)$/.test(entry.name)) return [fullPath];
-      return [];
-    }),
-  );
-  return files.flat();
-}
-
-async function getServerEntryCandidates() {
-  const explicitEntry = process.env.PRERENDER_SERVER_ENTRY
-    ? [path.resolve(process.env.PRERENDER_SERVER_ENTRY)]
-    : [];
-
-  const preferredEntries = SERVER_ENTRY_DIRS.flatMap((dir) => [
-    path.join(dir, "index.mjs"),
-    path.join(dir, "index.js"),
-    path.join(dir, "server.mjs"),
-    path.join(dir, "server.js"),
-    path.join(dir, "main.mjs"),
-    path.join(dir, "main.js"),
-    path.join(dir, "entry.mjs"),
-    path.join(dir, "entry.js"),
-  ]);
-
-  const discoveredEntries = (await Promise.all(SERVER_ENTRY_DIRS.map(collectServerFiles))).flat();
-  const uniqueEntries = [...new Set([...explicitEntry, ...preferredEntries, ...discoveredEntries])];
-  const existingEntries = [];
-
-  for (const entry of uniqueEntries) {
-    try {
-      const info = await stat(entry);
-      if (info.isFile()) existingEntries.push(entry);
-    } catch {
-      // Ignore missing candidate paths. The build output name changes between
-      // TanStack/Nitro versions, so absence of any single filename is expected.
-    }
-  }
-
-  return existingEntries;
-}
-
-async function loadServerEntry() {
-  const candidates = await getServerEntryCandidates();
-
-  if (candidates.length === 0) {
-    console.error("[prerender] Nenhum arquivo SSR encontrado em dist/server ou .output/server.");
-    console.error("[prerender] Execute o build antes do prerender e confirme se ele gerou o bundle server.");
-    process.exit(1);
-  }
-
-  const importErrors = [];
-  for (const candidate of candidates) {
-    try {
-      const mod = await import(pathToFileURL(candidate).href);
-      const handler = mod.default ?? mod;
-      if (handler && typeof handler.fetch === "function") {
-        console.log(`[prerender] Usando server entry: ${path.relative(process.cwd(), candidate)}`);
-        return handler;
-      }
-      importErrors.push(`${path.relative(process.cwd(), candidate)} não exporta { fetch }`);
-    } catch (err) {
-      importErrors.push(`${path.relative(process.cwd(), candidate)}: ${err?.message ?? err}`);
-    }
-  }
-
-  console.error("[prerender] Nenhum server entry válido foi encontrado.");
-  console.error("[prerender] Candidatos testados:");
-  for (const error of importErrors) console.error(`- ${error}`);
+if (!existsSync(SERVER_ENTRY)) {
+  console.error(`[prerender] Server entry não encontrado: ${SERVER_ENTRY}`);
   process.exit(1);
 }
 
 // Polyfills mínimos para o Worker rodar em Node
 globalThis.navigator ??= { userAgent: "node" };
 
-const handler = await loadServerEntry();
+let mod;
+try {
+  mod = await import(pathToFileURL(SERVER_ENTRY).href);
+} catch (err) {
+  console.error("[prerender] Falha ao importar server entry:", err);
+  process.exit(1);
+}
+
+const handler = mod.default;
+if (!handler || typeof handler.fetch !== "function") {
+  console.error("[prerender] Server entry não exporta { fetch }. Export keys:", Object.keys(mod));
+  process.exit(1);
+}
 
 const env = { ...process.env };
 const ctx = { waitUntil() {}, passThroughOnException() {} };

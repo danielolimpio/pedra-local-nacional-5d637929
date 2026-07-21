@@ -57,6 +57,6 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           local-dir: ./dist/client/
           server-dir: /
-          dangerous-clean-slate: false
+          dangerous-clean-slate: true
           dry-run: false
           log-level: verbose
