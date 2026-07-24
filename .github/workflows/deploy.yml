@@ -29,6 +29,13 @@ jobs:
       - name: Build do projeto (SSR + client)
         run: bun run build
 
+      - name: Conferir arquivos gerados pelo build
+        run: |
+          echo "Arquivos em dist:"
+          [ -d dist ] && find dist -maxdepth 4 -type f | sort || echo "dist ausente"
+          echo "Arquivos em .output:"
+          [ -d .output ] && find .output -maxdepth 4 -type f | sort || echo ".output ausente"
+
       - name: Prerender estático (gera index.html por rota)
         run: node scripts/prerender.mjs
 
