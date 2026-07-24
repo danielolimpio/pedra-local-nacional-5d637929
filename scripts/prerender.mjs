@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Prerender estático: faz fetch nas rotas usando o handler SSR construído
 // e salva o HTML resultante em dist/client/<rota>/index.html
-import { mkdir, readdir, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
@@ -77,7 +77,7 @@ async function findFetchHandlers(dir) {
     const fileStat = await stat(fullPath);
     if (fileStat.size === 0 || fileStat.size > 10_000_000) continue;
 
-    const source = await import("node:fs/promises").then((fs) => fs.readFile(fullPath, "utf8"));
+    const source = await readFile(fullPath, "utf8");
     if (source.includes("fetch(request") || source.includes("fetch:function") || source.includes("fetch:async")) {
       results.push(fullPath);
     }
@@ -139,7 +139,7 @@ try {
   process.exit(1);
 }
 
-const handler = mod.default;
+const handler = mod.default ?? mod;
 if (!handler || typeof handler.fetch !== "function") {
   console.error("[prerender] Server entry não exporta { fetch }. Export keys:", Object.keys(mod));
   process.exit(1);
